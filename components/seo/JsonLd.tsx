@@ -6,11 +6,11 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "@id": "https://kielceuniversity.pl/#organization",
-    name: "European International Peace University",
+    name: "Kielce International University",
     alternateName: [
       "KIELC",
-      "Европейский Международный Университет По миру и безопасности",
-      "Avrupa Uluslararası Barış Üniversitesi",
+      "Кельцкий международный университет",
+      "Kielce Uluslararası Üniversitesi",
     ],
     url: "https://kielceuniversity.pl",
     logo: {
@@ -21,7 +21,7 @@ export function OrganizationJsonLd() {
     },
     image: "https://kielceuniversity.pl/images/KIELCE-logo-tam.jpg",
     description:
-      "European International Peace University (KIELCE) - International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
+      "Kielce International University (KIU) - International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
     address: {
       "@type": "PostalAddress",
       addressCountry: "PL",
@@ -54,8 +54,8 @@ export function UniversityJsonLd() {
   const universityData = {
     "@context": "https://schema.org",
     "@type": "CollegeOrUniversity",
-    name: "European International Peace University",
-    alternateName: "KIELCE",
+    name: "Kielce International University",
+    alternateName: "KIU",
     url: "https://kielceuniversity.pl",
     logo: "https://kielceuniversity.pl/images/KIELCE-logo.png",
     description:
@@ -103,9 +103,9 @@ export function WebsiteJsonLd() {
     "@type": "WebSite",
     "@id": "https://kielceuniversity.pl/#website",
     url: "https://kielceuniversity.pl",
-    name: "KIELCE - European International Peace University",
-    alternateName: ["KIELCE", "European International Peace University"],
-    description: "Official website of European International Peace University",
+    name: "KIU - Kielce International University",
+    alternateName: ["KIU", "Kielce International University"],
+    description: "Official website of Kielce International University",
     publisher: {
       "@id": "https://kielceuniversity.pl/#organization",
     },

@@ -37,7 +37,7 @@
   },
   "aboutPreview": {
     "title": "Hakkımızda",
-    "description": "Avrupa Uluslararası Barış Üniversitesi (KIELCE), eğitim ve küresel anlayış yoluyla barışı teşvik etmeye adanmış yenilikçi bir yüksek öğretim kurumudur. Öğrencilerimize dünyada olumlu değişiklikler yaratmak için gerekli bilgi ve becerileri sağlıyoruz.",
+    "description": "Kielce Uluslararası Üniversitesi (KIU), eğitim ve küresel anlayış yoluyla barışı teşvik etmeye adanmış yenilikçi bir yüksek öğretim kurumudur. Öğrencilerimize dünyada olumlu değişiklikler yaratmak için gerekli bilgi ve becerileri sağlıyoruz.",
     "button": "Daha Fazla Bilgi"
   },
   "statistics": {
@@ -71,7 +71,7 @@
   },
   "about": {
     "hero": {
-      "title": "Avrupa Uluslararası Barış Üniversitesi Hakkında",
+      "title": "Kielce Uluslararası Üniversitesi Hakkında",
       "subtitle": "Eğitim ve küresel işbirliği yoluyla zihinleri güçlendirmek, barış inşa etmek ve yarının liderlerini şekillendirmek."
     },
     "missionVision": {
@@ -132,7 +132,7 @@
       "milestones": {
         "2020": {
           "title": "Kuruluş",
-          "description": "Avrupa Uluslararası Barış Üniversitesi, barış eğitimi ve küresel vatandaşlığa adanmış dünya standartlarında bir kurum yaratma vizyonuyla kuruldu."
+          "description": "Kielce Uluslararası Üniversitesi, barış eğitimi ve küresel vatandaşlığa adanmış dünya standartlarında bir kurum yaratma vizyonuyla kuruldu."
         },
         "2021": {
           "title": "İlk Mezunlar",
@@ -155,8 +155,8 @@
         "fullName": "Ad Soyad",
         "position": "Pozisyon",
         "fullNameValue": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak",
-        "positionValue": "Avrupa Uluslararası Barış Üniversitesi (KIELCE) Rektörü",
-        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak, uluslararası saygın bir akademisyen, yüksek öğretim lideri ve barış odaklı öğrenme savunucusudur. Kıtalar arası yirmi yılı aşkın bir kariyere sahip olan KORAL, Avrupa Uluslararası Barış Üniversitesi'ne (KIELCE) akademik mükemmellik, küresel vizyon ve sosyal sorumluluk sahibi liderlerin bir sonraki neslini şekillendirme konusunda derin bir bağlılık getirmektedir.",
+        "positionValue": "Kielce Uluslararası Üniversitesi (KIELCE) Rektörü",
+        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak, uluslararası saygın bir akademisyen, yüksek öğretim lideri ve barış odaklı öğrenme savunucusudur. Kıtalar arası yirmi yılı aşkın bir kariyere sahip olan KORAL, Kielce Uluslararası Üniversitesi'ne (KIU) akademik mükemmellik, küresel vizyon ve sosyal sorumluluk sahibi liderlerin bir sonraki neslini şekillendirme konusunda derin bir bağlılık getirmektedir.",
         "qualifications": "Dr. Mirosław Kędrzyński-Woźniak, barış ve çatışma çalışmaları, küresel diplomasi ve kültürlerarası iletişim alanlarında uzmanlaşmış Siyaset Bilimi ve Uluslararası İlişkiler alanında doktora derecesine sahiptir. Avrupa, Orta Asya ve Orta Doğu'daki tanınmış kurumlarda akademik ve idari pozisyonlar almıştır. Akademik yolculuğu, yüksek öğretimde diyalog, eleştirel düşünme ve etik liderliği teşvik etmeye odaklanmıştır.",
         "email": "E-posta",
         "emailValue": "miroslaw.kedrzynski-wozniak@kielceuniversity.pl"
@@ -470,7 +470,7 @@
   "news": {
     "hero": {
       "title": "Haberler ve Güncellemeler",
-      "subtitle": "Avrupa Uluslararası Barış Üniversitesi'ndeki en son haberler, etkinlikler, duyurular ve başarılar hakkında bilgi sahibi olun."
+      "subtitle": "Kielce Uluslararası Üniversitesi'ndeki en son haberler, etkinlikler, duyurular ve başarılar hakkında bilgi sahibi olun."
     },
     "grid": {
       "featuredNews": "Öne Çıkan Haberler",
@@ -573,7 +573,7 @@
     }
   },
   "footer": {
-    "description": "Avrupa Uluslararası Barış Üniversitesi - Eğitim, barış ve kültürü birleştiren uluslararası bir üniversite.",
+    "description": "Kielce Uluslararası Üniversitesi - Eğitim, barış ve kültürü birleştiren uluslararası bir üniversite.",
     "quickLinks": "Hızlı Bağlantılar",
     "contact": "İletişim",
     "university": "Üniversite",
@@ -600,7 +600,7 @@
       "studentLife": "Öğrenci Yaşamı",
       "admissions": "Kabul"
     },
-    "copyright": "© {year} Avrupa Uluslararası Barış Üniversitesi. Tüm hakları saklıdır.",
+    "copyright": "© {year} Kielce Uluslararası Üniversitesi. Tüm hakları saklıdır.",
     "privacyPolicy": "Gizlilik Politikası",
     "termsOfService": "Hizmet Şartları"
   },

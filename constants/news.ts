@@ -35,9 +35,9 @@ export const news: NewsItem[] = [
     category: "university",
     date: "2024-12-15",
     excerpt:
-      "European International Peace University proudly welcomes over 150 new international students from 30 different countries this academic year.",
+      "Kielce International University proudly welcomes over 150 new international students from 30 different countries this academic year.",
     content: `
-      <p>European International Peace University (KIELCE) is thrilled to announce the arrival of over 150 new international students from 30 different countries, marking one of the most diverse cohorts in our university's history.</p>
+      <p>Kielce International University (KIU) is thrilled to announce the arrival of over 150 new international students from 30 different countries, marking one of the most diverse cohorts in our university's history.</p>
       
       <h2>A Global Community</h2>
       <p>This year's international students represent a wide range of cultures, bringing unique perspectives and experiences to our campus community. The incoming students come from countries across Europe, Asia, Africa, and the Americas, further enriching our global educational environment.</p>
@@ -139,14 +139,14 @@ export const news: NewsItem[] = [
   },
   {
     id: "6",
-    title: "International Partnership with European Universities",
-    slug: "international-partnership-european-universities",
+    title: "International Partnership with Kielce University",
+    slug: "international-partnership-kielce-universities",
     category: "university",
     date: "2024-11-25",
     excerpt:
-      "KIELCE signs partnership agreements with leading European universities to enhance student exchange programs.",
+      "KIELCE signs partnership agreements with leading Kielce universities to enhance student exchange programs.",
     content: `
-      <p>We're excited to announce new partnership agreements with several leading European universities, expanding our student exchange program opportunities.</p>
+      <p>We're excited to announce new partnership agreements with several leading Kielce universities, expanding our student exchange program opportunities.</p>
       
       <p>These partnerships will enable students to study abroad and gain international experience while earning credits towards their degrees.</p>
     `,

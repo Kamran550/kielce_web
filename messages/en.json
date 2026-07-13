@@ -37,7 +37,7 @@
   },
   "aboutPreview": {
     "title": "About Us",
-    "description": "European International Peace University (KIELCE) is an innovative higher education institution dedicated to fostering peace through education and global understanding. We provide our students with the knowledge and skills necessary to make positive changes in the world.",
+    "description": "Kielce International University (KIU) is an innovative higher education institution dedicated to fostering peace through education and global understanding. We provide our students with the knowledge and skills necessary to make positive changes in the world.",
     "button": "Learn More"
   },
   "statistics": {
@@ -71,7 +71,7 @@
   },
   "about": {
     "hero": {
-      "title": "About European International Peace University",
+      "title": "About Kielce International University",
       "subtitle": "Empowering minds, building peace, and shaping tomorrow's leaders through excellence in education and global collaboration."
     },
     "missionVision": {
@@ -132,7 +132,7 @@
       "milestones": {
         "2020": {
           "title": "Foundation",
-          "description": "European International Peace University was established with a vision to create a world-class institution dedicated to peace education and global citizenship."
+          "description": "Kielce International University was established with a vision to create a world-class institution dedicated to peace education and global citizenship."
         },
         "2021": {
           "title": "First Graduates",
@@ -155,8 +155,8 @@
         "fullName": "Full Name",
         "position": "Position",
         "fullNameValue": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak",
-        "positionValue": "Rector of European International Peace University (KIELCE)",
-        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak is an internationally respected academic, higher education leader, and advocate for peace-focused learning. With a career spanning more than two decades across multiple continents, he brings to the European International Peace University (KIELCE) a unique blend of academic excellence, global vision, and a deep commitment to shaping the next generation of socially responsible leaders.",
+        "positionValue": "Rector of Kielce International University (KIU)",
+        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak is an internationally respected academic, higher education leader, and advocate for peace-focused learning. With a career spanning more than two decades across multiple continents, he brings to the Kielce International University (KIU) a unique blend of academic excellence, global vision, and a deep commitment to shaping the next generation of socially responsible leaders.",
         "qualifications": "Dr. Mirosław Kędrzyński-Woźniak holds a Ph.D. in Political Science and International Relations, with specializations in peace and conflict studies, global diplomacy, and intercultural communication. He has held academic and administrative positions at renowned institutions in Europe, Central Asia, and the Middle East. His academic journey is marked by a consistent focus on promoting dialogue, critical thinking, and ethical leadership in higher education.",
         "email": "Email",
         "emailValue": "miroslaw.kedrzynski-wozniak@kielceuniversity.pl"
@@ -470,7 +470,7 @@
   "news": {
     "hero": {
       "title": "News & Updates",
-      "subtitle": "Stay informed about the latest news, events, announcements, and achievements at European International Peace University."
+      "subtitle": "Stay informed about the latest news, events, announcements, and achievements at Kielce International University."
     },
     "grid": {
       "featuredNews": "Featured News",
@@ -573,7 +573,7 @@
     }
   },
   "footer": {
-    "description": "European International Peace University - An international university combining education, peace, and culture.",
+    "description": "Kielce International University - An international university combining education, peace, and culture.",
     "quickLinks": "Quick Links",
     "contact": "Contact",
     "university": "University",
@@ -599,7 +599,7 @@
       "studentLife": "Student Life",
       "admissions": "Admissions"
     },
-    "copyright": "© {year} European International Peace University. All rights reserved.",
+    "copyright": "© {year} Kielce International University. All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service"
   },

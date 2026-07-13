@@ -15,29 +15,29 @@ const seoData: Record<
   { title: string; description: string; keywords: string[] }
 > = {
   en: {
-    title: "KIELCE - European International Peace University | Study in Poland",
+    title: "KIU - Kielce International University | Study in Poland",
     description:
-      "KIELCE - European International Peace University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
+      "KIU - Kielce International University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
     keywords: [
-      "KIELCE",
-      "European International Peace University",
+      "KIU",
+      "Kielce International University",
       "study in Poland",
       "international university",
       "Poland education",
       "bachelor degree Poland",
       "master degree Poland",
       "PhD Poland",
-      "European university",
+      "Kielce university",
       "peace university",
     ],
   },
   ru: {
-    title: "KIELCE - Европейский Международный Университет По миру и безопасности | Study in Poland",
+    title: "KIU - Кельцкий международный университет | Study in Poland",
     description:
-      "KIELCE - Европейский Международный Университет По миру и безопасности. Международный образовательный центр в Польше с программами бакалавриата, магистратуры и докторантуры. Качественное образование через мир и глобальное понимание.",
+      "KIU - Кельцкий международный университет. Международный образовательный центр в Польше с программами бакалавриата, магистратуры и докторантуры. Качественное образование через мир и глобальное понимание.",
     keywords: [
-      "KIELCE",
-      "Европейский Международный Университет По миру и безопасности",
+      "KIU",
+      "Кельцкий международный университет",
       "Образование в Польше",
       "Обучение в Польше",
       "Международный университет",
@@ -45,16 +45,16 @@ const seoData: Record<
       "Бакалавриат в Польше",
       "Магистратура в Польше",
       "Докторантура в Польше",
-      "Европейский университет",
+      "Кельцкий университет",
     ],
   },
   tr: {
-    title: "KIELCE - European International Peace University | Study in Poland",
+    title: "KIU - Kielce International University | Study in Poland",
     description:
-      "KIELCE - European International Peace University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
+      "KIU - Kielce International University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
     keywords: [
-      "KIELCE",
-      "Avrupa Uluslararası Barış Üniversitesi",
+      "KIU",
+      "Kielce Uluslararası Üniversitesi",
       "Polonya'da eğitim",
       "Polonya'da okumak",
       "uluslararası üniversite",
@@ -62,7 +62,7 @@ const seoData: Record<
       "lisans programları",
       "yüksek lisans programları",
       "doktora",
-      "Avrupa üniversitesi",
+      "Kielce üniversitesi",
     ],
   },
 };

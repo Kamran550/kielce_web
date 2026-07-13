@@ -4,7 +4,7 @@ export const testimonials = [
     name: "Aysel Mammadova",
     program: "Bachelor of Computer Science",
     image: "/images/KIELCE-logo.png", // Temporary, sonra real student photos əlavə ediləcək
-    text: "Müəllimlərin dəstəyi və praktiki dərslər sayəsində iş tapa bildim. KIELCE-da təhsil almaq ən yaxşı qərarım idi.",
+    text: "Müəllimlərin dəstəyi və praktiki dərslər sayəsində iş tapa bildim. KIELCE-də təhsil almaq ən yaxşı qərarım idi.",
   },
   {
     id: 2,

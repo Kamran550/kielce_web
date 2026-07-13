@@ -15,24 +15,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   // Əsas məlumatlar
   title: {
-    default: "KIELCE - European International Peace University | Study in Poland",
-    template: "%s | KIELCE - European International Peace University",
+    default: "KIU - Kielce International University | Study in Poland",
+    template: "%s | KIU - Kielce International University",
   },
   description:
-    "KIELCE - European International Peace University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
+    "KIU - Kielce International University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
 
   // Açar sözlər
   keywords: [
-    "KIELCE",
+    "KIU",
     "kielce",
-    "European International Peace University",
+    "Kielce International University",
     "kielceuniversity.pl",
     "Poland university",
     "Polish university",
     "international university Poland",
     "international university",
     "peace university",
-    "European university",
+    "Kielce university",
     "study in Poland",
     "education in Poland",
     "PhD Poland",
@@ -47,12 +47,12 @@ export const metadata: Metadata = {
   // Müəllif və yaradıcı
   authors: [
     {
-      name: "European International Peace University",
+      name: "Kielce International University",
       url: "https://kielceuniversity.pl",
     },
   ],
-  creator: "KIELCE - European International Peace University",
-  publisher: "European International Peace University",
+  creator: "KIU - Kielce International University",
+  publisher: "Kielce International University",
 
   // Robots
   robots: {
@@ -84,16 +84,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: ["ru_RU", "tr_TR"],
     url: "https://kielceuniversity.pl",
-    siteName: "KIELCE - European International Peace University",
-    title: "KIELCE - European International Peace University | Study in Poland",
+    siteName: "KIU - Kielce International University",
+    title: "KIU - Kielce International University | Study in Poland",
     description:
-      "KIELCE - European International Peace University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
+      "KIU - Kielce International University. International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
     images: [
       {
         url: "/images/KIELCE-logo-tam.jpg",
         width: 1200,
         height: 630,
-        alt: "KIELCE - European International Peace University Logo",
+        alt: "KIU - Kielce International University Logo",
       },
     ],
   },
@@ -101,9 +101,9 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "KIELCE - European International Peace University",
+    title: "KIU - Kielce International University",
     description:
-      "KIELCE - European International Peace University. International education in Poland with bachelor's, master's and PhD programs.",
+      "KIU - Kielce International University. International education in Poland with bachelor's, master's and PhD programs.",
     images: ["/images/KIELCE-logo-tam.jpg"],
     creator: "@kielce_edu",
     site: "@kielce_edu",
