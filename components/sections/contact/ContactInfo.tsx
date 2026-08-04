@@ -1,15 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
 
-const contactInfo = {
+const contactData = {
   phone: {
     primary: "+48 579369968",
     secondary: "+48 579369968",
-    hours: "Mon-Fri: 9:00 AM - 6:00 PM",
   },
   email: {
     primary: "info@kielceuniversity.pl",
@@ -17,192 +14,128 @@ const contactInfo = {
     support: "rectorate@kielceuniversity.pl",
   },
   address: {
-    street: "Ogrodowa 5800-876",
-    city: "Warsaw, Poland",
-    zip: "00-000",
-    country: "Poland",
-  },
-  hours: {
-    weekdays: "Monday - Friday: 9:00 AM - 6:00 PM",
-    sunday: "Sunday: Closed",
-    saturday: "Saturday: Closed",
+    line1: "Ogrodowa 58",
+    line2: "00-876 Warsaw",
+    line3: "Poland",
   },
 };
 
 export default function ContactInfo() {
   const t = useTranslations("contact.info");
 
+  const rows = [
+    {
+      id: "phone",
+      label: t("phone"),
+      body: (
+        <>
+          <a
+            href={`tel:${contactData.phone.primary.replace(/\s/g, "")}`}
+            className="block font-medium text-[var(--contact-ink)] transition hover:text-[var(--contact-mint)]"
+          >
+            {contactData.phone.primary}
+          </a>
+          <a
+            href={`tel:${contactData.phone.secondary.replace(/\s/g, "")}`}
+            className="mt-1 block text-sm text-[var(--contact-muted)] transition hover:text-[var(--contact-mint)]"
+          >
+            {contactData.phone.secondary}
+          </a>
+        </>
+      ),
+    },
+    {
+      id: "email",
+      label: t("email"),
+      body: (
+        <>
+          <a
+            href={`mailto:${contactData.email.primary}`}
+            className="block font-medium break-all text-[var(--contact-ink)] transition hover:text-[var(--contact-mint)]"
+          >
+            {contactData.email.primary}
+          </a>
+          <p className="mt-3 text-xs uppercase tracking-[0.16em] text-[var(--contact-muted)]">
+            {t("admissions")}
+          </p>
+          <a
+            href={`mailto:${contactData.email.admissions}`}
+            className="mt-1 block text-sm break-all text-[var(--contact-ink)] transition hover:text-[var(--contact-mint)]"
+          >
+            {contactData.email.admissions}
+          </a>
+          <p className="mt-3 text-xs uppercase tracking-[0.16em] text-[var(--contact-muted)]">
+            {t("support")}
+          </p>
+          <a
+            href={`mailto:${contactData.email.support}`}
+            className="mt-1 block text-sm break-all text-[var(--contact-ink)] transition hover:text-[var(--contact-mint)]"
+          >
+            {contactData.email.support}
+          </a>
+        </>
+      ),
+    },
+    {
+      id: "address",
+      label: t("address"),
+      body: (
+        <div className="space-y-1 text-[var(--contact-ink)]">
+          <p className="font-medium">{contactData.address.line1}</p>
+          <p>{contactData.address.line2}</p>
+          <p>{contactData.address.line3}</p>
+        </div>
+      ),
+    },
+    {
+      id: "hours",
+      label: t("officeHours"),
+      body: (
+        <div className="space-y-1 text-sm text-[var(--contact-ink)]">
+          <p>{t("hours.weekdays")}</p>
+          <p>{t("hours.saturday")}</p>
+          <p>{t("hours.sunday")}</p>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <section className="py-20 bg-linear-to-b from-slate-50 to-white dark:from-slate-900 dark:to-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+    <section id="contact-channels" className="scroll-mt-24 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--contact-mint)]">
+            {t("eyebrow")}
+          </p>
+          <h2 className="font-display mt-3 text-4xl tracking-tight text-[var(--contact-ink)] md:text-5xl">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-base leading-relaxed text-[var(--contact-muted)] md:text-lg">
             {t("subtitle")}
           </p>
-        </motion.div>
-
-        {/* Contact Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {/* Phone */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <Card className="h-full shadow-lg hover:shadow-xl transition-shadow border-2 hover:border-primary/50">
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4">
-                    <Phone className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-                    {t("phone")}
-                  </h3>
-                  <div className="space-y-2">
-                    <a
-                      href={`tel:${contactInfo.phone.primary.replace(
-                        /\s/g,
-                        ""
-                      )}`}
-                      className="block text-lg font-semibold text-primary hover:underline"
-                    >
-                      {contactInfo.phone.primary}
-                    </a>
-                    <a
-                      href={`tel:${contactInfo.phone.secondary.replace(
-                        /\s/g,
-                        ""
-                      )}`}
-                      className="block text-sm text-gray-600 dark:text-gray-300 hover:underline"
-                    >
-                      {contactInfo.phone.secondary}
-                    </a>
-                    <div className="flex items-center justify-center gap-2 mt-4 pt-4 border-t">
-                      <Clock className="w-4 h-4 text-muted-foreground" />
-                      <p className="text-xs text-muted-foreground">
-                        {contactInfo.phone.hours}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Email */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <Card className="h-full shadow-lg hover:shadow-xl transition-shadow border-2 hover:border-primary/50">
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mb-4">
-                    <Mail className="w-8 h-8 text-purple-600 dark:text-purple-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-                    {t("email")}
-                  </h3>
-                  <div className="space-y-3">
-                    <a
-                      href={`mailto:${contactInfo.email.primary}`}
-                      className="block text-sm font-semibold text-primary hover:underline break-all"
-                    >
-                      {contactInfo.email.primary}
-                    </a>
-                    <div className="space-y-1 pt-2 border-t">
-                      <p className="text-xs text-muted-foreground mb-1">
-                        {t("admissions")}
-                      </p>
-                      <a
-                        href={`mailto:${contactInfo.email.admissions}`}
-                        className="block text-xs text-gray-600 dark:text-gray-300 hover:underline break-all"
-                      >
-                        {contactInfo.email.admissions}
-                      </a>
-                    </div>
-                    <div className="space-y-1 pt-2 border-t">
-                      <p className="text-xs text-muted-foreground mb-1">
-                        {t("support")}
-                      </p>
-                      <a
-                        href={`mailto:${contactInfo.email.support}`}
-                        className="block text-xs text-gray-600 dark:text-gray-300 hover:underline break-all"
-                      >
-                        {contactInfo.email.support}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Address */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true, margin: "-50px" }}
-            className="md:col-span-2 lg:col-span-1"
-          >
-            <Card className="h-full shadow-lg hover:shadow-xl transition-shadow border-2 hover:border-primary/50">
-              <CardContent className="pt-6">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
-                    <MapPin className="w-8 h-8 text-green-600 dark:text-green-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-                    {t("address")}
-                  </h3>
-                  <div className="space-y-1 text-gray-600 dark:text-gray-300">
-                    <p className="font-medium">{contactInfo.address.street}</p>
-                    <p>{contactInfo.address.city}</p>
-                    <p className="text-sm">{contactInfo.address.zip}</p>
-                    <p className="text-sm font-semibold mt-2">
-                      {contactInfo.address.country}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
         </div>
 
-        {/* Office Hours */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="mt-12 text-center"
-        >
-          <Card className="max-w-2xl mx-auto">
-            <CardContent className="pt-6">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Clock className="w-6 h-6 text-primary" />
-                <h3 className="text-xl font-bold">{t("officeHours")}</h3>
-              </div>
-              <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                <p>{t("hours.saturday")}</p>
-                <p>{t("hours.sunday")}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+        <div className="mt-12 border-t border-[var(--contact-ink)]">
+          {rows.map((row, index) => (
+            <motion.div
+              key={row.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.45,
+                delay: index * 0.06,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              viewport={{ once: true, margin: "-40px" }}
+              className="grid gap-3 border-b border-[var(--contact-ink)]/15 py-7 md:grid-cols-[12rem_1fr] md:gap-10 md:py-9"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--contact-muted)]">
+                {row.label}
+              </p>
+              <div>{row.body}</div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

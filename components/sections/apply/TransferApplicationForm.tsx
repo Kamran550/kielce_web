@@ -22,7 +22,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ProgramService } from "@/lib/services/program.service";
@@ -48,6 +47,7 @@ export default function TransferApplicationForm({
   onSubmitSuccess,
 }: TransferApplicationFormProps) {
   const t = useTranslations("apply.transferForm");
+  const tCommon = useTranslations("apply.common");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loadingPrograms, setLoadingPrograms] = useState(true);
@@ -322,7 +322,7 @@ export default function TransferApplicationForm({
 
         // For other errors, throw as before
 
-        throw new Error(errorData.message || "Failed to submit application");
+        throw new Error(errorData.message || t("submitError"));
       }
 
       const result = await response.json();
@@ -339,9 +339,10 @@ export default function TransferApplicationForm({
     } catch (error) {
       console.error("❌ Error submitting application:", error);
       alert(
-        `Failed to submit application: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
+        tCommon("submitFailed", {
+          message:
+            error instanceof Error ? error.message : tCommon("unknownError"),
+        })
       );
     }
   }
@@ -354,26 +355,29 @@ export default function TransferApplicationForm({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      className="apply-panel p-6 md:p-8"
     >
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-2xl md:text-3xl font-bold">
-            {t("title")}
-          </CardTitle>
-          <p className="text-sm text-muted-foreground mt-2">
-            {t("programChoice")}:{" "}
-            <span className="font-semibold">{facultyName}</span>
-          </p>
-        </CardHeader>
-        <CardContent>
+      <header className="border-b border-[var(--apply-line)] pb-6">
+        <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--apply-ink)] md:text-3xl">
+          {t("title")}
+        </h2>
+        <p className="mt-2 text-sm text-[var(--apply-muted)]">
+          {t("programChoice")}:{" "}
+          <span className="font-semibold text-[var(--apply-ink)]">
+            {facultyName}
+          </span>
+        </p>
+      </header>
+
+      <div className="mt-8">
           {isSubmitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg"
+              className="apply-success px-6 py-10 text-center"
             >
-              <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400 mx-auto mb-3" />
-              <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-2">
+              <CheckCircle className="mx-auto mb-3 size-10 text-[var(--apply-forest)]" />
+              <h3 className="font-display text-xl font-semibold text-[var(--apply-forest)]">
                 {t("submitSuccess")}
               </h3>
             </motion.div>
@@ -381,11 +385,11 @@ export default function TransferApplicationForm({
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-8"
+                className="space-y-10"
               >
                 {/* Program Selection */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("programSelection")}
                   </h3>
                   <div className="grid sm:grid-cols-1 gap-4">
@@ -425,7 +429,8 @@ export default function TransferApplicationForm({
                                       <span>{program.name}</span>
                                       {program.price_per_year != null && (
                                         <span className="text-muted-foreground">
-                                          – €{program.price_per_year}/year
+                                          – €{program.price_per_year}
+                                          {tCommon("perYear")}
                                         </span>
                                       )}
                                     </span>
@@ -443,7 +448,7 @@ export default function TransferApplicationForm({
 
                 {/* Transfer Information */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("transferInfo")}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -494,7 +499,7 @@ export default function TransferApplicationForm({
 
                 {/* Personal Information */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("personalInfo")}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -684,7 +689,7 @@ export default function TransferApplicationForm({
 
                 {/* Identification */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("identification")}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -746,7 +751,7 @@ export default function TransferApplicationForm({
 
                 {/* Address */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">{t("address")}</h3>
+                  <h3 className="apply-section-title mb-5">{t("address")}</h3>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
@@ -792,7 +797,7 @@ export default function TransferApplicationForm({
 
                 {/* Education Documents */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("educationDocuments")}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -984,7 +989,7 @@ export default function TransferApplicationForm({
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full"
+                  className="apply-submit w-full"
                   disabled={form.formState.isSubmitting}
                 >
                   {form.formState.isSubmitting ? t("submitting") : t("submit")}
@@ -992,8 +997,7 @@ export default function TransferApplicationForm({
               </form>
             </Form>
           )}
-        </CardContent>
-      </Card>
+      </div>
     </motion.div>
   );
 }

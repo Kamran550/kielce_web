@@ -1,31 +1,72 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 export default function ApplyHero() {
   const t = useTranslations("apply.hero");
 
   return (
-    <section className="relative w-full min-h-[50vh] flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 pt-24 md:pt-28 lg:pt-32">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+    <section className="relative overflow-hidden pt-28 md:pt-36">
+      <div className="absolute inset-0 bg-[var(--apply-ink)]" />
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(120deg, transparent 0%, rgba(217,162,27,0.18) 45%, transparent 70%), radial-gradient(circle at 85% 20%, rgba(47,107,79,0.45), transparent 40%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--apply-marigold)] to-transparent"
+      />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 pb-14 pt-10 md:grid-cols-[1.2fr_0.8fr] md:items-end md:gap-14 md:px-8 md:pb-16 md:pt-12 lg:px-10">
+        <div className="apply-rise max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--apply-marigold)]">
+            {t("brand")}
+          </p>
+          <h1 className="font-display mt-4 text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-[3.4rem] lg:leading-[1.05]">
             {t("title")}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65 md:text-lg">
             {t("subtitle")}
           </p>
-        </motion.div>
+          <a
+            href="#apply-intake"
+            className="mt-8 inline-flex bg-[var(--apply-marigold)] px-5 py-3 text-sm font-semibold tracking-wide text-[var(--apply-ink)] transition hover:bg-white"
+          >
+            {t("cta")}
+          </a>
+        </div>
+
+        <aside className="apply-rise border border-white/15 bg-white/5 p-6 backdrop-blur-sm md:p-7 [animation-delay:120ms]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">
+            {t("asideLabel")}
+          </p>
+          <ol className="mt-5 space-y-4">
+            {(["step1", "step2", "step3", "step4"] as const).map((key, i) => (
+              <li key={key} className="flex gap-4">
+                <span className="font-display text-lg text-[var(--apply-marigold)]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="pt-0.5 text-sm leading-snug text-white/80">
+                  {t(key)}
+                </span>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-6 border-t border-white/10 pt-4 text-xs leading-relaxed text-white/45">
+            {t("note")}{" "}
+            <Link
+              href="/contact"
+              className="text-[var(--apply-marigold)] underline-offset-2 hover:underline"
+            >
+              {t("contactLink")}
+            </Link>
+          </p>
+        </aside>
       </div>
     </section>
   );

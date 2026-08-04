@@ -3,10 +3,13 @@ import ApplyForm from "@/components/sections/apply/ApplyForm";
 
 export default function ApplyPage() {
   return (
-    <main className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
+    <main className="apply-shell min-h-screen">
       <ApplyHero />
-      <section className="py-12 md:py-20 bg-white dark:bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        id="apply-intake"
+        className="scroll-mt-28 px-4 pb-20 pt-10 md:px-8 md:pb-28 md:pt-14 lg:px-10"
+      >
+        <div className="mx-auto max-w-7xl">
           <ApplyForm />
         </div>
       </section>

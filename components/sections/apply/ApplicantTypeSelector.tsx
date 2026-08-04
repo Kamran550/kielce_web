@@ -1,9 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { User, Building2, Check, ArrowRightLeft } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 
 type ApplicantType = "student" | "agency" | "transfer";
@@ -13,6 +10,8 @@ interface ApplicantTypeSelectorProps {
   onSelect: (type: ApplicantType) => void;
 }
 
+const TYPES: ApplicantType[] = ["student", "agency", "transfer"];
+
 export default function ApplicantTypeSelector({
   selectedType,
   onSelect,
@@ -20,96 +19,76 @@ export default function ApplicantTypeSelector({
   const t = useTranslations("apply.applicantType");
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-2xl md:text-3xl font-bold text-center">
-            {t("title")}
-          </CardTitle>
-          <p className="text-muted-foreground text-center mt-2">
-            {t("subtitle")}
-          </p>
-        </CardHeader>
-        <CardContent>
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Student Option */}
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                variant={selectedType === "student" ? "default" : "outline"}
-                className={`w-full h-auto p-6 flex flex-col items-center gap-4 ${
-                  selectedType === "student"
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:border-primary"
-                }`}
-                onClick={() => onSelect("student")}
-              >
-                <div className="relative">
-                  <User className="w-16 h-16" />
-                  {selectedType === "student" && (
-                    <Check className="w-6 h-6 absolute -top-2 -right-2 bg-white rounded-full text-primary" />
-                  )}
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-2">{t("student")}</h3>
-                  <p className="text-sm opacity-90">{t("studentDesc")}</p>
-                </div>
-              </Button>
-            </motion.div>
+    <div className="apply-panel p-6 md:p-8">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--apply-muted)]">
+        {t("eyebrow")}
+      </p>
+      <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-[var(--apply-ink)] md:text-3xl">
+        {t("title")}
+      </h2>
+      <p className="mt-2 max-w-xl text-sm text-[var(--apply-muted)] md:text-base">
+        {t("subtitle")}
+      </p>
 
-            {/* Agency Option */}
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                variant={selectedType === "agency" ? "default" : "outline"}
-                className={`w-full h-auto p-6 flex flex-col items-center gap-4 ${
-                  selectedType === "agency"
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:border-primary"
-                }`}
-                onClick={() => onSelect("agency")}
+      <div
+        className="mt-8 divide-y divide-[var(--apply-line)] border-y border-[var(--apply-line)]"
+        role="radiogroup"
+        aria-label={t("title")}
+      >
+        {TYPES.map((type, index) => {
+          const selected = selectedType === type;
+          return (
+            <button
+              key={type}
+              type="button"
+              role="radio"
+              aria-checked={selected}
+              onClick={() => onSelect(type)}
+              className={cn(
+                "flex w-full items-start gap-5 py-5 text-left transition md:gap-8",
+                selected
+                  ? "bg-[var(--apply-forest)]/6"
+                  : "hover:bg-black/[0.02]"
+              )}
+            >
+              <span
+                className={cn(
+                  "mt-1 font-display text-sm tabular-nums",
+                  selected
+                    ? "text-[var(--apply-forest)]"
+                    : "text-[var(--apply-muted)]"
+                )}
               >
-                <div className="relative">
-                  <Building2 className="w-16 h-16" />
-                  {selectedType === "agency" && (
-                    <Check className="w-6 h-6 absolute -top-2 -right-2 bg-white rounded-full text-primary" />
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span
+                  className={cn(
+                    "block font-display text-xl font-semibold tracking-tight md:text-2xl",
+                    selected
+                      ? "text-[var(--apply-forest)]"
+                      : "text-[var(--apply-ink)]"
                   )}
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-2">{t("agency")}</h3>
-                  <p className="text-sm opacity-90">{t("agencyDesc")}</p>
-                </div>
-              </Button>
-            </motion.div>
-
-            {/* Transfer Option */}
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button
-                variant={selectedType === "transfer" ? "default" : "outline"}
-                className={`w-full h-auto p-6 flex flex-col items-center gap-4 ${
-                  selectedType === "transfer"
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:border-primary"
-                }`}
-                onClick={() => onSelect("transfer")}
-              >
-                <div className="relative">
-                  <ArrowRightLeft className="w-16 h-16" />
-                  {selectedType === "transfer" && (
-                    <Check className="w-6 h-6 absolute -top-2 -right-2 bg-white rounded-full text-primary" />
-                  )}
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold mb-2">{t("transfer")}</h3>
-                  <p className="text-sm opacity-90">{t("transferDesc")}</p>
-                </div>
-              </Button>
-            </motion.div>
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
+                >
+                  {t(type)}
+                </span>
+                <span className="mt-1 block text-sm text-[var(--apply-muted)]">
+                  {t(`${type}Desc`)}
+                </span>
+              </span>
+              <span
+                className={cn(
+                  "mt-1.5 size-4 shrink-0 border-2",
+                  selected
+                    ? "border-[var(--apply-forest)] bg-[var(--apply-marigold)]"
+                    : "border-[var(--apply-line)] bg-transparent"
+                )}
+                aria-hidden
+              />
+            </button>
+          );
+        })}
+      </div>
+    </div>
   );
 }

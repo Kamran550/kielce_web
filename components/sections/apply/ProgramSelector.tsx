@@ -26,6 +26,7 @@ export default function ProgramSelector({
   teachingLanguage,
 }: ProgramSelectorProps) {
   const t = useTranslations("apply.programSelector");
+  const tCommon = useTranslations("apply.common");
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -138,7 +139,8 @@ export default function ProgramSelector({
                     </span>
                     {program.price_per_year && (
                       <span className="text-xs opacity-80">
-                        ${program.price_per_year}/year
+                        €{program.price_per_year}
+                        {tCommon("perYear")}
                       </span>
                     )}
                   </div>

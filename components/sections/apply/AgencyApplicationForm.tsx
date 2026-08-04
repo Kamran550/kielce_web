@@ -15,7 +15,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -37,6 +36,7 @@ export default function AgencyApplicationForm({
   onSubmitSuccess,
 }: AgencyApplicationFormProps) {
   const t = useTranslations("apply.agencyForm");
+  const tCommon = useTranslations("apply.common");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const formSchema = z.object({
@@ -107,7 +107,7 @@ export default function AgencyApplicationForm({
       if (!response.ok) {
         const errorData = await response.json();
         console.error("❌ Error response:", errorData);
-        throw new Error(errorData.message || "Failed to submit application");
+        throw new Error(errorData.message || t("submitError"));
       }
 
       const result = await response.json();
@@ -124,9 +124,10 @@ export default function AgencyApplicationForm({
     } catch (error) {
       console.error("❌ Error submitting application:", error);
       alert(
-        `Failed to submit application: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
+        tCommon("submitFailed", {
+          message:
+            error instanceof Error ? error.message : tCommon("unknownError"),
+        })
       );
     }
   }
@@ -136,26 +137,29 @@ export default function AgencyApplicationForm({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
+      className="apply-panel p-6 md:p-8"
     >
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-2xl md:text-3xl font-bold">
-            {t("title")}
-          </CardTitle>
-          <p className="text-sm text-muted-foreground mt-2">
-            {t("programChoice")}:{" "}
-            <span className="font-semibold">{facultyName}</span>
-          </p>
-        </CardHeader>
-        <CardContent>
+      <header className="border-b border-[var(--apply-line)] pb-6">
+        <h2 className="font-display text-2xl font-semibold tracking-tight text-[var(--apply-ink)] md:text-3xl">
+          {t("title")}
+        </h2>
+        <p className="mt-2 text-sm text-[var(--apply-muted)]">
+          {t("programChoice")}:{" "}
+          <span className="font-semibold text-[var(--apply-ink)]">
+            {facultyName}
+          </span>
+        </p>
+      </header>
+
+      <div className="mt-8">
           {isSubmitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center p-6 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg"
+              className="apply-success px-6 py-10 text-center"
             >
-              <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400 mx-auto mb-3" />
-              <h3 className="text-xl font-semibold text-green-800 dark:text-green-200 mb-2">
+              <CheckCircle className="mx-auto mb-3 size-10 text-[var(--apply-forest)]" />
+              <h3 className="font-display text-xl font-semibold text-[var(--apply-forest)]">
                 {t("submitSuccess")}
               </h3>
             </motion.div>
@@ -163,11 +167,11 @@ export default function AgencyApplicationForm({
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-8"
+                className="space-y-10"
               >
                 {/* Agency Information */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("agencyInfo")}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -232,7 +236,7 @@ export default function AgencyApplicationForm({
                           <FormControl>
                             <Input
                               type="url"
-                              placeholder="https://example.com"
+                              placeholder={tCommon("websitePlaceholder")}
                               {...field}
                             />
                           </FormControl>
@@ -245,7 +249,7 @@ export default function AgencyApplicationForm({
 
                 {/* Contact Person */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("contactPerson")}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -293,7 +297,7 @@ export default function AgencyApplicationForm({
 
                 {/* Agency Identification */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="apply-section-title mb-5">
                     {t("agencyIdentification")}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -343,7 +347,7 @@ export default function AgencyApplicationForm({
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full"
+                  className="apply-submit w-full"
                   disabled={form.formState.isSubmitting}
                 >
                   {form.formState.isSubmitting ? t("submitting") : t("submit")}
@@ -351,8 +355,7 @@ export default function AgencyApplicationForm({
               </form>
             </Form>
           )}
-        </CardContent>
-      </Card>
+      </div>
     </motion.div>
   );
 }

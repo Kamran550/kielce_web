@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Degree } from "@/lib/types/degree";
 import { Faculty } from "@/lib/types/faculty";
+import { cn } from "@/lib/utils";
 import ApplicantTypeSelector from "./ApplicantTypeSelector";
 import DegreeSelector from "./DegreeSelector";
 import FacultySelector, { TeachingLanguage } from "./FacultySelector";
@@ -18,7 +18,9 @@ type ApplicantType = "student" | "agency" | "transfer";
 type Step = "type" | "degree" | "faculty" | "form";
 
 const STORAGE_KEY = "apply_form_state";
-const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes
+const SESSION_TIMEOUT = 30 * 60 * 1000;
+
+const STEPS: Step[] = ["type", "degree", "faculty", "form"];
 
 export default function ApplyForm() {
   const t = useTranslations("apply");
@@ -32,7 +34,6 @@ export default function ApplyForm() {
     useState<TeachingLanguage | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Load state from sessionStorage on mount (only within same tab session)
   useEffect(() => {
     try {
       const saved = sessionStorage.getItem(STORAGE_KEY);
@@ -46,7 +47,6 @@ export default function ApplyForm() {
           timestamp,
         } = JSON.parse(saved);
 
-        // Check if session is still valid (within 30 minutes)
         const isExpired = timestamp && Date.now() - timestamp > SESSION_TIMEOUT;
 
         if (!isExpired) {
@@ -56,7 +56,6 @@ export default function ApplyForm() {
           if (savedFaculty) setSelectedFaculty(savedFaculty);
           if (savedLanguage) setSelectedLanguage(savedLanguage);
         } else {
-          // Clear expired session
           sessionStorage.removeItem(STORAGE_KEY);
         }
       }
@@ -67,7 +66,6 @@ export default function ApplyForm() {
     }
   }, []);
 
-  // Save state to sessionStorage whenever it changes
   useEffect(() => {
     if (isLoaded) {
       try {
@@ -101,12 +99,12 @@ export default function ApplyForm() {
 
   const handleDegreeSelect = (degree: Degree) => {
     setSelectedDegree(degree);
-    setSelectedFaculty(null); // Reset faculty when degree changes
+    setSelectedFaculty(null);
   };
 
   const handleFacultySelect = (faculty: Faculty) => {
     setSelectedFaculty(faculty);
-    setSelectedLanguage(null); // Reset language when faculty changes
+    setSelectedLanguage(null);
   };
 
   const handleLanguageSelect = (language: TeachingLanguage) => {
@@ -141,48 +139,33 @@ export default function ApplyForm() {
     return false;
   };
 
-  // Get step index
-  const getStepIndex = (step: Step): number => {
-    const steps: Step[] = ["type", "degree", "faculty", "form"];
-    return steps.indexOf(step);
-  };
+  const getStepIndex = (step: Step): number => STEPS.indexOf(step);
 
-  // Check if step is completed
   const isStepCompleted = (step: Step): boolean => {
     if (step === "type") return applicantType !== null;
     if (step === "degree") return selectedDegree !== null;
     if (step === "faculty")
       return selectedFaculty !== null && selectedLanguage !== null;
-    if (step === "form") return false; // Form step is never "completed" in the traditional sense
+    if (step === "form") return false;
     return false;
   };
 
-  // Check if step is accessible
   const isStepAccessible = (step: Step): boolean => {
     const stepIndex = getStepIndex(step);
     const currentIndex = getStepIndex(currentStep);
 
-    // Can always go back to previous steps
     if (stepIndex < currentIndex) return true;
-
-    // Can stay on current step
     if (stepIndex === currentIndex) return true;
-
-    // Can go forward only if current step is completed
     if (stepIndex === currentIndex + 1) return isStepCompleted(currentStep);
-
-    // Can't skip steps
     return false;
   };
 
-  // Handle step click
   const handleStepClick = (step: Step) => {
     if (isStepAccessible(step)) {
       setCurrentStep(step);
     }
   };
 
-  // Clear state (called on successful submission)
   const clearState = () => {
     setCurrentStep("type");
     setApplicantType(null);
@@ -192,148 +175,193 @@ export default function ApplyForm() {
     sessionStorage.removeItem(STORAGE_KEY);
   };
 
-  // Don't render until state is loaded from localStorage
   if (!isLoaded) {
     return null;
   }
 
   return (
-    <div className="max-w-6xl mx-auto">
-      {/* Step Indicator */}
-      <div className="flex items-center justify-center mb-8">
-        <div className="flex items-center space-x-4">
-          {(["type", "degree", "faculty", "form"] as Step[]).map(
-            (step, index) => (
-              <div key={step} className="flex items-center">
+    <div className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+      <aside className="apply-panel h-fit p-5 lg:sticky lg:top-36">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--apply-muted)]">
+          {t("navigation.process")}
+        </p>
+        <ol className="mt-5 space-y-1">
+          {STEPS.map((step, index) => {
+            const active = currentStep === step;
+            const done = getStepIndex(currentStep) > index;
+            const accessible = isStepAccessible(step);
+
+            return (
+              <li key={step}>
                 <button
+                  type="button"
                   onClick={() => handleStepClick(step)}
-                  disabled={!isStepAccessible(step)}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
-                    currentStep === step
-                      ? "bg-primary text-primary-foreground"
-                      : getStepIndex(currentStep) > index
-                      ? "bg-green-500 text-white hover:bg-green-600 cursor-pointer"
-                      : "bg-gray-200 text-gray-500"
-                  } ${
-                    isStepAccessible(step) && currentStep !== step
-                      ? "hover:scale-110 cursor-pointer"
-                      : !isStepAccessible(step)
-                      ? "cursor-not-allowed opacity-50"
-                      : ""
-                  }`}
+                  disabled={!accessible}
+                  className={cn(
+                    "flex w-full items-center gap-3 px-3 py-3 text-left transition",
+                    active && "bg-[var(--apply-forest)] text-white",
+                    !active &&
+                      done &&
+                      "text-[var(--apply-forest)] hover:bg-[var(--apply-forest)]/8",
+                    !active &&
+                      !done &&
+                      accessible &&
+                      "text-[var(--apply-ink)] hover:bg-black/5",
+                    !accessible && "cursor-not-allowed text-[var(--apply-muted)]/50"
+                  )}
                 >
-                  {index + 1}
+                  <span
+                    className={cn(
+                      "font-display text-sm tabular-nums",
+                      active ? "text-[var(--apply-marigold)]" : "opacity-70"
+                    )}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-sm font-medium tracking-wide">
+                    {t(`steps.${step}`)}
+                  </span>
                 </button>
-                {index < 3 && (
-                  <div
-                    className={`w-12 md:w-24 h-1 transition-colors ${
-                      getStepIndex(currentStep) > index
-                        ? "bg-green-500"
-                        : "bg-gray-200"
-                    }`}
-                  />
-                )}
-              </div>
-            )
+              </li>
+            );
+          })}
+        </ol>
+
+        {(selectedDegree || selectedFaculty || selectedLanguage) && (
+          <div className="mt-6 space-y-2 border-t border-[var(--apply-line)] pt-5 text-xs text-[var(--apply-muted)]">
+            {applicantType && (
+              <p>
+                <span className="uppercase tracking-wider opacity-70">
+                  {t("steps.type")}
+                </span>
+                <br />
+                <span className="text-sm text-[var(--apply-ink)]">
+                  {t(`applicantType.${applicantType}`)}
+                </span>
+              </p>
+            )}
+            {selectedDegree && (
+              <p>
+                <span className="uppercase tracking-wider opacity-70">
+                  {t("steps.degree")}
+                </span>
+                <br />
+                <span className="text-sm text-[var(--apply-ink)]">
+                  {selectedDegree.name}
+                </span>
+              </p>
+            )}
+            {selectedFaculty && (
+              <p>
+                <span className="uppercase tracking-wider opacity-70">
+                  {t("steps.faculty")}
+                </span>
+                <br />
+                <span className="text-sm text-[var(--apply-ink)]">
+                  {selectedFaculty.name}
+                  {selectedLanguage ? ` · ${selectedLanguage}` : ""}
+                </span>
+              </p>
+            )}
+          </div>
+        )}
+      </aside>
+
+      <div>
+        <motion.div
+          key={currentStep}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {currentStep === "type" && (
+            <ApplicantTypeSelector
+              selectedType={applicantType}
+              onSelect={handleApplicantTypeSelect}
+            />
           )}
-        </div>
+
+          {currentStep === "degree" && (
+            <DegreeSelector
+              onSelect={handleDegreeSelect}
+              selectedDegreeId={selectedDegree?.id}
+            />
+          )}
+
+          {currentStep === "faculty" && selectedDegree && (
+            <FacultySelector
+              faculties={selectedDegree.faculties}
+              selectedFacultyId={selectedFaculty?.id || null}
+              onSelect={handleFacultySelect}
+              selectedLanguage={selectedLanguage}
+              onLanguageSelect={handleLanguageSelect}
+            />
+          )}
+
+          {currentStep === "form" &&
+            selectedFaculty &&
+            applicantType === "student" && (
+              <StudentApplicationForm
+                facultyId={selectedFaculty.id}
+                facultyName={selectedFaculty.name}
+                degreeId={selectedDegree?.id || 0}
+                degreeName={selectedDegree?.name || ""}
+                teachingLanguage={selectedLanguage || "EN"}
+                onSubmitSuccess={clearState}
+              />
+            )}
+
+          {currentStep === "form" &&
+            selectedFaculty &&
+            applicantType === "agency" && (
+              <AgencyApplicationForm
+                facultyId={selectedFaculty.id}
+                facultyName={selectedFaculty.name}
+                degreeId={selectedDegree?.id || 0}
+                degreeName={selectedDegree?.name || ""}
+                teachingLanguage={selectedLanguage || "EN"}
+                onSubmitSuccess={clearState}
+              />
+            )}
+
+          {currentStep === "form" &&
+            selectedFaculty &&
+            applicantType === "transfer" && (
+              <TransferApplicationForm
+                facultyId={selectedFaculty.id}
+                facultyName={selectedFaculty.name}
+                degreeId={selectedDegree?.id || 0}
+                degreeName={selectedDegree?.name || ""}
+                teachingLanguage={selectedLanguage || "EN"}
+                onSubmitSuccess={clearState}
+              />
+            )}
+        </motion.div>
+
+        {currentStep !== "form" && (
+          <div className="mt-8 flex flex-col-reverse gap-3 border-t border-[var(--apply-line)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <button
+              type="button"
+              onClick={handleBack}
+              disabled={currentStep === "type"}
+              className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-[var(--apply-ink)] transition hover:text-[var(--apply-forest)] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              <ArrowLeft className="size-4" />
+              {t("navigation.back")}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              disabled={!canProceed()}
+              className="inline-flex items-center justify-center gap-2 bg-[var(--apply-forest)] px-6 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-[var(--apply-moss)] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              {t("navigation.continue")}
+              <ArrowRight className="size-4" />
+            </button>
+          </div>
+        )}
       </div>
-
-      {/* Step Content */}
-      <motion.div
-        key={currentStep}
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        transition={{ duration: 0.3 }}
-      >
-        {currentStep === "type" && (
-          <ApplicantTypeSelector
-            selectedType={applicantType}
-            onSelect={handleApplicantTypeSelect}
-          />
-        )}
-
-        {currentStep === "degree" && (
-          <DegreeSelector
-            onSelect={handleDegreeSelect}
-            selectedDegreeId={selectedDegree?.id}
-          />
-        )}
-
-        {currentStep === "faculty" && selectedDegree && (
-          <FacultySelector
-            faculties={selectedDegree.faculties}
-            selectedFacultyId={selectedFaculty?.id || null}
-            onSelect={handleFacultySelect}
-            selectedLanguage={selectedLanguage}
-            onLanguageSelect={handleLanguageSelect}
-          />
-        )}
-
-        {currentStep === "form" &&
-          selectedFaculty &&
-          applicantType === "student" && (
-            <StudentApplicationForm
-              facultyId={selectedFaculty.id}
-              facultyName={selectedFaculty.name}
-              degreeId={selectedDegree?.id || 0}
-              degreeName={selectedDegree?.name || ""}
-              teachingLanguage={selectedLanguage || "EN"}
-              onSubmitSuccess={clearState}
-            />
-          )}
-
-        {currentStep === "form" &&
-          selectedFaculty &&
-          applicantType === "agency" && (
-            <AgencyApplicationForm
-              facultyId={selectedFaculty.id}
-              facultyName={selectedFaculty.name}
-              degreeId={selectedDegree?.id || 0}
-              degreeName={selectedDegree?.name || ""}
-              teachingLanguage={selectedLanguage || "EN"}
-              onSubmitSuccess={clearState}
-            />
-          )}
-
-        {currentStep === "form" &&
-          selectedFaculty &&
-          applicantType === "transfer" && (
-            <TransferApplicationForm
-              facultyId={selectedFaculty.id}
-              facultyName={selectedFaculty.name}
-              degreeId={selectedDegree?.id || 0}
-              degreeName={selectedDegree?.name || ""}
-              teachingLanguage={selectedLanguage || "EN"}
-              onSubmitSuccess={clearState}
-            />
-          )}
-      </motion.div>
-
-      {/* Navigation Buttons */}
-      {currentStep !== "form" && (
-        <div className="flex justify-between mt-8">
-          <Button
-            variant="outline"
-            onClick={handleBack}
-            disabled={currentStep === "type"}
-            className="flex items-center gap-2"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {t("navigation.back")}
-          </Button>
-
-          <Button
-            onClick={handleNext}
-            disabled={!canProceed()}
-            className="flex items-center gap-2"
-          >
-            {t("navigation.continue")}
-            <ArrowRight className="w-4 h-4" />
-          </Button>
-        </div>
-      )}
     </div>
   );
 }

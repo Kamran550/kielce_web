@@ -19,34 +19,47 @@
     "cancel": "İptal"
   },
   "nav": {
+    "brand": "KIU",
+    "brandTag": "Polonya’da eğitim · Küresel kampüs",
+    "brandFull": "Kielce Uluslararası Üniversitesi",
     "home": "Ana Sayfa",
     "about": "Hakkımızda",
     "rectorate": "Rektörlük",
-    "administrativeUnits": "İdari Birimler",
+    "administrativeUnits": "İdari birimler",
     "fees": "Ücretler",
     "programs": "Programlar",
     "news": "Haberler",
     "contact": "İletişim",
-    "apply": "Başvur"
+    "apply": "Şimdi başvur",
+    "menu": "Gezinti",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat"
   },
   "hero": {
-    "title": "Dünya Standartlarında Eğitimle Geleceğinizi Şekillendirin",
-    "subtitle": "Küresel öğrenci topluluğuna katılın ve yarının lideri olmak için gerekli becerileri kazanın. 2026 Bahar Dönemi başvuruları şimdi açık.",
-    "primaryButton": "Şimdi Başvur",
-    "secondaryButton": "Programları Keşfet"
+    "brand": "Kielce Uluslararası Üniversitesi",
+    "title": "Bağlantılı bir dünya için eğitim",
+    "subtitle": "Uluslararası bir topluluk içinde Polonya’da okuyun. 2026 Bahar dönemi başvuruları açık.",
+    "primaryButton": "Başvuruya başla",
+    "secondaryButton": "Programlara göz at"
   },
   "aboutPreview": {
-    "title": "Hakkımızda",
-    "description": "Kielce Uluslararası Üniversitesi (KIU), eğitim ve küresel anlayış yoluyla barışı teşvik etmeye adanmış yenilikçi bir yüksek öğretim kurumudur. Öğrencilerimize dünyada olumlu değişiklikler yaratmak için gerekli bilgi ve becerileri sağlıyoruz.",
-    "button": "Daha Fazla Bilgi"
+    "eyebrow": "Biz kimiz",
+    "title": "Avrupa’nın kalbinde barış odaklı öğrenme",
+    "description": "KIU, Kielce’de akademik titizliği ve küresel anlayışı bir araya getiren uluslararası bir üniversitedir. Öğrencileri sınırlar ötesinde netlik, empati ve amaçla liderliğe hazırlarız.",
+    "button": "Hikâyemizi keşfedin",
+    "imageAlt": "Kielce Uluslararası Üniversitesi’nde öğrenciler ve kampüs yaşamı",
+    "imageCaption": "Kültürlerin buluştuğu, fikirlerin şekillendiği bir kampüs."
   },
   "statistics": {
-    "title": "Rakamlarla Etkimiz",
-    "subtitle": "Kaliteli eğitim ve küresel ortaklıklar yoluyla mükemmellik inşa ediyoruz",
+    "eyebrow": "Rakamlarla",
+    "title": "Büyüyen uluslararası bir topluluk",
+    "subtitle": "Programlar, insanlar ve yıllarca süren istikrarlı akademik büyüme — pazarlama gürültüsü değil, dürüst ölçüm.",
     "students": "Öğrenci",
     "countries": "Ülke",
-    "programs": "Program",
+    "programs": "Akademik program",
     "satisfaction": "Memnuniyet",
+    "internationalLecturers": "Uluslararası öğretim görevlisi",
+    "yearsOfExcellence": "Yıllık öğretim deneyimi",
     "international lecturers": "Uluslararası Öğretim Görevlileri",
     "years of excellence": "Yıllık Mükemmellik"
   },
@@ -59,15 +72,25 @@
     "subtitle": "Mezunlarımızdan başarı hikayeleri"
   },
   "cta": {
-    "title": "Geleceğinize Yatırım Yapın",
-    "description": "Küresel liderlerin yetiştiği üniversiteye katılın. Başvuru süreci basit ve hızlıdır.",
-    "button": "Şimdi Başvur",
-    "learnMore": "Daha Fazla Bilgi"
+    "eyebrow": "Kabul",
+    "title": "Bir sonraki bölümünüz burada başlar",
+    "description": "Birkaç net adımda başvurun. Kabul ekibimiz ilk sorudan kayda kadar size rehberlik eder.",
+    "button": "Şimdi başvur",
+    "learnMore": "Programları gör",
+    "deadlineLabel": "Son tarih",
+    "deadline": "2026 Bahar başvuruları 20 Mart’ta kapanır",
+    "benefitsTitle": "Neden başvurmalısınız",
+    "benefits": [
+      "Uluslararası odaklı lisans programları",
+      "Küresel deneyimli akademik kadro",
+      "Esnek öğrenme seçenekleriyle kampüs eğitimi"
+    ]
   },
   "language": {
     "en": "English",
     "tr": "Türkçe",
-    "ru": "Русский"
+    "ru": "Русский",
+    "select": "Dil seçin"
   },
   "about": {
     "hero": {
@@ -149,37 +172,47 @@
       }
     },
     "rectorate": {
-      "title": "Rektörlük",
+      "brand": "KIU Rektörlük",
+      "title": "Bilime dayanan liderlik",
+      "subtitle": "Rektörü tanıyın ve akademik topluluğumuzun tonunu belirleyen karşılama mesajını okuyun.",
       "profile": {
-        "title": "Rektör Profili",
-        "fullName": "Ad Soyad",
-        "position": "Pozisyon",
+        "roleLabel": "Rektör",
+        "title": "Rektör profili",
+        "fullName": "Ad soyad",
+        "position": "Görev",
         "fullNameValue": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak",
-        "positionValue": "Kielce Uluslararası Üniversitesi (KIELCE) Rektörü",
-        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak, uluslararası saygın bir akademisyen, yüksek öğretim lideri ve barış odaklı öğrenme savunucusudur. Kıtalar arası yirmi yılı aşkın bir kariyere sahip olan KORAL, Kielce Uluslararası Üniversitesi'ne (KIU) akademik mükemmellik, küresel vizyon ve sosyal sorumluluk sahibi liderlerin bir sonraki neslini şekillendirme konusunda derin bir bağlılık getirmektedir.",
-        "qualifications": "Dr. Mirosław Kędrzyński-Woźniak, barış ve çatışma çalışmaları, küresel diplomasi ve kültürlerarası iletişim alanlarında uzmanlaşmış Siyaset Bilimi ve Uluslararası İlişkiler alanında doktora derecesine sahiptir. Avrupa, Orta Asya ve Orta Doğu'daki tanınmış kurumlarda akademik ve idari pozisyonlar almıştır. Akademik yolculuğu, yüksek öğretimde diyalog, eleştirel düşünme ve etik liderliği teşvik etmeye odaklanmıştır.",
+        "positionValue": "Kielce Uluslararası Üniversitesi (KIU) Rektörü",
+        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak, uluslararası saygın bir akademisyen, yükseköğretim lideri ve barış odaklı öğrenmenin savunucusudur. Kıtalar arası yirmi yılı aşkın deneyimiyle KIU’ya akademik titizlik, küresel bakış ve sosyal sorumluluk sahibi liderliğe bağlılık kazandırır.",
+        "qualifications": "Barış ve çatışma çalışmaları, küresel diplomasi ve kültürlerarası iletişim alanlarında uzmanlaşmış Siyaset Bilimi ve Uluslararası İlişkiler doktorasına sahiptir. Avrupa, Orta Asya ve Orta Doğu’da akademik ve idari görevler üstlenmiş; yükseköğretimde diyalog, eleştirel düşünme ve etik liderliği sürekli desteklemiştir.",
         "email": "E-posta",
         "emailValue": "miroslaw.kedrzynski-wozniak@kielceuniversity.pl"
       },
       "welcomeMessage": {
-        "title": "Rektörden Hoş Geldiniz Mesajı",
-        "greeting": "Sevgili Öğrenciler, Fakülte ve Personel,",
-        "paragraph1": "Üniversitemize hoş geldiniz! Yeni bir akademik yolculuğun başında sizleri selamlamak benim için büyük bir onurdur. Kurumumuz, herkesin entelektüel ve kişisel olarak büyüyebileceği destekleyici, yenilikçi ve kapsayıcı bir ortam sağlamaya kararlıdır.",
-        "paragraph2": "Eğitimin sadece bilgi edinmekle ilgili olmadığına, aynı zamanda eleştirel düşünme, yaratıcılık ve topluma karşı sorumluluk duygusu geliştirmekle ilgili olduğuna inanıyoruz. Bu yolculuğa çıkarken, mevcut fırsatlardan tam olarak yararlanmanızı, topluluğunuzla aktif olarak etkileşim kurmanızı ve yaptığınız her şeyde mükemmellik için çaba göstermenizi teşvik ediyorum.",
-        "paragraph3": "Birlikte, öğrenme, araştırma ve işbirliği yoluyla daha parlak bir gelecek inşa etmeye çalışacağız. Buradaki zamanınızın hem ödüllendirici hem de ilham verici olacağına inanıyorum.",
+        "title": "Rektörden hoş geldiniz",
+        "greeting": "Sevgili öğrenciler, öğretim üyeleri ve personel,",
+        "paragraph1": "Kielce Uluslararası Üniversitesi’ne hoş geldiniz. Yeni bir akademik dönemin başında sizi selamlamak benim için onurdur. Herkesin gelişebileceği destekleyici, yenilikçi ve kapsayıcı bir ortam için çalışıyoruz.",
+        "paragraph2": "Buradaki eğitim yalnızca bilgi aktarmak değil; eleştirel düşünme, yaratıcılık ve toplumsal sorumluluk pratiğidir. Fırsatları kullanın, topluluğa katılın ve işinizde mükemmelliği hedefleyin.",
+        "paragraph3": "Birlikte öğrenme, araştırma ve işbirliğiyle daha aydınlık bir gelecek kuracağız. KIU’daki zamanınızın hem disiplinli hem ilham verici olacağına inanıyorum.",
         "closing": "Çalışmalarınızda ve ötesinde başarı ve tatmin dilerim.",
         "signature": "Saygılarımla,",
         "signatureName": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak",
-        "signatureTitle": "Rektör"
+        "signatureTitle": "Rektör",
+        "seal": "Rektörlük Ofisi"
       },
       "tabs": {
         "profile": "Profil",
-        "welcomeMessage": "Hoş Geldiniz Mesajı"
+        "welcomeMessage": "Hoş geldiniz mesajı"
       }
     },
     "administrativeUnits": {
-      "title": "İdari Birimler",
-      "subtitle": "Mükemmellik ve hizmete adanmış idari ekibimizle tanışın",
+      "brand": "KIU İdare",
+      "title": "İdari birimler",
+      "subtitle": "Akademik yaşamı ayakta tutan ekip — net roller, doğrudan iletişim.",
+      "columns": {
+        "role": "Rol",
+        "name": "Ad",
+        "email": "E-posta"
+      },
       "viceRector": {
         "position": "Rektör Yardımcısı",
         "name": "Dr. Aleksandra Brzezińska-Kowalczyk",
@@ -204,244 +237,274 @@
   },
   "fees": {
     "hero": {
-      "title": "Öğrenim Ücretleri ve Ödeme Planları",
-      "subtitle": "Esnek ödeme seçenekleri ile uygun fiyatlı eğitim. Kaliteli eğitimi erişilebilir kılmak için tasarlanmış rekabetçi öğrenim ücretlerimizi, ödeme planlarımızı ve burs fırsatlarımızı keşfedin."
+      "brand": "KIU Ücret & Destek",
+      "title": "Net ücretler. Esnek ödeme.",
+      "subtitle": "Program maliyetlerini görün, size uyan ödeme ritmini seçin ve Polonya’da eğitimi yaklaştıran bursları keşfedin.",
+      "scrollHint": "Program ücretlerini gör",
+      "asideLabel": "Başlangıç",
+      "asideFigure": "€2,800",
+      "asideCaption": "Seçili online programlar için yıllık ücret. Kampüs programları yılda €4,000’dan başlar.",
+      "asideCta": "Başvuruya başla"
     },
     "priceTable": {
-      "title": "Program Ücretleri",
-      "subtitle": "Tüm akademik programlarımız için şeffaf fiyatlandırma",
-      "mostPopular": "En Popüler",
-      "year": "/yıl",
-      "total": "Toplam",
-      "note": "* Tüm ücretler değişiklik gösterebilir. Belirli programlar için ek ücretler uygulanabilir. Detaylı bilgi için bizimle iletişime geçin.",
+      "eyebrow": "Öğrenim",
+      "title": "Her program ne kadar?",
+      "subtitle": "Yıllık ve toplam ücreti, nelerin dahil olduğunu görmek için bir yol seçin.",
+      "mostPopular": "En çok tercih",
+      "year": "/ yıl",
+      "total": "Program toplamı",
+      "includes": "Dahil olanlar",
+      "note": "Ücretler değişebilir. Bazı programlarda ek materyal maliyetleri olabilir — tam tahmin için Kabul Ofisi’ne sorun.",
       "programs": {
         "bachelors": {
-          "name": "Lisans Derecesi",
-          "duration": "4 Yıl",
+          "name": "Lisans",
+          "duration": "4 yıl",
           "features": [
-            "Tam zamanlı eğitim",
-            "Tüm tesislere erişim",
-            "Kütüphane erişimi",
-            "Kariyer danışmanlığı",
+            "Tam zamanlı kampüs eğitimi",
+            "Kampüs tesislerine erişim",
+            "Kütüphane ve dijital kaynaklar",
+            "Kariyer rehberliği",
             "Öğrenci destek hizmetleri"
           ]
         },
         "masters": {
-          "name": "Yüksek Lisans Derecesi",
-          "duration": "2 Yıl",
+          "name": "Yüksek lisans",
+          "duration": "2 yıl",
           "features": [
-            "Tam zamanlı eğitim",
-            "Araştırma fırsatları",
+            "Tam zamanlı kampüs eğitimi",
+            "Araştırma yolları",
             "Tez danışmanlığı",
-            "Kütüphane erişimi",
-            "Kariyer danışmanlığı",
-            "Mezunlar ağı"
+            "Kütüphane ve dijital kaynaklar",
+            "Kariyer rehberliği",
+            "Mezun ağı erişimi"
           ]
         },
         "doctoral": {
-          "name": "Doktora Programı",
-          "duration": "3-4 Yıl",
+          "name": "Doktora",
+          "duration": "3–4 yıl",
           "features": [
-            "Tam zamanlı eğitim",
-            "Araştırma finansmanı",
+            "Tam zamanlı araştırma odağı",
+            "Araştırma finansmanı desteği",
             "Tez danışmanlığı",
-            "Yayın desteği",
-            "Konferans katılımı",
+            "Yayın rehberliği",
+            "Konferans katılım desteği",
             "Kütüphane erişimi",
-            "Kariyer danışmanlığı"
+            "Kariyer rehberliği"
           ]
         },
         "online": {
-          "name": "Online Programlar",
-          "duration": "2-4 Yıl",
+          "name": "Online programlar",
+          "duration": "2–4 yıl",
           "features": [
-            "Esnek program",
+            "Esnek çalışma takvimi",
             "Online kütüphane erişimi",
-            "Sanal dersler",
-            "Öğrenci desteği",
-            "Dijital kaynaklar"
+            "Canlı ve kayıtlı oturumlar",
+            "Uzaktan öğrenci desteği",
+            "Dijital öğrenme kaynakları"
           ]
         }
       }
     },
     "paymentPlans": {
-      "title": "Esnek Ödeme Planları",
-      "subtitle": "Size en uygun ödeme planını seçin. Eğitimi uygun fiyatlı hale getirmek için çeşitli seçenekler sunuyoruz.",
-      "recommended": "Önerilen",
-      "off": "İndirim",
-      "customTerms": "Özel Şartlar",
-      "contact": "Ödeme Detayları için İletişime Geçin",
+      "eyebrow": "Ödemeler",
+      "title": "Size uyan ritimde ödeyin",
+      "subtitle": "Tek seferde ödemeden size özel takvime kadar — bütçenize uygun seçeneği belirleyin.",
+      "recommended": "Popüler",
+      "off": "indirim",
+      "customTerms": "Özel koşullar",
+      "contact": "Mali işlerle konuşun",
       "plans": {
         "fullPayment": {
-          "name": "Tam Ödeme",
-          "description": "Tüm öğrenim ücretini peşin ödeyin ve tasarruf edin",
+          "name": "Peşin ödeme",
+          "highlight": "%10 indirim",
+          "description": "Tüm öğrenim ücretini peşin ödeyin, en güçlü indirimi kilitleyin.",
           "benefits": [
             "Toplam ücrette %10 indirim",
-            "Aylık ödeme yok",
+            "Tekrarlayan fatura yok",
             "Öncelikli ders kaydı",
-            "Basitleştirilmiş faturalama süreci"
+            "Tek, basit faturalama döngüsü"
           ]
         },
         "semesterPayment": {
-          "name": "Dönem Ödemesi",
-          "description": "Dönem başına ödeyin (yılda 2 ödeme)",
+          "name": "Dönemlik",
+          "highlight": "%5 indirim",
+          "description": "Akademik yılda iki ödeme — çoğu öğrenci için dengeli varsayılan.",
           "benefits": [
-            "Dönem başına %5 indirim",
-            "Yönetilebilir ödemeler",
-            "Esnek programlama",
-            "Standart ders kaydı"
+            "Her dönem ücretinde %5 indirim",
+            "Daha kolay nakit planı",
+            "Net akademik yıl ritmi",
+            "Standart kayıt zamanlaması"
           ]
         },
         "monthlyPayment": {
-          "name": "Aylık Ödeme",
-          "description": "Ödemeleri 10 ay boyunca yayın",
+          "name": "Aylık",
+          "highlight": "Faizsiz",
+          "description": "Yılı faizsiz on eşit taksite yayın.",
           "benefits": [
-            "Faizsiz ödemeler",
-            "10 eşit aylık taksit",
-            "Bütçe dostu seçenek",
-            "Otomatik ödeme kurulumu"
+            "Faizsiz taksitler",
+            "On eşit aylık ödeme",
+            "Öngörülebilir hane bütçesi",
+            "İsteğe bağlı otomatik ödeme"
           ]
         },
         "installmentPlan": {
-          "name": "Taksit Planı",
-          "description": "İhtiyaçlarınıza göre özel ödeme planı",
+          "name": "Özel takvim",
+          "highlight": "Özel koşullar",
+          "description": "Mali ekibimizle koşullarınıza uygun bir ödeme takvimi oluşturun.",
           "benefits": [
-            "Esnek ödeme şartları",
-            "Kişiselleştirilmiş program",
-            "Faizsiz seçenekler",
-            "Mali danışmanlık mevcut"
+            "Anlaşmalı ödeme pencereleri",
+            "Kişisel takvim tasarımı",
+            "Uygunsa faizsiz seçenekler",
+            "Bire bir mali danışmanlık"
           ]
         }
       }
     },
     "scholarships": {
-      "title": "Burslar ve Mali Yardım",
-      "subtitle": "Eğitiminizi daha uygun fiyatlı hale getirmek için çeşitli burslar sunuyoruz. Burs fırsatlarımızı keşfedin.",
-      "coverage": "Kapsam",
+      "eyebrow": "Finansman",
+      "title": "Kapı açan burslar",
+      "subtitle": "Liyakat, ihtiyaç, araştırma ve uluslararası ödüller — erken başvurun, hikâyenize uyan kriterleri eşleştirin.",
+      "coverage": "Destek aralığı",
       "eligibility": "Uygunluk",
-      "applicationDeadline": "Başvuru Son Tarihi",
-      "apply": "Burslar için Başvur",
+      "applicationDeadline": "Son başvuru",
+      "apply": "Finansman için başvur",
       "items": {
         "academicExcellence": {
           "name": "Akademik Mükemmellik",
-          "description": "Üstün akademik başarılar ve olağanüstü performans için",
+          "description": "Sürekli yüksek başarı ve güçlü akademik kayıt için.",
+          "coverage": "50–100%",
+          "deadline": "15 Mart 2026",
           "eligibility": [
-            "GPA 3.5 veya daha yüksek",
-            "Güçlü tavsiye mektupları",
-            "Akademik başarılar",
+            "GPA 3.5+",
+            "Güçlü referanslar",
+            "Belgelenmiş başarılar",
             "Mülakat gerekli"
           ]
         },
         "meritBased": {
-          "name": "Liyakata Dayalı",
-          "description": "Çeşitli alanlarda olağanüstü yetenek ve adanmışlık için tanınma",
+          "name": "Liyakat Ödülü",
+          "description": "Akademik ve yaratıcı alanlarda öne çıkan yeteneği tanır.",
+          "coverage": "25–75%",
+          "deadline": "1 Nisan 2026",
           "eligibility": [
             "Kanıtlanmış liyakat",
-            "Portföy veya başarılar",
+            "Portföy veya ödüller",
             "Tavsiye mektupları",
-            "Başvuru değerlendirmesi"
+            "Komite değerlendirmesi"
           ]
         },
         "needBased": {
-          "name": "İhtiyaca Dayalı",
-          "description": "Ekonomik zorluklarla karşılaşan öğrenciler için mali yardım",
+          "name": "İhtiyaca Dayalı Destek",
+          "description": "Mali durumları aksi halde erişimi sınırlayacak öğrencilere destek.",
+          "coverage": "30–80%",
+          "deadline": "1 Mayıs 2026",
           "eligibility": [
-            "Mali ihtiyaç belgeleri",
-            "Hane geliri değerlendirmesi",
-            "Akademik durum korunur",
-            "Başvuru gerekli"
+            "İhtiyaç belgeleri",
+            "Hane geliri incelemesi",
+            "İyi akademik durum",
+            "Resmi başvuru"
           ]
         },
         "internationalStudents": {
-          "name": "Uluslararası Öğrenciler",
-          "description": "Topluluğumuza katılan uluslararası öğrenciler için özel destek",
+          "name": "Uluslararası Öğrenci Hibesi",
+          "description": "KIU’da Polonya’da okumak için taşınan öğrencilere ek destek.",
+          "coverage": "40–60%",
+          "deadline": "30 Mart 2026",
           "eligibility": [
-            "Yerleşik olmayan öğrenci",
-            "Akademik mükemmellik",
+            "Yerleşik olmayan statü",
+            "Sağlam akademik kayıt",
             "İngilizce yeterliliği",
-            "Kültürel katkı"
+            "Topluluk katkısı"
           ]
         },
         "researchFellowships": {
-          "name": "Araştırma Bursları",
-          "description": "Yenilikçi araştırma projelerinde yer alan lisansüstü öğrenciler için",
+          "name": "Araştırma Bursu",
+          "description": "Fakülte mentorluğuyla özgün projeler yürüten lisansüstü araştırmacılar için.",
+          "coverage": "Tam",
+          "deadline": "28 Şubat 2026",
           "eligibility": [
-            "Lisansüstü öğrenci statüsü",
+            "Lisansüstü kayıt",
             "Araştırma önerisi",
             "Fakülte tavsiyesi",
-            "Araştırma potansiyeli"
+            "Net araştırma potansiyeli"
           ]
         }
       }
     },
     "faq": {
-      "title": "Sıkça Sorulan Sorular",
-      "subtitle": "Ücretler, ödemeler ve mali yardım hakkında yaygın soruların cevaplarını bulun",
-      "contact": "Hala sorularınız var mı? Yardımcı olmaya hazırız!",
-      "contactLink": "Mali Ofisimizle İletişime Geçin →",
+      "eyebrow": "Yardım",
+      "title": "Ücretler, açıkça yanıtlandı",
+      "subtitle": "Öğrenim ücreti, ödeme zamanı, iadeler ve burslar hakkında hızlı yanıtlar.",
+      "answerLabel": "Yanıt",
+      "contact": "Daha özel bir şey mi lazım?",
+      "contactLink": "Mali ofise yazın →",
       "items": {
         "q1": {
-          "question": "Öğrenim ücretine neler dahildir?",
-          "answer": "Öğrenim ücretleri tüm akademik dersleri, üniversite tesislerine erişimi (kütüphane, laboratuvarlar, bilgisayar laboratuvarları), öğrenci destek hizmetlerini ve temel öğrenci etkinliklerini içerir. Belirli programlar, materyaller veya isteğe bağlı hizmetler için ek ücretler uygulanabilir."
+          "question": "Öğrenim ücreti neleri kapsar?",
+          "answer": "Öğrenim ücreti dersleri, temel kampüs olanaklarını (kütüphane, laboratuvarlar, bilgisayar), öğrenci desteğini ve standart etkinlikleri kapsar. Programa özel materyaller veya isteğe bağlı ekstralar ayrı ücretli olabilir."
         },
         "q2": {
-          "question": "Ücretlerimi taksitle ödeyebilir miyim?",
-          "answer": "Evet, dönem ödemeleri, aylık taksitler (10 ay) ve özel ödeme planları dahil olmak üzere esnek ödeme planları sunuyoruz. Tüm taksit planları için faizsiz seçenekler mevcuttur. Daha fazla bilgi için mali ofisimizle iletişime geçin."
+          "question": "Taksitle ödeyebilir miyim?",
+          "answer": "Evet. Dönem ödemesi, on aylık taksit veya özel takvim seçebilirsiniz. Faizsiz seçenekler mevcuttur — kurulum için mali işlerle iletişime geçin."
         },
         "q3": {
-          "question": "Ek ücretler var mı?",
-          "answer": "Ek ücretler başvuru ücreti, kayıt ücreti, öğrenci hizmet ücreti ve belirli programla ilgili maliyetleri (malzemeler, saha gezileri vb.) içerebilir. Tüm ücretler kabul mektubunuzda ve öğrenci el kitabında açıkça belirtilmiştir."
+          "question": "Öğrenim dışında ücret var mı?",
+          "answer": "Başvuru ücreti, kayıt ücreti, öğrenci hizmet ücreti veya programa özel maliyetler (materyal, saha gezisi) görülebilir. Bunlar teklif mektubunda ve öğrenci el kitabında listelenir."
         },
         "q4": {
-          "question": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
-          "answer": "Banka havaleleri, kredi/banka kartları ve online ödeme platformlarını kabul ediyoruz. Uluslararası öğrenciler ayrıca havale kullanabilir. Ödeme detayları ve talimatları kayıt sırasında sağlanacaktır."
+          "question": "Hangi ödeme yöntemleri kabul edilir?",
+          "answer": "Banka havalesi, kart ödemeleri ve onaylı online platformlar. Uluslararası öğrenciler wire transfer da kullanabilir. Tam talimatlar kayıt paketinizle gelir."
         },
         "q5": {
-          "question": "Çekilirsem geri ödeme alabilir miyim?",
-          "answer": "Geri ödeme politikaları programa ve çekilme zamanına göre değişir. Genel olarak, geri ödemeler dönemin ilk birkaç haftasında mevcuttur ve miktarlar zamanla azalır. Tam geri ödeme politikaları kayıt sözleşmenizde belirtilmiştir."
+          "question": "Ayrılırsam iade alabilir miyim?",
+          "answer": "İade kuralları programınıza ve ayrılma zamanına bağlıdır. Kısmi iadeler genelde dönemin başında mümkündür ve sonra azalır. Tam politika kayıt sözleşmenizdedir."
         },
         "q6": {
           "question": "Burslar yenilenebilir mi?",
-          "answer": "Çoğu burs, akademik performansı korumaya (genellikle GPA 3.0 veya daha yüksek), tam zamanlı kayıt ve iyi durumda olmaya dayalı olarak yıllık olarak yenilenebilir. Belirli yenileme gereksinimleri burs ödül mektubunuzda belirtilmiştir."
+          "answer": "Çoğu ödül, gerekli akademik başarı (çoğunlukla GPA 3.0+), tam zamanlı kayıt ve iyi durum korunursa yıllık yenilenir. Kesin koşullar ödül mektubunuzdadır."
         },
         "q7": {
           "question": "Birden fazla bursa başvurabilir miyim?",
-          "answer": "Evet, birden fazla bursa başvurabilirsiniz. Ancak, toplam mali yardım (burslar, hibeler ve diğer yardımlar dahil) katılımın toplam maliyetini aşamaz. Mali yardım paketinizi maksimize etmek için sizinle çalışacağız."
+          "answer": "Evet. Toplam yardım katılım maliyetini aşamaz; en güçlü uygun paketi birlikte oluşturmanıza yardımcı oluruz."
         },
         "q8": {
-          "question": "Ücretler ne zaman ödenmelidir?",
-          "answer": "Ücret ödeme son tarihleri ödeme planına göre değişir. Tam ödeme her dönemin başlangıcından önce ödenmelidir. Dönem ödemeleri her dönemin başlangıcında ödenmelidir. Aylık taksitler Eylül'de başlar ve 10 ay devam eder. Belirli tarihler kayıt paketinizde sağlanır."
+          "question": "Ücretler ne zaman ödenir?",
+          "answer": "Tam ödeme her dönem başlamadan önce yapılır. Dönem planları dönem başında faturalanır. Aylık planlar genelde Eylül’den itibaren on ay sürer. Kesin tarihler kayıt paketinizdedir."
         },
         "q9": {
-          "question": "Erken ödeme için indirim sunuyor musunuz?",
-          "answer": "Evet, tam peşin ödeme için %10 ve dönem ödemeleri için %5 indirim sunuyoruz. Bu indirimler yalnızca öğrenim ücretlerine uygulanır ve tüm öğrenciler için mevcuttur. Erken ödeme indirimleri hakkında daha fazla bilgi için bizimle iletişime geçin."
+          "question": "Erken ödeme indirimi var mı?",
+          "answer": "Evet — peşin tam ödemede %10, dönem ödemelerinde %5. İndirimler yalnızca öğrenim ücretine uygulanır."
         },
         "q10": {
           "question": "Zamanında ödeyemezsem ne olur?",
-          "answer": "Mali zorluklar yaşıyorsanız, lütfen derhal mali ofisimizle iletişime geçin. Ödeme planı değişiklikleri, acil yardım ve mali danışmanlık sunuyoruz. Önceden düzenleme yapılmazsa gecikme ücretleri uygulanabilir."
+          "answer": "En kısa sürede mali ofisle iletişime geçin. Plan değişikliği, acil destek ve danışmanlık konuşulabilir. Önceden düzenleme yoksa gecikme ücreti uygulanabilir."
         }
       }
     }
   },
   "programs": {
     "hero": {
-      "title": "Akademik Programlar",
-      "subtitle": "Seçtiğiniz alanda başarı için tasarlanmış lisans, lisansüstü ve profesyonel programlarımızın kapsamlı yelpazesini keşfedin."
+      "brand": "KIU Programları",
+      "title": "Hedefleriniz için yollar",
+      "subtitle": "Lisans, lisansüstü, doktora, online ve profesyonel programlara göz atın — sonraki adımınıza uygun yolu açın.",
+      "browseCta": "Kataloğu incele",
+      "applyCta": "Başvuruya başla"
     },
     "grid": {
-      "title": "Programlarımız",
-      "subtitle": "Akademik ve profesyonel programlarımızın çeşitli yelpazesini keşfedin",
-      "searchPlaceholder": "Programları ara...",
-      "found": "Bulundu",
+      "eyebrow": "Katalog",
+      "title": "Programınızı bulun",
+      "subtitle": "Düzeye göre filtreleyin veya ad, derece ya da alana göre arayın.",
+      "searchPlaceholder": "Başlık, derece veya anahtar kelime ara…",
+      "found": "Gösterilen",
       "programs": "program",
       "programsPlural": "program",
-      "noResults": "Kriterlerinize uygun program bulunamadı.",
-      "clearFilters": "Filtreleri Temizle",
-      "featuredProgram": "Öne Çıkan Program",
-      "keyFeatures": "Temel Özellikler:",
-      "careerPaths": "Kariyer Yolları:",
+      "noResults": "Bu filtrelere uyan program yok.",
+      "clearFilters": "Filtreleri sıfırla",
+      "featuredProgram": "Öne çıkan",
+      "keyFeatures": "Öne çıkanlar",
+      "careerPaths": "Kariyer yönleri",
       "more": "daha fazla",
-      "learnMore": "Daha Fazla Bilgi",
+      "learnMore": "Program detayı",
       "apply": "Başvur"
     },
     "details": {
@@ -469,21 +532,27 @@
   },
   "news": {
     "hero": {
-      "title": "Haberler ve Güncellemeler",
-      "subtitle": "Kielce Uluslararası Üniversitesi'ndeki en son haberler, etkinlikler, duyurular ve başarılar hakkında bilgi sahibi olun."
+      "brand": "KIU Haber Merkezi",
+      "title": "Kampüsten ve ötesinden hikâyeler",
+      "subtitle": "Kielce Uluslararası Üniversitesi’nden duyurular, etkinlikler ve akademik anlar.",
+      "scrollHint": "Son hikâyeleri aç",
+      "asideLabel": "Şimdi okunan",
+      "asideQuote": "İnsanları, kültürleri ve gelecekleri buluşturan eğitim."
     },
     "grid": {
-      "featuredNews": "Öne Çıkan Haberler",
-      "featured": "Öne Çıkan",
-      "allNews": "Tüm Haberler",
-      "searchPlaceholder": "Haberleri ara...",
-      "found": "Bulundu",
-      "article": "makale",
-      "articles": "makale",
-      "noResults": "Kriterlerinize uygun haber makalesi bulunamadı.",
-      "clearFilters": "Filtreleri Temizle",
-      "readMore": "Daha Fazla Oku",
-      "min": "dk"
+      "featuredNews": "Öne çıkan",
+      "featured": "Öne çıkan",
+      "allNews": "Son haberler",
+      "searchPlaceholder": "Başlık veya konu ara…",
+      "found": "Gösterilen",
+      "article": "haber",
+      "articles": "haber",
+      "noResults": "Bu filtrelere uyan haber yok.",
+      "clearFilters": "Filtreleri sıfırla",
+      "readMore": "Haberi oku",
+      "min": "dk",
+      "previous": "Önceki",
+      "next": "Sonraki"
     },
     "detail": {
       "backToNews": "Haberlere Dön",
@@ -496,13 +565,14 @@
       "linkCopied": "Link panoya kopyalandı!"
     },
     "newsletter": {
-      "title": "Güncel Kalın",
-      "description": "Bültenimize abone olun ve KIELCE'den önemli haberleri, etkinlikleri ve güncellemeleri kaçırmayın.",
-      "emailPlaceholder": "E-posta adresinizi girin",
-      "subscribe": "Abone Ol",
-      "thankYou": "Abone olduğunuz için teşekkürler!",
-      "successMessage": "En son haberlerimizi ve güncellemelerimizi alacaksınız.",
-      "privacy": "Gizliliğinize saygı duyuyoruz. İstediğiniz zaman aboneliği iptal edebilirsiniz."
+      "eyebrow": "Bülten",
+      "title": "Kampüs güncellemelerini e-postayla alın",
+      "description": "KIU haberleri, etkinlikler ve kabul notlarından kısa bir özet — gereksiz gürültü yok.",
+      "emailPlaceholder": "you@example.com",
+      "subscribe": "Abone ol",
+      "thankYou": "Listedesiniz.",
+      "successMessage": "Bir sonraki özet yakında gelen kutunuzda.",
+      "privacy": "Gizliliğinize saygı duyuyoruz. İstediğiniz zaman abonelikten çıkabilirsiniz."
     },
     "categories": {
       "all": "Tüm Haberler",
@@ -515,195 +585,242 @@
   },
   "contact": {
     "hero": {
-      "title": "İletişime Geçin",
-      "subtitle": "Yardımcı olmaya hazırız! Aşağıdaki kanallardan herhangi biri ile bizimle iletişime geçin. Ekibimiz sorularınızı yanıtlamaya ve eğitim yolculuğunuzda size yardımcı olmaya hazırdır."
+      "brand": "KIU İletişim",
+      "title": "Yardımcı olabilecek kişilerle konuşun",
+      "subtitle": "Kabul, rektörlük veya genel sorular — telefon, e-posta veya kısa bir mesajla ulaşın.",
+      "channelsCta": "Kanalları gör",
+      "formCta": "Bize yazın"
     },
     "info": {
-      "title": "İletişime Geçin",
-      "subtitle": "Bize ulaşmanın en iyi yolunu seçin. Yardımcı olmaya hazırız!",
+      "eyebrow": "Kanallar",
+      "title": "KIU’ya nasıl ulaşırsınız",
+      "subtitle": "Telefon, e-posta, kampüs adresi ve ofis saatleri için doğrudan bilgiler.",
       "phone": "Telefon",
       "email": "E-posta",
       "address": "Adres",
-      "admissions": "Kabul:",
-      "support": "Destek:",
-      "officeHours": "Ofis Saatleri",
+      "admissions": "Kabul",
+      "support": "Rektörlük / destek",
+      "officeHours": "Ofis saatleri",
       "hours": {
-        "weekdays": "Pazartesi - Cuma: 09:00 - 18:00",
+        "weekdays": "Pazartesi – Cuma: 09:00 – 18:00",
         "saturday": "Cumartesi: Kapalı",
         "sunday": "Pazar: Kapalı"
       }
     },
     "form": {
-      "title": "Bize Mesaj Gönderin",
-      "subtitle": "Aşağıdaki formu doldurun ve size en kısa sürede geri döneceğiz.",
-      "success": "Teşekkürler! Mesajınız başarıyla gönderildi. Size yakında geri döneceğiz.",
-      "name": "Ad Soyad *",
-      "namePlaceholder": "Ahmet Yılmaz",
+      "eyebrow": "Mesaj",
+      "title": "Not gönderin",
+      "subtitle": "Sorunuzu yazın; en kısa sürede yanıtlayacağız.",
+      "success": "Teşekkürler — mesajınız yola çıktı. Yakında dönüş yapacağız.",
+      "name": "Ad soyad *",
+      "namePlaceholder": "Adınız",
       "email": "E-posta *",
-      "emailPlaceholder": "ahmet@example.com",
-      "phone": "Telefon (İsteğe Bağlı)",
-      "phonePlaceholder": "+994 50 123 4567",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Telefon (isteğe bağlı)",
+      "phonePlaceholder": "+48 …",
       "subject": "Konu *",
-      "subjectPlaceholder": "Genel soru",
+      "subjectPlaceholder": "Kabul, programlar, ücretler…",
       "message": "Mesaj *",
-      "messagePlaceholder": "Mesajınızı buraya yazın...",
-      "sending": "Gönderiliyor...",
-      "sendMessage": "Mesaj Gönder",
+      "messagePlaceholder": "Nasıl yardımcı olabiliriz?",
+      "sending": "Gönderiliyor…",
+      "sendMessage": "Mesaj gönder",
       "privacy": "Bu formu göndererek gizlilik politikamızı kabul etmiş olursunuz.",
-      "viewFAQ": "SSS'ye Bak",
+      "viewFAQ": "Ücretler SSS’sini oku",
       "validation": {
         "nameMin": "Ad en az 2 karakter olmalıdır",
-        "emailInvalid": "Geçersiz e-posta adresi",
+        "emailInvalid": "Geçerli bir e-posta girin",
         "subjectMin": "Konu en az 3 karakter olmalıdır",
         "messageMin": "Mesaj en az 10 karakter olmalıdır"
       }
     },
     "map": {
-      "title": "Bizi Bulun",
-      "subtitle": "Kampüsümüzü ziyaret edin veya aşağıdaki haritayı kullanarak yol tarifi alın.",
-      "campusAddress": "Kampüs Adresi",
-      "getDirections": "Yol Tarifi Al"
+      "eyebrow": "Ziyaret",
+      "title": "Kampüsü bulun",
+      "subtitle": "Ogrodowa 58, Varşova — yol tarifi için haritayı açın.",
+      "campusAddress": "Kampüs adresi",
+      "getDirections": "Google Maps’te aç"
     },
     "social": {
-      "followUs": "Bizi Takip Edin",
-      "subtitle": "Sosyal medyada bizimle bağlantıda kalın",
-      "haveQuestions": "Sorularınız mı Var?",
-      "faqDescription": "Yaygın sorulara hızlı cevaplar için Sıkça Sorulan Sorular bölümümüze bakın.",
-      "viewFAQ": "SSS'ye Bak"
+      "eyebrow": "Bağlan",
+      "followUs": "KIU’yu çevrimiçi takip edin",
+      "subtitle": "Kampüsten haberler ve anlar sosyal kanallarımızda.",
+      "haveQuestions": "Hızlı bir yanıt mı istersiniz?",
+      "faqDescription": "Öğrenim ücreti, ödemeler ve burslar ücretler SSS’sinde.",
+      "viewFAQ": "Ücretler SSS’sini aç"
     }
   },
   "footer": {
-    "description": "Kielce Uluslararası Üniversitesi - Eğitim, barış ve kültürü birleştiren uluslararası bir üniversite.",
-    "quickLinks": "Hızlı Bağlantılar",
-    "contact": "İletişim",
-    "university": "Üniversite",
+    "brand": "KIU",
+    "description": "Polonya’da, kıtalar arası öğrencileri titiz eğitim, kültürel alışveriş ve ortak barış taahhüdüyle buluşturan uluslararası bir üniversite.",
+    "contactCta": "Bize ulaşın",
+    "quickLinks": "Site haritası",
+    "contact": "Kabul masası",
+    "contactHeadline": "Uluslararası ekibimizle konuşun",
+    "university": "Yollar",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-posta",
+    "addressLabel": "Kampüs ofisi",
     "phoneNumbers": {
       "poland": "Polonya",
       "azerbaijan": "Azerbaycan",
-      "luxembourg": "Luxembourg",
+      "luxembourg": "Lüksemburg",
       "germany": "Almanya",
       "turkey": "Türkiye",
-      "global": "Küresel"
+      "global": "Dünya geneli"
     },
-    "linesAreOpen": "Hizmet verilen gün ve saatler: Pazartesi – Cuma 9:00 - 18:00",
+    "linesAreOpen": "Danışmanlar Pazartesi–Cuma 09:00–18:00 (CET) yanıt verir.",
     "links": {
-      "about": "Hakkımızda",
-      "programs": "Programlar",
-      "fees": "Ücretler",
-      "contact": "İletişim",
+      "about": "KIU hakkında",
+      "programs": "Derece programları",
+      "fees": "Ücret ve destek",
+      "contact": "Bize yazın",
       "apply": "Başvur",
       "eLibrary": "E-Kütüphane"
     },
     "universityLinks": {
-      "academicPrograms": "Akademik Programlar",
-      "researchInnovation": "Araştırma ve Yenilik",
-      "studentLife": "Öğrenci Yaşamı",
-      "admissions": "Kabul"
+      "academicPrograms": "Programlara göz at",
+      "researchInnovation": "Üniversite profili",
+      "studentLife": "Son haberler",
+      "admissions": "Kabulü başlat"
     },
     "copyright": "© {year} Kielce Uluslararası Üniversitesi. Tüm hakları saklıdır.",
-    "privacyPolicy": "Gizlilik Politikası",
-    "termsOfService": "Hizmet Şartları"
+    "privacyPolicy": "Gizlilik",
+    "termsOfService": "Şartlar"
   },
   "apply": {
     "hero": {
-      "title": "KIELCE'e Başvurun",
-      "subtitle": "Akademik yolculuğunuza bizimle başlayın. Derece programınızı seçin ve başvurunuzu bugün başlatın."
+      "brand": "Kabul masası",
+      "title": "KIU başvurunuza başlayın",
+      "subtitle": "Öğrenciler, ajanslar ve transferler için rehberli başvuru. Yolunuzu seçin, fakülteyi belirleyin ve belgelerinizi tek oturumda gönderin.",
+      "cta": "Başvuru formunu aç",
+      "asideLabel": "Nasıl işler",
+      "step1": "Nasıl başvurduğunuzu belirtin",
+      "step2": "Derece düzeyinizi seçin",
+      "step3": "Fakülte ve öğretim dilini seçin",
+      "step4": "Bilgilerinizi ve belgelerinizi tamamlayın",
+      "note": "Başlamadan önce yardıma mı ihtiyacınız var?",
+      "contactLink": "Kabul ofisiyle iletişime geçin"
+    },
+    "steps": {
+      "type": "Başvuran",
+      "degree": "Derece",
+      "faculty": "Fakülte",
+      "form": "Detaylar"
     },
     "applicantType": {
-      "title": "Başvuru türüm",
-      "subtitle": "Lütfen başvuru türünüzü seçin",
-      "student": "Öğrenci",
-      "studentDesc": "Bireysel öğrenci olarak başvurun",
-      "agency": "Ajans",
-      "agencyDesc": "Bir eğitim ajansı adına başvurun",
-      "transfer": "Transfer",
-      "transferDesc": "Başka bir üniversiteden transfer",
+      "eyebrow": "Adım 01",
+      "title": "Nasıl başvuruyorsunuz?",
+      "subtitle": "Durumunuza uyan yolu seçin. Daha sonra süreç panelinden değiştirebilirsiniz.",
+      "student": "Bireysel öğrenci",
+      "studentDesc": "Lisans, yüksek lisans veya doktora için doğrudan başvuru.",
+      "agency": "Eğitim ajansı",
+      "agencyDesc": "Bir danışmanlık veya temsilci kurum adına başvuru.",
+      "transfer": "Üniversite transferi",
+      "transferDesc": "Başka bir kurumdan KIU programına geçiş.",
       "continue": "Devam et"
     },
     "degreeSelector": {
-      "title": "Derece Programınızı Seçin",
-      "subtitle": "Başvurmak istediğiniz derece programını seçin",
-      "loading": "Dereceler yükleniyor...",
-      "error": "Dereceler yüklenemedi",
-      "retry": "Yeniden Dene",
-      "noDegrees": "Şu anda mevcut derece programı bulunmamaktadır.",
-      "selected": "Seçilen Derece"
+      "eyebrow": "Adım 02",
+      "title": "Hangi derece düzeyi?",
+      "subtitle": "Hedeflediğiniz dereceyi seçin. Fakülteler bu seçime göre süzülür.",
+      "loading": "Derece düzeyleri yükleniyor…",
+      "error": "Derece düzeyleri yüklenemedi.",
+      "retry": "Yeniden dene",
+      "noDegrees": "Şu anda açık derece düzeyi yok.",
+      "selected": "Seçildi"
     },
     "facultySelector": {
-      "title": "Fakültenizi Seçin",
-      "subtitle": "Mevcut seçeneklerden istediğiniz fakülteyi seçin",
-      "noFaculties": "Bu derece için fakülte bulunmamaktadır.",
-      "selected": "Seçilen Fakülte",
+      "eyebrow": "Adım 03",
+      "title": "Fakülte seçin",
+      "subtitle": "Derecenize uygun fakülteleri inceleyin, ardından öğretim dilini belirleyin.",
+      "noFaculties": "Bu derece için fakülte bulunmuyor.",
+      "selected": "Seçilen fakülte",
       "languageSelection": {
-        "title": "Öğretim Dilini Seçin",
-        "subtitle": "Programınız için öğretim dilini seçin",
+        "eyebrow": "Öğretim",
+        "title": "Öğretim dili",
+        "subtitle": "Programlar ve ücretler burada seçtiğiniz dile göre filtrelenir.",
         "english": "İngilizce",
         "turkish": "Türkçe",
-        "selected": "Seçilen Dil"
+        "selected": "Seçilen dil"
       }
     },
     "navigation": {
-      "back": "Geri",
+      "process": "Başvuru süreci",
+      "back": "Önceki adım",
       "continue": "Devam et",
-      "submit": "Başvuruyu Gönder"
+      "submit": "Başvuruyu gönder"
+    },
+    "common": {
+      "perYear": "/yıl",
+      "submitFailed": "Başvuru gönderilemedi: {message}",
+      "unknownError": "Bilinmeyen hata",
+      "websitePlaceholder": "https://example.com"
+    },
+    "programSelector": {
+      "title": "Programınızı seçin",
+      "subtitle": "Fakülte ve dile uygun programı seçin",
+      "loading": "Programlar yükleniyor…",
+      "error": "Programlar yüklenemedi.",
+      "retry": "Yeniden dene",
+      "noPrograms": "Bu seçim için uygun program yok."
     },
     "studentForm": {
-      "title": "Öğrenci Başvuru Formu",
+      "title": "Öğrenci başvurusu",
       "programSelection": "Program Seçimi",
       "program": "Program",
       "loadingPrograms": "Programlar yükleniyor...",
       "selectProgram": "Bir program seçin",
-      "personalInfo": "Kişisel Bilgiler",
+      "personalInfo": "Kişisel bilgiler",
       "firstName": "Ad",
       "lastName": "Soyad",
-      "fatherName": "Baba Adı",
+      "fatherName": "Baba adı",
       "gender": "Cinsiyet",
       "male": "Erkek",
       "female": "Kadın",
       "other": "Diğer",
-      "dateOfBirth": "Doğum Tarihi",
-      "placeOfBirth": "Doğum Yeri (Ülke)",
+      "dateOfBirth": "Doğum tarihi",
+      "placeOfBirth": "Doğum yeri (ülke)",
       "nationality": "Uyruk",
       "selectNationality": "Uyruk seçin",
-      "nativeLanguage": "Ana Dil",
+      "nativeLanguage": "Ana dil",
       "selectNativeLanguage": "Ana dil seçin",
-      "phone": "Telefon Numarası",
+      "phone": "Telefon numarası",
       "email": "E-posta",
       "identification": "Kimlik",
-      "passportNumber": "Kimlik Belgesi Seri Numarası",
+      "passportNumber": "Kimlik belgesi seri numarası",
       "passportNumberPlaceholder": "örn., c4776hjbde987",
-      "photoId": "Pasaport (resim/pdf)",
-      "profilePhoto": "Fotoğraf (resim)",
+      "photoId": "Kimlik fotoğrafı kopyası (görsel/pdf)",
+      "profilePhoto": "Profil fotoğrafı (görsel)",
       "address": "Adres",
       "country": "Ülke",
       "city": "Şehir",
-      "addressLine": "Adres Satırı",
-      "educationDocuments": "Eğitim Belgeleri",
-      "diploma": "Lise Diploması (jpg/pdf)",
-      "transcript": "Lise Transkripti (jpg/pdf)",
-      "highSchoolDiploma": "Lise Diploması (jpg/pdf)",
-      "highSchoolTranscript": "Lise Transkripti (jpg/pdf)",
-      "bachelorDiploma": "Lisans Diploma (jpg/pdf)",
-      "bachelorTranscript": "Lisans Akademik Transkript (jpg/pdf)",
-      "masterDiploma": "Yüsek Lisans Diploma (jpg/pdf)",
-      "masterTranscript": "Yüksek Lisans Akademik Transkript (jpg/pdf)",
-      "programChoice": "Program Seçimi",
+      "addressLine": "Adres satırı",
+      "educationDocuments": "Eğitim belgeleri",
+      "diploma": "Lise diploması (jpg/pdf)",
+      "transcript": "Lise transkripti (jpg/pdf)",
+      "highSchoolDiploma": "Lise diploması (jpg/pdf)",
+      "highSchoolTranscript": "Lise transkripti (jpg/pdf)",
+      "bachelorDiploma": "Lisans diploması (jpg/pdf)",
+      "bachelorTranscript": "Lisans akademik transkripti (jpg/pdf)",
+      "masterDiploma": "Yüksek lisans diploması (jpg/pdf)",
+      "masterTranscript": "Yüksek lisans akademik transkripti (jpg/pdf)",
+      "programChoice": "Program seçimi",
       "faculty": "Fakülte",
       "required": "Zorunlu alan",
       "invalidEmail": "Geçersiz e-posta adresi",
       "emailTaken": "Bu e-posta adresi zaten sistemimizde bir öğrenci başvurusu ile ilişkilidir. Bu bir hata ise lütfen destek ekibimizle iletişime geçin veya farklı bir e-posta adresi kullanın.",
       "submitting": "Gönderiliyor...",
-      "submit": "Başvuruyu Gönder",
-      "submitSuccess": "Başvuru başarıyla gönderildi!",
+      "submit": "Başvuruyu gönder",
+      "submitSuccess": "Başvurunuz alındı. Kabul ekibimiz kısa süre içinde size dönüş yapacak.",
       "submitError": "Başvuru gönderilemedi. Lütfen tekrar deneyin."
     },
     "transferForm": {
-      "title": "Transfer Başvuru Formu",
-      "transferInfo": "Transfer Bilgileri",
-      "currentUniversity": "Mevcut Üniversite",
-      "currentCourse": "Mevcut Sınıf",
+      "title": "Transfer başvurusu",
+      "transferInfo": "Transfer bilgileri",
+      "currentUniversity": "Mevcut üniversite",
+      "currentCourse": "Mevcut sınıf",
       "selectCurrentCourse": "Mevcut sınıfı seçin",
-      "programSelection": "Program Seçimi",
+      "programSelection": "Program seçimi",
       "program": "Program",
       "loadingPrograms": "Programlar yükleniyor...",
       "selectProgram": "Bir program seçin",
@@ -745,13 +862,14 @@
       "faculty": "Fakülte",
       "required": "Zorunlu alan",
       "invalidEmail": "Geçersiz e-posta adresi",
+      "emailTaken": "Bu e-posta adresi zaten sistemimizde bir transfer başvurusu ile ilişkilidir. Bu bir hata ise lütfen destek ekibimizle iletişime geçin veya farklı bir e-posta adresi kullanın.",
       "submitting": "Gönderiliyor...",
-      "submit": "Başvuruyu Gönder",
-      "submitSuccess": "Başvuru başarıyla gönderildi!",
+      "submit": "Başvuruyu gönder",
+      "submitSuccess": "Başvurunuz alındı. Kabul ekibimiz kısa süre içinde size dönüş yapacak.",
       "submitError": "Başvuru gönderilemedi. Lütfen tekrar deneyin."
     },
     "agencyForm": {
-      "title": "Ajans Başvuru Formu",
+      "title": "Ajans başvurusu",
       "agencyInfo": "Ajans Bilgileri",
       "agencyName": "Ajans Adı",
       "country": "Ülke",
@@ -770,8 +888,8 @@
       "required": "Zorunlu alan",
       "invalidEmail": "Geçersiz e-posta adresi",
       "submitting": "Gönderiliyor...",
-      "submit": "Başvuruyu Gönder",
-      "submitSuccess": "Başvuru başarıyla gönderildi!",
+      "submit": "Başvuruyu gönder",
+      "submitSuccess": "Başvurunuz alındı. Kabul ekibimiz kısa süre içinde size dönüş yapacak.",
       "submitError": "Başvuru gönderilemedi. Lütfen tekrar deneyin."
     }
   },

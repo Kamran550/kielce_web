@@ -1,15 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { useLocale } from "next-intl";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 const faqKeys = [
   "q1",
@@ -26,68 +20,93 @@ const faqKeys = [
 
 export default function FeesFAQ() {
   const t = useTranslations("fees.faq");
-  const locale = useLocale();
+  const [active, setActive] = useState(0);
 
   return (
-    <section className="py-20 bg-linear-to-b from-slate-50 to-white dark:from-slate-900 dark:to-black">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+    <section id="fees-faq" className="scroll-mt-24 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--fees-lagoon)]">
+            {t("eyebrow")}
+          </p>
+          <h2 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight text-[var(--fees-ink)] md:text-5xl">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-base leading-relaxed text-[var(--fees-muted)] md:text-lg">
             {t("subtitle")}
           </p>
-        </motion.div>
+        </div>
 
-        {/* FAQ Accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          <Accordion type="single" collapsible className="w-full space-y-4">
-            {faqKeys.map((key, index) => (
-              <AccordionItem
-                key={key}
-                value={`item-${index}`}
-                className="bg-white dark:bg-slate-800 rounded-lg px-6 border shadow-sm hover:shadow-md transition-shadow"
-              >
-                <AccordionTrigger className="text-left font-semibold text-lg py-4 hover:no-underline">
-                  {t(`items.${key}.question`)}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 dark:text-gray-300 leading-relaxed pb-4">
-                  {t(`items.${key}.answer`)}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </motion.div>
+        <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-0">
+          <div className="border border-[var(--fees-line)] bg-[var(--fees-panel)] lg:border-r-0">
+            <ul className="divide-y divide-[var(--fees-line)]">
+              {faqKeys.map((key, index) => {
+                const selected = index === active;
+                return (
+                  <li key={key}>
+                    <button
+                      type="button"
+                      onClick={() => setActive(index)}
+                      className={`flex w-full items-start gap-4 px-5 py-4 text-left transition md:px-6 ${
+                        selected
+                          ? "bg-[var(--fees-lagoon-soft)]"
+                          : "hover:bg-[var(--fees-paper)]"
+                      }`}
+                    >
+                      <span
+                        className={`mt-0.5 font-mono text-xs ${
+                          selected
+                            ? "text-[var(--fees-lagoon)]"
+                            : "text-[var(--fees-muted)]"
+                        }`}
+                      >
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span
+                        className={`text-sm font-medium leading-snug md:text-base ${
+                          selected
+                            ? "text-[var(--fees-ink)]"
+                            : "text-[var(--fees-slate)]"
+                        }`}
+                      >
+                        {t(`items.${key}.question`)}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
-        {/* Contact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="mt-12 text-center"
-        >
-          <p className="text-muted-foreground mb-4">{t("contact")}</p>
-          <Link
-            href={`/${locale}/contact`}
-            className="text-primary hover:underline font-semibold"
+          <motion.div
+            key={faqKeys[active]}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col justify-between border border-[var(--fees-ink)] bg-[var(--fees-ink)] px-6 py-8 text-white md:px-10 md:py-10"
           >
-            {t("contactLink")}
-          </Link>
-        </motion.div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--fees-saffron)]">
+                {t("answerLabel")}
+              </p>
+              <h3 className="font-display mt-4 text-2xl leading-snug md:text-3xl">
+                {t(`items.${faqKeys[active]}.question`)}
+              </h3>
+              <p className="mt-6 text-base leading-relaxed text-white/70 md:text-lg">
+                {t(`items.${faqKeys[active]}.answer`)}
+              </p>
+            </div>
+            <div className="mt-10 border-t border-white/15 pt-6">
+              <p className="text-sm text-white/55">{t("contact")}</p>
+              <Link
+                href="/contact"
+                className="mt-2 inline-flex text-sm font-semibold text-[var(--fees-saffron)] transition hover:text-white"
+              >
+                {t("contactLink")}
+              </Link>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

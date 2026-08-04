@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Loader2, GraduationCap, Check } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { DegreeService } from "@/lib/services/degree.service";
 import { Degree } from "@/lib/types/degree";
 import { ApiClientError } from "@/lib/api/client";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 
 interface DegreeSelectorProps {
   onSelect: (degree: Degree) => void;
@@ -29,15 +27,14 @@ export default function DegreeSelector({
       setLoading(true);
       setError(null);
       const data = await DegreeService.getAll();
-      console.log("data", data);
       setDegrees(data);
     } catch (err) {
       const errorMessage =
         err instanceof ApiClientError
           ? err.message
           : err instanceof Error
-          ? err.message
-          : t("error");
+            ? err.message
+            : t("error");
       setError(errorMessage);
       console.error("Failed to fetch degrees:", err);
     } finally {
@@ -51,83 +48,87 @@ export default function DegreeSelector({
 
   if (loading) {
     return (
-      <Card className="shadow-lg">
-        <CardContent className="pt-6">
-          <div className="flex flex-col items-center justify-center py-12">
-            <Loader2 className="w-8 h-8 animate-spin text-primary mb-4" />
-            <p className="text-muted-foreground">{t("loading")}</p>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="apply-panel flex flex-col items-center justify-center px-6 py-16">
+        <Loader2 className="size-7 animate-spin text-[var(--apply-forest)]" />
+        <p className="mt-4 text-sm text-[var(--apply-muted)]">{t("loading")}</p>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <Card className="shadow-lg border-destructive">
-        <CardContent className="pt-6">
-          <div className="text-center py-12">
-            <p className="text-destructive mb-4">{t("error")}</p>
-            <p className="text-sm text-muted-foreground mb-4">{error}</p>
-            <Button variant="outline" onClick={fetchDegrees}>
-              {t("retry")}
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="apply-panel px-6 py-12 text-center">
+        <p className="font-medium text-[var(--apply-danger)]">{t("error")}</p>
+        <p className="mt-2 text-sm text-[var(--apply-muted)]">{error}</p>
+        <button
+          type="button"
+          onClick={fetchDegrees}
+          className="mt-6 inline-flex border border-[var(--apply-line)] bg-white px-4 py-2.5 text-sm font-medium text-[var(--apply-ink)] transition hover:border-[var(--apply-forest)]"
+        >
+          {t("retry")}
+        </button>
+      </div>
     );
   }
 
   if (degrees.length === 0) {
     return (
-      <Card className="shadow-lg">
-        <CardContent className="pt-6">
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">{t("noDegrees")}</p>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="apply-panel px-6 py-12 text-center">
+        <p className="text-[var(--apply-muted)]">{t("noDegrees")}</p>
+      </div>
     );
   }
 
   return (
-    <Card className="shadow-lg">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <GraduationCap className="w-5 h-5 text-primary" />
-          {t("title")}
-        </CardTitle>
-        <p className="text-sm text-muted-foreground mt-2">{t("subtitle")}</p>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {degrees.map((degree, index) => (
-            <motion.div
-              key={degree.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-            >
-              <Button
-                variant={selectedDegreeId === degree.id ? "default" : "outline"}
-                className={`w-full h-auto p-4 flex flex-col items-start gap-2 ${
-                  selectedDegreeId === degree.id
-                    ? "bg-primary text-primary-foreground"
-                    : "hover:border-primary"
-                }`}
+    <div className="apply-panel p-6 md:p-8">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--apply-muted)]">
+        {t("eyebrow")}
+      </p>
+      <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-[var(--apply-ink)] md:text-3xl">
+        {t("title")}
+      </h2>
+      <p className="mt-2 max-w-xl text-sm text-[var(--apply-muted)] md:text-base">
+        {t("subtitle")}
+      </p>
+
+      <ul className="mt-8 divide-y divide-[var(--apply-line)] border-y border-[var(--apply-line)]">
+        {degrees.map((degree, index) => {
+          const selected = selectedDegreeId === degree.id;
+          return (
+            <li key={degree.id}>
+              <button
+                type="button"
                 onClick={() => onSelect(degree)}
+                className={cn(
+                  "flex w-full items-center gap-4 py-4 text-left transition md:gap-6",
+                  selected
+                    ? "bg-[var(--apply-forest)] text-white"
+                    : "hover:bg-black/[0.02]"
+                )}
               >
-                <div className="flex items-center justify-between w-full">
-                  <span className="font-semibold text-left">{degree.name}</span>
-                  {selectedDegreeId === degree.id && (
-                    <Check className="w-4 h-4 shrink-0" />
+                <span
+                  className={cn(
+                    "w-10 shrink-0 font-display text-sm tabular-nums",
+                    selected
+                      ? "text-[var(--apply-marigold)]"
+                      : "text-[var(--apply-muted)]"
                   )}
-                </div>
-              </Button>
-            </motion.div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="min-w-0 flex-1 font-display text-lg font-semibold tracking-tight md:text-xl">
+                  {degree.name}
+                </span>
+                {selected && (
+                  <span className="pr-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--apply-marigold)]">
+                    {t("selected")}
+                  </span>
+                )}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }

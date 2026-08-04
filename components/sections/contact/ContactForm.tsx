@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { Link } from "@/i18n/routing";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -15,10 +15,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Send, CheckCircle } from "lucide-react";
-import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
   const t = useTranslations("contact.form");
@@ -47,161 +43,175 @@ export default function ContactForm() {
 
   async function onSubmit(data: FormValues) {
     try {
-      // Here you would typically send the data to your backend
       console.log("Form data:", data);
-      // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setIsSubmitted(true);
       form.reset();
-
-      // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   }
 
+  const fieldClass =
+    "w-full border-0 border-b border-white/25 bg-transparent py-3 text-sm text-white outline-none placeholder:text-white/35 focus:border-[var(--contact-mint)]";
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
+      id="contact-form"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true, margin: "-50px" }}
+      className="scroll-mt-24 bg-[var(--contact-ink)] px-6 py-10 text-white md:px-10 md:py-12"
     >
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-2xl md:text-3xl font-bold">
-            {t("title")}
-          </CardTitle>
-          <p className="text-muted-foreground mt-2">{t("subtitle")}</p>
-        </CardHeader>
-        <CardContent>
-          {isSubmitted && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              viewport={{ once: true, margin: "-100px" }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3"
+      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--contact-mint)]">
+        {t("eyebrow")}
+      </p>
+      <h2 className="font-display mt-3 text-3xl tracking-tight md:text-4xl">
+        {t("title")}
+      </h2>
+      <p className="mt-3 text-sm leading-relaxed text-white/60 md:text-base">
+        {t("subtitle")}
+      </p>
+
+      {isSubmitted && (
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mt-6 border border-[var(--contact-mint)]/40 bg-[var(--contact-mint)]/10 px-4 py-3 text-sm text-[var(--contact-mint)]"
+        >
+          {t("success")}
+        </motion.div>
+      )}
+
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="mt-8 space-y-5"
+        >
+          <div className="grid gap-5 sm:grid-cols-2">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-xs uppercase tracking-[0.16em] text-white/50">
+                    {t("name")}
+                  </FormLabel>
+                  <FormControl>
+                    <input
+                      className={fieldClass}
+                      placeholder={t("namePlaceholder")}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-xs uppercase tracking-[0.16em] text-white/50">
+                    {t("email")}
+                  </FormLabel>
+                  <FormControl>
+                    <input
+                      type="email"
+                      className={fieldClass}
+                      placeholder={t("emailPlaceholder")}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs uppercase tracking-[0.16em] text-white/50">
+                  {t("phone")}
+                </FormLabel>
+                <FormControl>
+                  <input
+                    type="tel"
+                    className={fieldClass}
+                    placeholder={t("phonePlaceholder")}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="subject"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs uppercase tracking-[0.16em] text-white/50">
+                  {t("subject")}
+                </FormLabel>
+                <FormControl>
+                  <input
+                    className={fieldClass}
+                    placeholder={t("subjectPlaceholder")}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs uppercase tracking-[0.16em] text-white/50">
+                  {t("message")}
+                </FormLabel>
+                <FormControl>
+                  <textarea
+                    className={`${fieldClass} min-h-[120px] resize-y`}
+                    placeholder={t("messagePlaceholder")}
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <button
+            type="submit"
+            disabled={form.formState.isSubmitting}
+            className="inline-flex w-full items-center justify-center bg-[var(--contact-mint)] px-6 py-3.5 text-sm font-semibold tracking-wide text-[var(--contact-ink)] transition hover:bg-white disabled:opacity-60 sm:w-auto"
+          >
+            {form.formState.isSubmitting ? t("sending") : t("sendMessage")}
+          </button>
+
+          <p className="text-xs text-white/40">
+            {t("privacy")}{" "}
+            <Link
+              href="/fees#fees-faq"
+              className="text-[var(--contact-mint)] underline-offset-2 hover:underline"
             >
-              <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
-              <p className="text-sm text-green-800 dark:text-green-200">
-                {t("success")}
-              </p>
-            </motion.div>
-          )}
-
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("name")}</FormLabel>
-                      <FormControl>
-                        <Input placeholder={t("namePlaceholder")} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("email")}</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="email"
-                          placeholder={t("emailPlaceholder")}
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <FormField
-                control={form.control}
-                name="phone"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("phone")}</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="tel"
-                        placeholder={t("phonePlaceholder")}
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="subject"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("subject")}</FormLabel>
-                    <FormControl>
-                      <Input placeholder={t("subjectPlaceholder")} {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("message")}</FormLabel>
-                    <FormControl>
-                      <textarea
-                        className="flex min-h-[120px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-input/30"
-                        placeholder={t("messagePlaceholder")}
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? (
-                  t("sending")
-                ) : (
-                  <>
-                    <Send className="w-4 h-4 mr-2" />
-                    {t("sendMessage")}
-                  </>
-                )}
-              </Button>
-
-              <p className="text-xs text-center text-muted-foreground">
-                {t("privacy")}{" "}
-                <Link href="/fees#faq" className="text-primary hover:underline">
-                  {t("viewFAQ")}
-                </Link>
-              </p>
-            </form>
-          </Form>
-        </CardContent>
-      </Card>
+              {t("viewFAQ")}
+            </Link>
+          </p>
+        </form>
+      </Form>
     </motion.div>
   );
 }

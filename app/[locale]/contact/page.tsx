@@ -6,17 +6,15 @@ import ContactSocial from "@/components/sections/contact/ContactSocial";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
+    <main className="contact-shell min-h-screen">
       <ContactHero />
       <ContactInfo />
-      <div className="bg-white dark:bg-slate-950 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <ContactForm />
-            <ContactMap />
-          </div>
+      <section className="pb-8 pt-4 md:pb-12">
+        <div className="mx-auto grid max-w-7xl gap-0 px-4 md:px-8 lg:grid-cols-[1.05fr_0.95fr]">
+          <ContactForm />
+          <ContactMap />
         </div>
-      </div>
+      </section>
       <ContactSocial />
     </main>
   );

@@ -80,7 +80,7 @@ export const news: NewsItem[] = [
     featured: true,
     readTime: 5,
     tags: ["Conference", "Peace Education", "Events"],
-    image: "/images/about-campus.jpg",
+    image: "/images/about-campus.png",
   },
   {
     id: "3",
@@ -99,7 +99,7 @@ export const news: NewsItem[] = [
     featured: false,
     readTime: 4,
     tags: ["Research", "Academic", "Facilities"],
-    image: "/images/about-campus.jpg",
+    image: "/images/about-campus.png",
   },
   {
     id: "4",
@@ -190,7 +190,7 @@ export const news: NewsItem[] = [
     featured: false,
     readTime: 4,
     tags: ["Graduation", "Events", "Celebration"],
-    image: "/images/about-campus.jpg",
+    image: "/images/about-campus.png",
   },
   {
     id: "9",

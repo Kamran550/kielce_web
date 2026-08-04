@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
 
 const programKeys = ["bachelors", "masters", "doctoral", "online"] as const;
 const programConfig = [
@@ -15,104 +14,117 @@ const programConfig = [
 
 export default function ProgramPriceTable() {
   const t = useTranslations("fees.priceTable");
+  const [active, setActive] = useState(0);
+  const config = programConfig[active];
+  const key = programKeys[active];
+  const features = t.raw(`programs.${key}.features`) as string[];
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+    <section id="program-fees" className="scroll-mt-24 py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--fees-lagoon)]">
+            {t("eyebrow")}
+          </p>
+          <h2 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight text-[var(--fees-ink)] md:text-5xl">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="mt-4 text-base leading-relaxed text-[var(--fees-muted)] md:text-lg">
             {t("subtitle")}
           </p>
-        </motion.div>
-
-        {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {programKeys.map((key, index) => {
-            const config = programConfig[index];
-            const program = {
-              ...config,
-              name: t(`programs.${key}.name`),
-              duration: t(`programs.${key}.duration`),
-              features: t.raw(`programs.${key}.features`) as string[],
-            };
-            return (
-              <motion.div
-                key={program.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="relative"
-              >
-                <Card
-                  className={`h-full flex flex-col shadow-lg hover:shadow-xl transition-all ${
-                    program.popular
-                      ? "border-2 border-primary scale-105 lg:scale-110"
-                      : "border"
-                  }`}
-                >
-                  {program.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
-                      {t("mostPopular")}
-                    </div>
-                  )}
-                  <CardHeader className="text-center pb-4">
-                    <CardTitle className="text-xl font-bold mb-2">
-                      {program.name}
-                    </CardTitle>
-                    <p className="text-sm text-muted-foreground">
-                      {program.duration}
-                    </p>
-                    <div className="mt-4">
-                      <div className="text-3xl font-bold text-primary">
-                        €{program.annualFee.toLocaleString()}
-                        <span className="text-sm text-muted-foreground font-normal">
-                          {t("year")}
-                        </span>
-                      </div>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        {t("total")}: €{program.totalFee.toLocaleString()}
-                      </p>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-1 flex flex-col">
-                    <ul className="space-y-3 flex-1">
-                      {program.features.map((feature: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Check className="w-5 h-5 text-green-600 dark:text-green-400 shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-600 dark:text-gray-300">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
         </div>
 
-        {/* Note */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true, margin: "-50px" }}
-          className="mt-12 text-center"
-        >
-          <p className="text-sm text-muted-foreground">{t("note")}</p>
-        </motion.div>
+        <div className="mt-12 grid gap-0 border border-[var(--fees-line)] bg-[var(--fees-panel)] lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+          <div className="border-b border-[var(--fees-line)] lg:border-b-0 lg:border-r">
+            {programKeys.map((programKey, index) => {
+              const selected = index === active;
+              return (
+                <button
+                  key={programKey}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  className={`flex w-full items-center justify-between gap-4 border-b border-[var(--fees-line)] px-5 py-5 text-left transition last:border-b-0 md:px-7 ${
+                    selected
+                      ? "bg-[var(--fees-ink)] text-white"
+                      : "bg-transparent text-[var(--fees-ink)] hover:bg-[var(--fees-lagoon-soft)]"
+                  }`}
+                >
+                  <span>
+                    <span className="block font-medium md:text-lg">
+                      {t(`programs.${programKey}.name`)}
+                    </span>
+                    <span
+                      className={`mt-1 block text-xs tracking-wide ${
+                        selected ? "text-white/60" : "text-[var(--fees-muted)]"
+                      }`}
+                    >
+                      {t(`programs.${programKey}.duration`)}
+                    </span>
+                  </span>
+                  <span
+                    className={`font-display text-2xl tabular-nums ${
+                      selected ? "text-[var(--fees-saffron)]" : "text-[var(--fees-lagoon)]"
+                    }`}
+                  >
+                    €{programConfig[index].annualFee.toLocaleString()}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={key}
+              initial={{ opacity: 0, x: 16 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -12 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col justify-between px-6 py-8 md:px-10 md:py-10"
+            >
+              <div>
+                <div className="flex flex-wrap items-baseline gap-3">
+                  <p className="font-display text-5xl tracking-tight text-[var(--fees-ink)] md:text-6xl">
+                    €{config.annualFee.toLocaleString()}
+                  </p>
+                  <span className="text-sm text-[var(--fees-muted)]">
+                    {t("year")}
+                  </span>
+                  {config.popular && (
+                    <span className="ml-auto border border-[var(--fees-saffron)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--fees-ink)]">
+                      {t("mostPopular")}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-2 text-sm text-[var(--fees-muted)]">
+                  {t("total")}: €{config.totalFee.toLocaleString()}
+                </p>
+
+                <h3 className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--fees-lagoon)]">
+                  {t("includes")}
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex gap-3 border-b border-[var(--fees-line)] pb-3 text-sm text-[var(--fees-slate)] last:border-b-0 md:text-base"
+                    >
+                      <span
+                        className="mt-2 size-1.5 shrink-0 bg-[var(--fees-saffron)]"
+                        aria-hidden
+                      />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <p className="mt-8 max-w-3xl text-sm leading-relaxed text-[var(--fees-muted)]">
+          {t("note")}
+        </p>
       </div>
     </section>
   );

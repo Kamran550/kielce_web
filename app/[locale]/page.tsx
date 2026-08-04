@@ -7,7 +7,7 @@ import ApplyCTA from "@/components/sections/ApplyCTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
+    <main className="home-shell min-h-screen">
       <HeroSection />
       <AboutPreview />
       <StatisticsSection />

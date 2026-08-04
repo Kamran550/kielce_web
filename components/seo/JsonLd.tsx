@@ -15,11 +15,11 @@ export function OrganizationJsonLd() {
     url: "https://kielceuniversity.pl",
     logo: {
       "@type": "ImageObject",
-      url: "https://kielceuniversity.pl/images/KIELC-logo.png",
+      url: "https://kielceuniversity.pl/images/KIELCE-logo.png",
       width: 512,
       height: 512,
     },
-    image: "https://kielceuniversity.pl/images/KIELCE-logo-tam.jpg",
+    image: "https://kielceuniversity.pl/images/KIELCE-logo.png",
     description:
       "Kielce International University (KIU) - International education in Poland with bachelor's, master's and PhD programs. Quality education through peace and global understanding.",
     address: {

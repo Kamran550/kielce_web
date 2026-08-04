@@ -1,9 +1,7 @@
 "use client";
 
-import React from "react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { Phone, Mail, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const contactInfo = {
@@ -14,7 +12,7 @@ const contactInfo = {
     global: "+49 15207108026",
   },
   email: "info@kielceuniversity.pl",
-  address: "Ogrodowa 5800-876 Warsaw / Poland",
+  address: "Ogrodowa 58, 00-876 Warsaw / Poland",
 };
 
 export function Footer() {
@@ -31,188 +29,168 @@ export function Footer() {
     { href: "/contact", key: "contact" },
     { href: "/apply", key: "apply" },
     { href: "/e-library", key: "eLibrary" },
-  ];
+  ] as const;
 
   const universityLinks = [
-    { key: "academicPrograms" },
-    { key: "researchInnovation" },
-    { key: "studentLife" },
-    { key: "admissions" },
-  ];
+    { href: "/programs", key: "academicPrograms" },
+    { href: "/about", key: "researchInnovation" },
+    { href: "/news", key: "studentLife" },
+    { href: "/apply", key: "admissions" },
+  ] as const;
+
+  const phones = [
+    { key: "turkey", value: contactInfo.phones.turkey },
+    { key: "poland", value: contactInfo.phones.poland },
+    { key: "luxembourg", value: contactInfo.phones.luxembourg },
+    { key: "global", value: contactInfo.phones.global },
+  ] as const;
 
   return (
-    <footer className="bg-slate-950 text-gray-300 dark:bg-black border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Logo və Açıqlama */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6 group">
-              <div className="relative transition-transform group-hover:scale-105">
-                <Image
-                  src="/images/KIELCE-logo-dark.png"
-                  alt="KIELCE Logo"
-                  width={250}
-                  height={140}
-                  className="object-contain h-20 md:h-24 w-auto"
-                  priority
-                />
-              </div>
-            </Link>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
-              {t("description")}
-            </p>
-          </div>
+    <footer className="site-footer relative overflow-hidden bg-[var(--chrome-paper)] text-[var(--chrome-ink)]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, transparent 40%, rgba(201,149,42,0.08) 40%, rgba(201,149,42,0.08) 42%, transparent 42%), linear-gradient(var(--chrome-fog) 1px, transparent 1px), linear-gradient(90deg, var(--chrome-fog) 1px, transparent 1px)",
+          backgroundSize: "100% 100%, 28px 28px, 28px 28px",
+        }}
+      />
 
-          {/* Quick Links */}
+      <div className="relative mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-16 lg:px-10 lg:py-20">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4 md:mb-6">
-              {t("quickLinks")}
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm md:text-base inline-block"
-                  >
-                    {tLinks(link.key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="lg:col-span-1">
-            <h3 className="text-white font-semibold text-lg mb-4 md:mb-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--chrome-coral)]">
               {t("contact")}
-            </h3>
-            <ul className="space-y-4">
-              {/* Phone Numbers */}
-              <li className="flex items-start space-x-3">
-                <Phone className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                <div className="space-y-2 flex-1">
-                  <div>
-                    <span className="text-gray-500 text-xs font-medium block mb-0.5">
-                      {tPhoneNumbers("turkey")}:
-                    </span>
-                    <a
-                      href={`tel:${contactInfo.phones.turkey.replace(
-                        /\s/g,
-                        ""
-                      )}`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      {contactInfo.phones.turkey}
-                    </a>
-                  </div>
+            </p>
+            <h2 className="font-display mt-3 max-w-xl text-3xl font-semibold tracking-tight text-[var(--chrome-navy)] md:text-4xl">
+              {t("contactHeadline")}
+            </h2>
+            <p className="mt-3 max-w-lg text-sm leading-relaxed text-[var(--chrome-muted)] md:text-base">
+              {t("linesAreOpen")}
+            </p>
 
-                  <div>
-                    <span className="text-gray-500 text-xs font-medium block mb-0.5">
-                      {tPhoneNumbers("poland")}:
-                    </span>
-                    <a
-                      href={`tel:${contactInfo.phones.poland.replace(
-                        /\s/g,
-                        ""
-                      )}`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      {contactInfo.phones.poland}
-                    </a>
-                  </div>
-                  <div>
-                    <span className="text-gray-500 text-xs font-medium block mb-0.5">
-                      {tPhoneNumbers("luxembourg")}:
-                    </span>
-                    <a
-                      href={`tel:${contactInfo.phones.luxembourg.replace(
-                        /\s/g,
-                        ""
-                      )}`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      {contactInfo.phones.luxembourg}
-                    </a>
-                  </div>
-                  <div>
-                    <span className="text-gray-500 text-xs font-medium block mb-0.5">
-                      {tPhoneNumbers("global")}:
-                    </span>
-                    <a
-                      href={`tel:${contactInfo.phones.global.replace(
-                        /\s/g,
-                        ""
-                      )}`}
-                      className="text-gray-400 hover:text-white transition-colors text-sm md:text-base"
-                    >
-                      {contactInfo.phones.global}
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <div className="w-5 h-5 shrink-0" />
-                <span className="text-gray-400 text-sm md:text-base">
-                  {t("linesAreOpen")}
-                </span>
-              </li>
-
-              <li className="flex items-start space-x-3">
-                <Mail className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                <div>
-                  <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="text-gray-400 hover:text-white transition-colors text-sm md:text-base break-all"
-                  >
-                    {contactInfo.email}
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-                <div>
-                  <span className="text-gray-400 text-sm md:text-base">
-                    {contactInfo.address}
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {phones.map((phone) => (
+                <a
+                  key={phone.key}
+                  href={`tel:${phone.value.replace(/\s/g, "")}`}
+                  className="group border border-[var(--chrome-line)] bg-white/70 px-4 py-4 transition hover:border-[var(--chrome-gold)] hover:bg-white"
+                >
+                  <span className="block text-[11px] uppercase tracking-[0.16em] text-[var(--chrome-muted)]">
+                    {tPhoneNumbers(phone.key)}
                   </span>
-                </div>
-              </li>
-            </ul>
+                  <span className="mt-2 block font-display text-lg font-semibold tracking-tight text-[var(--chrome-navy)] transition group-hover:text-[var(--chrome-coral)]">
+                    {phone.value}
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-6 flex flex-col gap-3 border-t border-[var(--chrome-line)] pt-6 sm:flex-row sm:gap-10">
+              <div>
+                <span className="block text-[11px] uppercase tracking-[0.16em] text-[var(--chrome-muted)]">
+                  {t("emailLabel")}
+                </span>
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="mt-1 inline-block text-sm font-medium text-[var(--chrome-navy)] underline decoration-[var(--chrome-gold)] underline-offset-4 transition hover:text-[var(--chrome-coral)]"
+                >
+                  {contactInfo.email}
+                </a>
+              </div>
+              <div>
+                <span className="block text-[11px] uppercase tracking-[0.16em] text-[var(--chrome-muted)]">
+                  {t("addressLabel")}
+                </span>
+                <p className="mt-1 text-sm font-medium text-[var(--chrome-navy)]">
+                  {contactInfo.address}
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Additional Info */}
-          <div>
-            <h3 className="text-white font-semibold text-lg mb-4 md:mb-6">
-              {t("university")}
-            </h3>
-            <ul className="space-y-3 text-gray-400 text-sm md:text-base">
-              {universityLinks.map((link) => (
-                <li key={link.key}>{tUniversityLinks(link.key)}</li>
-              ))}
-            </ul>
+          <div className="flex flex-col justify-between gap-10 border-[var(--chrome-line)] lg:border-l lg:pl-12">
+            <div>
+              <Link href="/" className="inline-flex items-center gap-3">
+                <Image
+                  src="/images/KIELCE-logo.png"
+                  alt={t("brand")}
+                  width={160}
+                  height={64}
+                  className="h-11 w-auto object-contain"
+                />
+                <span className="font-display text-2xl font-semibold tracking-tight text-[var(--chrome-navy)]">
+                  {t("brand")}
+                </span>
+              </Link>
+              <p className="mt-4 text-sm leading-relaxed text-[var(--chrome-muted)]">
+                {t("description")}
+              </p>
+              <Link
+                href="/contact"
+                className="mt-6 inline-flex bg-[var(--chrome-navy)] px-5 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-[var(--chrome-coral)]"
+              >
+                {t("contactCta")}
+              </Link>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-2">
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--chrome-gold)]">
+                  {t("quickLinks")}
+                </h3>
+                <ul className="mt-4 space-y-2.5">
+                  {footerLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-[var(--chrome-ink)] transition hover:text-[var(--chrome-coral)]"
+                      >
+                        {tLinks(link.key)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--chrome-gold)]">
+                  {t("university")}
+                </h3>
+                <ul className="mt-4 space-y-2.5">
+                  {universityLinks.map((link) => (
+                    <li key={link.key}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-[var(--chrome-ink)] transition hover:text-[var(--chrome-coral)]"
+                      >
+                        {tUniversityLinks(link.key)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 md:mt-16 pt-8 border-t border-slate-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-500 text-center md:text-left">
-              {t("copyright", { year: currentYear })}
-            </p>
-            <div className="flex items-center space-x-6 text-sm text-gray-500">
-              <Link
-                href="/privacy"
-                className="hover:text-white transition-colors"
-              >
-                {t("privacyPolicy")}
-              </Link>
-              <Link
-                href="/terms"
-                className="hover:text-white transition-colors"
-              >
-                {t("termsOfService")}
-              </Link>
-            </div>
+        <div className="mt-14 flex flex-col gap-3 border-t border-[var(--chrome-line)] pt-6 md:flex-row md:items-center md:justify-between">
+          <p className="text-xs text-[var(--chrome-muted)] md:text-sm">
+            {t("copyright", { year: currentYear })}
+          </p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-[var(--chrome-muted)] md:text-sm">
+            <Link
+              href="/privacy"
+              className="transition hover:text-[var(--chrome-navy)]"
+            >
+              {t("privacyPolicy")}
+            </Link>
+            <Link
+              href="/terms"
+              className="transition hover:text-[var(--chrome-navy)]"
+            >
+              {t("termsOfService")}
+            </Link>
           </div>
         </div>
       </div>

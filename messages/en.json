@@ -19,34 +19,47 @@
     "cancel": "Cancel"
   },
   "nav": {
+    "brand": "KIU",
+    "brandTag": "Study in Poland · Global campus",
+    "brandFull": "Kielce International University",
     "home": "Home",
     "about": "About",
     "rectorate": "Rectorate",
-    "administrativeUnits": "Administrative Units",
+    "administrativeUnits": "Administrative units",
     "fees": "Fees",
     "programs": "Programs",
     "news": "News",
     "contact": "Contact",
-    "apply": "Apply"
+    "apply": "Apply now",
+    "menu": "Navigate",
+    "openMenu": "Open navigation",
+    "closeMenu": "Close navigation"
   },
   "hero": {
-    "title": "Shape Your Future with a World-Class Education",
-    "subtitle": "Join a global community of learners and gain the skills to lead tomorrow. Admissions are now open for the Spring 2026 intake.",
-    "primaryButton": "Apply Now",
-    "secondaryButton": "Explore Programs"
+    "brand": "Kielce International University",
+    "title": "An education built for a connected world",
+    "subtitle": "Study in Poland among an international community. Spring 2026 admissions are open.",
+    "primaryButton": "Start your application",
+    "secondaryButton": "Browse programs"
   },
   "aboutPreview": {
-    "title": "About Us",
-    "description": "Kielce International University (KIU) is an innovative higher education institution dedicated to fostering peace through education and global understanding. We provide our students with the knowledge and skills necessary to make positive changes in the world.",
-    "button": "Learn More"
+    "eyebrow": "Who we are",
+    "title": "Peace-minded learning at the heart of Europe",
+    "description": "KIU is an international university in Kielce dedicated to academic rigor and global understanding. We prepare students to lead with clarity, empathy, and purpose across borders.",
+    "button": "Explore our story",
+    "imageAlt": "Students and campus life at Kielce International University",
+    "imageCaption": "A campus where cultures meet and ideas take shape."
   },
   "statistics": {
-    "title": "Our Impact in Numbers",
-    "subtitle": "Building excellence through quality education and global partnerships",
+    "eyebrow": "By the numbers",
+    "title": "A growing international community",
+    "subtitle": "Programs, people, and years of steady academic growth — measured honestly, not as marketing noise.",
     "students": "Students",
     "countries": "Countries",
-    "programs": "Programs",
+    "programs": "Academic programs",
     "satisfaction": "Satisfaction",
+    "internationalLecturers": "International lecturers",
+    "yearsOfExcellence": "Years of teaching",
     "international lecturers": "International Lecturers",
     "years of excellence": "Years of Excellence"
   },
@@ -59,15 +72,25 @@
     "subtitle": "Success stories from our graduates"
   },
   "cta": {
-    "title": "Invest in Your Future",
-    "description": "Join the university where global leaders are formed. The application process is simple and fast.",
-    "button": "Apply Now",
-    "learnMore": "Learn More"
+    "eyebrow": "Admissions",
+    "title": "Your next chapter starts here",
+    "description": "Apply in a few clear steps. Our admissions team guides you from first inquiry to enrollment.",
+    "button": "Apply now",
+    "learnMore": "View programs",
+    "deadlineLabel": "Deadline",
+    "deadline": "Spring 2026 applications close on March 20",
+    "benefitsTitle": "Why apply",
+    "benefits": [
+      "Internationally oriented degree programs",
+      "Faculty with global teaching experience",
+      "Campus study with flexible learning options"
+    ]
   },
   "language": {
     "en": "English",
     "tr": "Türkçe",
-    "ru": "Русский"
+    "ru": "Русский",
+    "select": "Select language"
   },
   "about": {
     "hero": {
@@ -149,37 +172,47 @@
       }
     },
     "rectorate": {
-      "title": "Rectorate",
+      "brand": "KIU Rectorate",
+      "title": "Leadership grounded in scholarship",
+      "subtitle": "Meet the Rector and read the welcome that sets the tone for our academic community.",
       "profile": {
-        "title": "Rector's Profile",
-        "fullName": "Full Name",
-        "position": "Position",
+        "roleLabel": "Rector",
+        "title": "Rector’s profile",
+        "fullName": "Full name",
+        "position": "Office",
         "fullNameValue": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak",
         "positionValue": "Rector of Kielce International University (KIU)",
-        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak is an internationally respected academic, higher education leader, and advocate for peace-focused learning. With a career spanning more than two decades across multiple continents, he brings to the Kielce International University (KIU) a unique blend of academic excellence, global vision, and a deep commitment to shaping the next generation of socially responsible leaders.",
-        "qualifications": "Dr. Mirosław Kędrzyński-Woźniak holds a Ph.D. in Political Science and International Relations, with specializations in peace and conflict studies, global diplomacy, and intercultural communication. He has held academic and administrative positions at renowned institutions in Europe, Central Asia, and the Middle East. His academic journey is marked by a consistent focus on promoting dialogue, critical thinking, and ethical leadership in higher education.",
+        "description": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak is an internationally respected academic, higher education leader, and advocate for peace-focused learning. With a career spanning more than two decades across multiple continents, he brings to Kielce International University a blend of academic rigor, global perspective, and a commitment to socially responsible leadership.",
+        "qualifications": "He holds a Ph.D. in Political Science and International Relations, with specializations in peace and conflict studies, global diplomacy, and intercultural communication. He has served in academic and administrative roles across Europe, Central Asia, and the Middle East, consistently advancing dialogue, critical thinking, and ethical leadership in higher education.",
         "email": "Email",
         "emailValue": "miroslaw.kedrzynski-wozniak@kielceuniversity.pl"
       },
       "welcomeMessage": {
-        "title": "Welcome Message from the Rector",
-        "greeting": "Dear Students, Faculty, and Staff,",
-        "paragraph1": "Welcome to our university! It is my great honor to greet you at the beginning of a new academic journey. Our institution is committed to providing a supportive, innovative, and inclusive environment where everyone can grow intellectually and personally.",
-        "paragraph2": "We believe that education is not just about gaining knowledge, but also about developing critical thinking, creativity, and a sense of responsibility to society. As you embark on this journey, I encourage you to take full advantage of the opportunities available, engage actively with your community, and strive for excellence in all that you do.",
-        "paragraph3": "Together, we will work towards building a brighter future through learning, research, and collaboration. I am confident that your time here will be both rewarding and inspiring.",
-        "closing": "Wishing you success and fulfillment in your studies and beyond.",
+        "title": "Welcome from the Rector",
+        "greeting": "Dear students, faculty, and staff,",
+        "paragraph1": "Welcome to Kielce International University. It is my honor to greet you at the start of a new academic chapter. We are committed to a supportive, innovative, and inclusive environment where every member of our community can grow.",
+        "paragraph2": "Education here is more than knowledge transfer — it is the practice of critical thinking, creativity, and responsibility to society. I encourage you to use every opportunity, engage with the community, and pursue excellence in your work.",
+        "paragraph3": "Together we will build a brighter future through learning, research, and collaboration. I am confident your time at KIU will be both rigorous and inspiring.",
+        "closing": "I wish you success and fulfillment in your studies and beyond.",
         "signature": "Sincerely,",
         "signatureName": "Prof. Dr. hab. Mirosław Kędrzyński-Woźniak",
-        "signatureTitle": "Rector"
+        "signatureTitle": "Rector",
+        "seal": "Office of the Rector"
       },
       "tabs": {
         "profile": "Profile",
-        "welcomeMessage": "Welcome Message"
+        "welcomeMessage": "Welcome message"
       }
     },
     "administrativeUnits": {
-      "title": "Administrative Units",
-      "subtitle": "Meet our dedicated administrative team committed to excellence and service",
+      "brand": "KIU Administration",
+      "title": "Administrative units",
+      "subtitle": "The people who keep academic life running — clear roles, direct contacts.",
+      "columns": {
+        "role": "Role",
+        "name": "Name",
+        "email": "Email"
+      },
       "viceRector": {
         "position": "Vice Rector",
         "name": "Dr. Aleksandra Brzezińska-Kowalczyk",
@@ -204,244 +237,274 @@
   },
   "fees": {
     "hero": {
-      "title": "Tuition Fees & Payment Plans",
-      "subtitle": "Affordable education with flexible payment options. Explore our competitive tuition fees, payment plans, and scholarship opportunities designed to make quality education accessible."
+      "brand": "KIU Fees & Aid",
+      "title": "Clear tuition. Flexible ways to pay.",
+      "subtitle": "See program costs, choose a payment rhythm that fits, and explore scholarships that bring study in Poland within reach.",
+      "scrollHint": "View program fees",
+      "asideLabel": "Starting from",
+      "asideFigure": "€2,800",
+      "asideCaption": "Annual tuition for selected online programs. Campus degrees begin at €4,000 per year.",
+      "asideCta": "Begin application"
     },
     "priceTable": {
-      "title": "Program Fees",
-      "subtitle": "Transparent pricing for all our academic programs",
-      "mostPopular": "Most Popular",
-      "year": "/year",
-      "total": "Total",
-      "note": "* All fees are subject to change. Additional fees may apply for specific programs. Contact us for detailed information.",
+      "eyebrow": "Tuition",
+      "title": "What each program costs",
+      "subtitle": "Select a pathway to see annual and total fees, plus what is included.",
+      "mostPopular": "Most chosen",
+      "year": "/ year",
+      "total": "Program total",
+      "includes": "Included",
+      "note": "Fees may change. Some pathways include extra materials or activity costs — ask Admissions for a full estimate.",
       "programs": {
         "bachelors": {
           "name": "Bachelor's Degree",
-          "duration": "4 Years",
+          "duration": "4 years",
           "features": [
-            "Full-time study",
-            "Access to all facilities",
-            "Library access",
-            "Career counseling",
+            "Full-time campus study",
+            "Campus facilities access",
+            "Library and digital resources",
+            "Career guidance",
             "Student support services"
           ]
         },
         "masters": {
           "name": "Master's Degree",
-          "duration": "2 Years",
+          "duration": "2 years",
           "features": [
-            "Full-time study",
-            "Research opportunities",
+            "Full-time campus study",
+            "Research pathways",
             "Thesis supervision",
-            "Library access",
-            "Career counseling",
-            "Alumni network"
+            "Library and digital resources",
+            "Career guidance",
+            "Alumni network access"
           ]
         },
         "doctoral": {
           "name": "Doctoral Program",
-          "duration": "3-4 Years",
+          "duration": "3–4 years",
           "features": [
-            "Full-time study",
-            "Research funding",
+            "Full-time research focus",
+            "Research funding support",
             "Thesis supervision",
-            "Publication support",
-            "Conference attendance",
+            "Publication guidance",
+            "Conference participation support",
             "Library access",
-            "Career counseling"
+            "Career guidance"
           ]
         },
         "online": {
           "name": "Online Programs",
-          "duration": "2-4 Years",
+          "duration": "2–4 years",
           "features": [
-            "Flexible schedule",
+            "Flexible study schedule",
             "Online library access",
-            "Virtual lectures",
-            "Student support",
-            "Digital resources"
+            "Live and recorded sessions",
+            "Remote student support",
+            "Digital learning resources"
           ]
         }
       }
     },
     "paymentPlans": {
-      "title": "Flexible Payment Plans",
-      "subtitle": "Choose a payment plan that works best for you. We offer various options to make education affordable.",
-      "recommended": "Recommended",
-      "off": "Off",
-      "customTerms": "Custom Terms",
-      "contact": "Contact for Payment Details",
+      "eyebrow": "Payments",
+      "title": "Pay in a rhythm that works",
+      "subtitle": "From a single upfront payment to a tailored schedule — pick the option that matches your budget.",
+      "recommended": "Popular",
+      "off": "discount",
+      "customTerms": "Tailored terms",
+      "contact": "Talk to finance",
       "plans": {
         "fullPayment": {
-          "name": "Full Payment",
-          "description": "Pay the entire tuition fee upfront and save",
+          "name": "Pay in full",
+          "highlight": "10% discount",
+          "description": "Settle the full tuition upfront and lock in the strongest discount.",
           "benefits": [
-            "10% discount on total fee",
-            "No monthly payments",
+            "10% off total tuition",
+            "No recurring invoices",
             "Priority course registration",
-            "Simplified billing process"
+            "One simple billing cycle"
           ]
         },
         "semesterPayment": {
-          "name": "Semester Payment",
-          "description": "Pay per semester (2 payments per year)",
+          "name": "By semester",
+          "highlight": "5% discount",
+          "description": "Two payments each academic year — a balanced default for most students.",
           "benefits": [
-            "5% discount per semester",
-            "Manageable payments",
-            "Flexible scheduling",
-            "Standard course registration"
+            "5% off each semester fee",
+            "Easier cash-flow planning",
+            "Clear academic-year cadence",
+            "Standard registration timing"
           ]
         },
         "monthlyPayment": {
-          "name": "Monthly Payment",
-          "description": "Spread payments over 10 months",
+          "name": "Monthly",
+          "highlight": "Interest-free",
+          "description": "Spread the year across ten equal installments with no interest.",
           "benefits": [
-            "No interest charges",
-            "10 equal monthly installments",
-            "Budget-friendly option",
-            "Automatic payment setup"
+            "Interest-free installments",
+            "Ten equal monthly payments",
+            "Predictable household budgeting",
+            "Optional autopay setup"
           ]
         },
         "installmentPlan": {
-          "name": "Installment Plan",
-          "description": "Custom payment schedule based on your needs",
+          "name": "Custom schedule",
+          "highlight": "Tailored terms",
+          "description": "Build a payment calendar around your circumstances with our finance team.",
           "benefits": [
-            "Flexible payment terms",
-            "Personalized schedule",
-            "Interest-free options",
-            "Financial counseling available"
+            "Negotiated payment windows",
+            "Personal schedule design",
+            "Interest-free options where eligible",
+            "One-to-one financial counseling"
           ]
         }
       }
     },
     "scholarships": {
-      "title": "Scholarships & Financial Aid",
-      "subtitle": "We offer various scholarships to help make your education more affordable. Explore our scholarship opportunities below.",
-      "coverage": "Coverage",
+      "eyebrow": "Funding",
+      "title": "Scholarships that open doors",
+      "subtitle": "Merit, need, research, and international awards — apply early and match the criteria that fit your story.",
+      "coverage": "Award range",
       "eligibility": "Eligibility",
-      "applicationDeadline": "Application Deadline",
-      "apply": "Apply for Scholarships",
+      "applicationDeadline": "Apply by",
+      "apply": "Apply for funding",
       "items": {
         "academicExcellence": {
           "name": "Academic Excellence",
-          "description": "For outstanding academic achievements and exceptional performance",
+          "description": "For consistently high performance and a strong scholarly record.",
+          "coverage": "50–100%",
+          "deadline": "15 March 2026",
           "eligibility": [
-            "GPA 3.5 or higher",
-            "Strong recommendation letters",
-            "Academic achievements",
+            "GPA 3.5+",
+            "Strong references",
+            "Documented achievements",
             "Interview required"
           ]
         },
         "meritBased": {
-          "name": "Merit-Based",
-          "description": "Recognition for exceptional talent and dedication in various fields",
+          "name": "Merit Award",
+          "description": "Recognizes standout talent across academic and creative fields.",
+          "coverage": "25–75%",
+          "deadline": "1 April 2026",
           "eligibility": [
-            "Demonstrated merit",
-            "Portfolio or achievements",
+            "Proven merit",
+            "Portfolio or awards",
             "Recommendation letters",
-            "Application review"
+            "Committee review"
           ]
         },
         "needBased": {
-          "name": "Need-Based",
-          "description": "Financial assistance for students facing economic challenges",
+          "name": "Need-Based Aid",
+          "description": "Support for students whose finances would otherwise limit access.",
+          "coverage": "30–80%",
+          "deadline": "1 May 2026",
           "eligibility": [
-            "Financial need documentation",
-            "Household income assessment",
-            "Academic standing maintained",
-            "Application required"
+            "Need documentation",
+            "Household income review",
+            "Good academic standing",
+            "Formal application"
           ]
         },
         "internationalStudents": {
-          "name": "International Students",
-          "description": "Special support for international students joining our community",
+          "name": "International Student Grant",
+          "description": "Extra support for students relocating to study with KIU in Poland.",
+          "coverage": "40–60%",
+          "deadline": "30 March 2026",
           "eligibility": [
-            "Non-resident student",
-            "Academic excellence",
+            "Non-resident status",
+            "Solid academic record",
             "English proficiency",
-            "Cultural contribution"
+            "Community contribution"
           ]
         },
         "researchFellowships": {
-          "name": "Research Fellowships",
-          "description": "For graduate students engaged in innovative research projects",
+          "name": "Research Fellowship",
+          "description": "For graduate researchers advancing original projects with faculty mentorship.",
+          "coverage": "Full",
+          "deadline": "28 February 2026",
           "eligibility": [
-            "Graduate student status",
+            "Graduate enrollment",
             "Research proposal",
             "Faculty recommendation",
-            "Research potential"
+            "Clear research potential"
           ]
         }
       }
     },
     "faq": {
-      "title": "Frequently Asked Questions",
-      "subtitle": "Find answers to common questions about fees, payments, and financial aid",
-      "contact": "Still have questions? We're here to help!",
-      "contactLink": "Contact our Finance Office →",
+      "eyebrow": "Help",
+      "title": "Fees, answered plainly",
+      "subtitle": "Quick answers on tuition, payment timing, refunds, and scholarships.",
+      "answerLabel": "Answer",
+      "contact": "Need something more specific?",
+      "contactLink": "Write to the finance office →",
       "items": {
         "q1": {
-          "question": "What is included in the tuition fee?",
-          "answer": "Tuition fees include all academic courses, access to university facilities (library, laboratories, computer labs), student support services, and basic student activities. Additional fees may apply for specific programs, materials, or optional services."
+          "question": "What does tuition cover?",
+          "answer": "Tuition covers your academic courses, core campus facilities (library, labs, computing), student support, and standard student activities. Program-specific materials or optional extras may carry separate fees."
         },
         "q2": {
-          "question": "Can I pay my fees in installments?",
-          "answer": "Yes, we offer flexible payment plans including semester payments, monthly installments (10 months), and custom payment schedules. Interest-free options are available for all installment plans. Contact our finance office for more details."
+          "question": "Can I pay in installments?",
+          "answer": "Yes. Choose semester payments, ten monthly installments, or a custom schedule. Interest-free installment options are available — contact finance to set one up."
         },
         "q3": {
-          "question": "Are there any additional fees?",
-          "answer": "Additional fees may include application fee, registration fee, student services fee, and specific program-related costs (materials, field trips, etc.). All fees are clearly outlined in your acceptance letter and student handbook."
+          "question": "Are there fees beyond tuition?",
+          "answer": "You may see an application fee, registration fee, student services fee, or pathway-specific costs such as materials or field trips. These are listed in your offer letter and student handbook."
         },
         "q4": {
-          "question": "What payment methods do you accept?",
-          "answer": "We accept bank transfers, credit/debit cards, and online payment platforms. International students can also use wire transfers. Payment details and instructions will be provided upon enrollment."
+          "question": "Which payment methods are accepted?",
+          "answer": "Bank transfer, card payments, and approved online platforms. International students may also pay by wire transfer. Full instructions arrive with your enrollment pack."
         },
         "q5": {
           "question": "Can I get a refund if I withdraw?",
-          "answer": "Refund policies vary by program and timing of withdrawal. Generally, refunds are available within the first few weeks of the semester, with amounts decreasing over time. Full refund policies are outlined in your enrollment agreement."
+          "answer": "Refund rules depend on your program and when you withdraw. Partial refunds are often available early in the semester and decrease later. Your enrollment agreement has the full policy."
         },
         "q6": {
           "question": "Are scholarships renewable?",
-          "answer": "Most scholarships are renewable annually based on maintaining academic performance (usually GPA 3.0 or higher), full-time enrollment, and good standing. Specific renewal requirements are outlined in your scholarship award letter."
+          "answer": "Most awards renew yearly if you keep the required academic standing (often GPA 3.0+), stay enrolled full-time, and remain in good standing. Check your award letter for exact terms."
         },
         "q7": {
-          "question": "Can I apply for multiple scholarships?",
-          "answer": "Yes, you can apply for multiple scholarships. However, total financial aid (including scholarships, grants, and other aid) cannot exceed the total cost of attendance. We'll work with you to maximize your financial aid package."
+          "question": "Can I apply for more than one scholarship?",
+          "answer": "Yes. Combined aid cannot exceed the total cost of attendance; we help you assemble the strongest eligible package."
         },
         "q8": {
           "question": "When are fees due?",
-          "answer": "Fee payment deadlines vary by payment plan. Full payment is due before the start of each semester. Semester payments are due at the beginning of each semester. Monthly installments begin in September and continue for 10 months. Specific dates are provided in your enrollment package."
+          "answer": "Full payment is due before each semester starts. Semester plans bill at term start. Monthly plans usually run for ten months from September. Exact dates are in your enrollment package."
         },
         "q9": {
-          "question": "Do you offer discounts for early payment?",
-          "answer": "Yes, we offer a 10% discount for full upfront payment and a 5% discount for semester payments. These discounts apply to tuition fees only and are available to all students. Contact us for more information about early payment discounts."
+          "question": "Is there an early-payment discount?",
+          "answer": "Yes — 10% for paying in full upfront, and 5% for semester payments. Discounts apply to tuition only."
         },
         "q10": {
-          "question": "What happens if I can't pay on time?",
-          "answer": "If you're experiencing financial difficulties, please contact our finance office immediately. We offer payment plan modifications, emergency assistance, and financial counseling. Late fees may apply if arrangements aren't made in advance."
+          "question": "What if I cannot pay on time?",
+          "answer": "Contact the finance office as soon as possible. We can discuss plan changes, emergency support, and counseling. Late fees may apply if no arrangement is made in advance."
         }
       }
     }
   },
   "programs": {
     "hero": {
-      "title": "Academic Programs",
-      "subtitle": "Discover our comprehensive range of undergraduate, graduate, and professional programs designed to prepare you for success in your chosen field."
+      "brand": "KIU Programs",
+      "title": "Pathways built for ambition",
+      "subtitle": "Browse undergraduate, graduate, doctoral, online, and professional degrees — then open a pathway that fits your next move.",
+      "browseCta": "Browse the catalog",
+      "applyCta": "Start application"
     },
     "grid": {
-      "title": "Our Programs",
-      "subtitle": "Explore our diverse range of academic and professional programs",
-      "searchPlaceholder": "Search programs...",
-      "found": "Found",
+      "eyebrow": "Catalog",
+      "title": "Find your program",
+      "subtitle": "Filter by level or search by name, degree, or focus area.",
+      "searchPlaceholder": "Search by title, degree, or keyword…",
+      "found": "Showing",
       "programs": "program",
       "programsPlural": "programs",
-      "noResults": "No programs found matching your criteria.",
-      "clearFilters": "Clear Filters",
-      "featuredProgram": "Featured Program",
-      "keyFeatures": "Key Features:",
-      "careerPaths": "Career Paths:",
+      "noResults": "No programs match those filters.",
+      "clearFilters": "Reset filters",
+      "featuredProgram": "Featured",
+      "keyFeatures": "Highlights",
+      "careerPaths": "Career directions",
       "more": "more",
-      "learnMore": "Learn More",
+      "learnMore": "Program details",
       "apply": "Apply"
     },
     "details": {
@@ -469,21 +532,27 @@
   },
   "news": {
     "hero": {
-      "title": "News & Updates",
-      "subtitle": "Stay informed about the latest news, events, announcements, and achievements at Kielce International University."
+      "brand": "KIU Newsroom",
+      "title": "Stories from campus and beyond",
+      "subtitle": "Announcements, events, and academic moments from Kielce International University.",
+      "scrollHint": "Open the latest stories",
+      "asideLabel": "Now reading",
+      "asideQuote": "Education that connects people, cultures, and futures."
     },
     "grid": {
-      "featuredNews": "Featured News",
-      "featured": "Featured",
-      "allNews": "All News",
-      "searchPlaceholder": "Search news...",
-      "found": "Found",
-      "article": "article",
-      "articles": "articles",
-      "noResults": "No news articles found matching your criteria.",
-      "clearFilters": "Clear Filters",
-      "readMore": "Read More",
-      "min": "min"
+      "featuredNews": "Spotlight",
+      "featured": "Spotlight",
+      "allNews": "Latest dispatches",
+      "searchPlaceholder": "Search headlines or topics…",
+      "found": "Showing",
+      "article": "story",
+      "articles": "stories",
+      "noResults": "No stories match those filters.",
+      "clearFilters": "Reset filters",
+      "readMore": "Read story",
+      "min": "min",
+      "previous": "Previous",
+      "next": "Next"
     },
     "detail": {
       "backToNews": "Back to News",
@@ -496,13 +565,14 @@
       "linkCopied": "Link copied to clipboard!"
     },
     "newsletter": {
-      "title": "Stay Updated",
-      "description": "Subscribe to our newsletter and never miss important news, events, and updates from KIELCE.",
-      "emailPlaceholder": "Enter your email address",
+      "eyebrow": "Newsletter",
+      "title": "Get campus updates by email",
+      "description": "A short digest of KIU news, events, and admissions notes — no clutter.",
+      "emailPlaceholder": "you@example.com",
       "subscribe": "Subscribe",
-      "thankYou": "Thank you for subscribing!",
-      "successMessage": "You'll receive our latest news and updates.",
-      "privacy": "We respect your privacy. Unsubscribe at any time."
+      "thankYou": "You’re on the list.",
+      "successMessage": "Expect the next digest in your inbox soon.",
+      "privacy": "We respect your privacy. Unsubscribe whenever you like."
     },
     "categories": {
       "all": "All News",
@@ -515,139 +585,186 @@
   },
   "contact": {
     "hero": {
-      "title": "Contact Us",
-      "subtitle": "We're here to help! Get in touch with us through any of the following channels. Our team is ready to answer your questions and assist you with your educational journey."
+      "brand": "KIU Contact",
+      "title": "Talk to the people who can help",
+      "subtitle": "Reach admissions, the rectorate, or general enquiries — by phone, email, or a short message.",
+      "channelsCta": "View channels",
+      "formCta": "Write to us"
     },
     "info": {
-      "title": "Get in Touch",
-      "subtitle": "Choose the best way to reach us. We're here to help!",
+      "eyebrow": "Channels",
+      "title": "How to reach KIU",
+      "subtitle": "Direct lines for phone, email, campus address, and office hours.",
       "phone": "Phone",
       "email": "Email",
       "address": "Address",
-      "admissions": "Admissions:",
-      "support": "Support:",
-      "officeHours": "Office Hours",
+      "admissions": "Admissions",
+      "support": "Rectorate / support",
+      "officeHours": "Office hours",
       "hours": {
-        "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM",
+        "weekdays": "Monday – Friday: 09:00 – 18:00",
         "saturday": "Saturday: Closed",
         "sunday": "Sunday: Closed"
       }
     },
     "form": {
-      "title": "Send us a Message",
-      "subtitle": "Fill out the form below and we'll get back to you as soon as possible.",
-      "success": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
-      "name": "Full Name *",
-      "namePlaceholder": "John Doe",
+      "eyebrow": "Message",
+      "title": "Send a note",
+      "subtitle": "Share your question and we will reply as soon as we can.",
+      "success": "Thank you — your message is on its way. We will follow up soon.",
+      "name": "Full name *",
+      "namePlaceholder": "Your name",
       "email": "Email *",
-      "emailPlaceholder": "john@example.com",
-      "phone": "Phone (Optional)",
-      "phonePlaceholder": "+994 50 123 4567",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Phone (optional)",
+      "phonePlaceholder": "+48 …",
       "subject": "Subject *",
-      "subjectPlaceholder": "General inquiry",
+      "subjectPlaceholder": "Admissions, programs, fees…",
       "message": "Message *",
-      "messagePlaceholder": "Your message here...",
-      "sending": "Sending...",
-      "sendMessage": "Send Message",
-      "privacy": "By submitting this form, you agree to our privacy policy.",
-      "viewFAQ": "View FAQ",
+      "messagePlaceholder": "How can we help?",
+      "sending": "Sending…",
+      "sendMessage": "Send message",
+      "privacy": "By sending this form you agree to our privacy policy.",
+      "viewFAQ": "Read the fees FAQ",
       "validation": {
         "nameMin": "Name must be at least 2 characters",
-        "emailInvalid": "Invalid email address",
+        "emailInvalid": "Enter a valid email address",
         "subjectMin": "Subject must be at least 3 characters",
         "messageMin": "Message must be at least 10 characters"
       }
     },
     "map": {
-      "title": "Find Us",
-      "subtitle": "Visit our campus or get directions using the map below.",
-      "campusAddress": "Campus Address",
-      "getDirections": "Get Directions"
+      "eyebrow": "Visit",
+      "title": "Find the campus",
+      "subtitle": "Ogrodowa 58, Warsaw — open the map for directions.",
+      "campusAddress": "Campus address",
+      "getDirections": "Open in Google Maps"
     },
     "social": {
-      "followUs": "Follow Us",
-      "subtitle": "Stay connected with us on social media",
-      "haveQuestions": "Have Questions?",
-      "faqDescription": "Check out our Frequently Asked Questions section for quick answers to common inquiries.",
-      "viewFAQ": "View FAQ"
+      "eyebrow": "Connect",
+      "followUs": "Follow KIU online",
+      "subtitle": "News and moments from campus across our social channels.",
+      "haveQuestions": "Prefer a quick answer?",
+      "faqDescription": "Tuition, payments, and scholarships are covered in the fees FAQ.",
+      "viewFAQ": "Open fees FAQ"
     }
   },
   "footer": {
-    "description": "Kielce International University - An international university combining education, peace, and culture.",
-    "quickLinks": "Quick Links",
-    "contact": "Contact",
-    "university": "University",
+    "brand": "KIU",
+    "description": "An international university in Poland connecting students across continents through rigorous study, cultural exchange, and a shared commitment to peace.",
+    "contactCta": "Contact us",
+    "quickLinks": "Site map",
+    "contact": "Admissions desk",
+    "contactHeadline": "Talk to our international team",
+    "university": "Pathways",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "addressLabel": "Campus office",
     "phoneNumbers": {
       "poland": "Poland",
       "azerbaijan": "Azerbaijan",
       "luxembourg": "Luxembourg",
       "turkey": "Türkiye",
-      "global": "Global"
+      "global": "Worldwide"
     },
-    "linesAreOpen": "Lines are open: Monday – Friday 9:00am - 6:00 pm",
+    "linesAreOpen": "Advisors answer Monday–Friday, 09:00–18:00 (CET).",
     "links": {
-      "about": "About",
-      "programs": "Programs",
-      "fees": "Fees",
-      "contact": "Contact",
+      "about": "About KIU",
+      "programs": "Degree programs",
+      "fees": "Tuition & aid",
+      "contact": "Write to us",
       "apply": "Apply",
       "eLibrary": "E-Library"
     },
     "universityLinks": {
-      "academicPrograms": "Academic Programs",
-      "researchInnovation": "Research & Innovation",
-      "studentLife": "Student Life",
-      "admissions": "Admissions"
+      "academicPrograms": "Browse programs",
+      "researchInnovation": "University profile",
+      "studentLife": "Latest news",
+      "admissions": "Start admissions"
     },
     "copyright": "© {year} Kielce International University. All rights reserved.",
-    "privacyPolicy": "Privacy Policy",
-    "termsOfService": "Terms of Service"
+    "privacyPolicy": "Privacy",
+    "termsOfService": "Terms"
   },
   "apply": {
     "hero": {
-      "title": "Apply to KIELCE",
-      "subtitle": "Start your academic journey with us. Choose your degree program and begin your application today."
+      "brand": "Admissions desk",
+      "title": "Begin your application to KIU",
+      "subtitle": "A guided intake for students, agencies, and transfers. Choose your path, pick a faculty, and submit your documents in one sitting.",
+      "cta": "Open the intake form",
+      "asideLabel": "How it works",
+      "step1": "Tell us how you are applying",
+      "step2": "Choose your degree level",
+      "step3": "Select faculty and teaching language",
+      "step4": "Complete your details and documents",
+      "note": "Need help before you start?",
+      "contactLink": "Contact admissions"
+    },
+    "steps": {
+      "type": "Applicant",
+      "degree": "Degree",
+      "faculty": "Faculty",
+      "form": "Details"
     },
     "applicantType": {
-      "title": "I am applying as",
-      "subtitle": "Please select your applicant type",
-      "student": "Student",
-      "studentDesc": "Apply as an individual student",
-      "agency": "Agency",
-      "agencyDesc": "Apply on behalf of an educational agency",
-      "transfer": "Transfer",
-      "transferDesc": "Transfer from another university",
+      "eyebrow": "Step 01",
+      "title": "How are you applying?",
+      "subtitle": "Pick the track that matches your situation. You can change it later from the process rail.",
+      "student": "Individual student",
+      "studentDesc": "Apply directly for a bachelor’s, master’s, or doctoral place.",
+      "agency": "Education agency",
+      "agencyDesc": "Submit on behalf of a recruiting or counseling partner.",
+      "transfer": "University transfer",
+      "transferDesc": "Move from another institution into a KIU program.",
       "continue": "Continue"
     },
     "degreeSelector": {
-      "title": "Select Your Degree Program",
-      "subtitle": "Choose the degree program you wish to apply for",
-      "loading": "Loading degrees...",
-      "error": "Failed to load degrees",
-      "retry": "Retry",
-      "noDegrees": "No degree programs available at the moment.",
-      "selected": "Selected Degree"
+      "eyebrow": "Step 02",
+      "title": "Which degree level?",
+      "subtitle": "Select the award you want to pursue. Faculties will filter to match this choice.",
+      "loading": "Loading degree levels…",
+      "error": "We could not load degree levels.",
+      "retry": "Try again",
+      "noDegrees": "No degree levels are open right now.",
+      "selected": "Selected"
     },
     "facultySelector": {
-      "title": "Select Your Faculty",
-      "subtitle": "Choose your desired faculty from the available options",
-      "noFaculties": "No faculties available for this degree.",
-      "selected": "Selected Faculty",
+      "eyebrow": "Step 03",
+      "title": "Choose a faculty",
+      "subtitle": "Browse faculties available for your degree, then set the language of instruction.",
+      "noFaculties": "No faculties are available for this degree.",
+      "selected": "Selected faculty",
       "languageSelection": {
-        "title": "Select Teaching Language",
-        "subtitle": "Choose the language of instruction for your program",
+        "eyebrow": "Instruction",
+        "title": "Teaching language",
+        "subtitle": "Programs and fees are filtered by the language you choose here.",
         "english": "English",
         "turkish": "Turkish",
-        "selected": "Selected Language"
+        "selected": "Selected language"
       }
     },
     "navigation": {
-      "back": "Back",
+      "process": "Application process",
+      "back": "Previous step",
       "continue": "Continue",
-      "submit": "Submit Application"
+      "submit": "Submit application"
+    },
+    "common": {
+      "perYear": "/year",
+      "submitFailed": "Failed to submit application: {message}",
+      "unknownError": "Unknown error",
+      "websitePlaceholder": "https://example.com"
+    },
+    "programSelector": {
+      "title": "Select your program",
+      "subtitle": "Choose the program that matches your faculty and language",
+      "loading": "Loading programs…",
+      "error": "We could not load programs.",
+      "retry": "Try again",
+      "noPrograms": "No programs are available for this selection."
     },
     "studentForm": {
-      "title": "Student Application Form",
+      "title": "Student application",
       "programSelection": "Program Selection",
       "program": "Program",
       "loadingPrograms": "Loading programs...",
@@ -692,12 +809,12 @@
       "invalidEmail": "Invalid email address",
       "emailTaken": "This email address is already associated with a student application in our system. If you believe this is an error, please contact our support team or use a different email address.",
       "submitting": "Submitting...",
-      "submit": "Submit Application",
-      "submitSuccess": "Application submitted successfully!",
+      "submit": "Submit application",
+      "submitSuccess": "Application received. Our admissions team will follow up soon.",
       "submitError": "Failed to submit application. Please try again."
     },
     "transferForm": {
-      "title": "Transfer Application Form",
+      "title": "Transfer application",
       "transferInfo": "Transfer Information",
       "currentUniversity": "Current University",
       "currentCourse": "Current Course",
@@ -744,13 +861,14 @@
       "faculty": "Faculty",
       "required": "Required field",
       "invalidEmail": "Invalid email address",
+      "emailTaken": "This email address is already associated with a transfer application in our system. If you believe this is an error, please contact our support team or use a different email address.",
       "submitting": "Submitting...",
-      "submit": "Submit Application",
-      "submitSuccess": "Application submitted successfully!",
+      "submit": "Submit application",
+      "submitSuccess": "Application received. Our admissions team will follow up soon.",
       "submitError": "Failed to submit application. Please try again."
     },
     "agencyForm": {
-      "title": "Agency Application Form",
+      "title": "Agency application",
       "agencyInfo": "Agency Information",
       "agencyName": "Agency Name",
       "country": "Country",
@@ -769,8 +887,8 @@
       "required": "Required field",
       "invalidEmail": "Invalid email address",
       "submitting": "Submitting...",
-      "submit": "Submit Application",
-      "submitSuccess": "Application submitted successfully!",
+      "submit": "Submit application",
+      "submitSuccess": "Application received. Our admissions team will follow up soon.",
       "submitError": "Failed to submit application. Please try again."
     }
   },

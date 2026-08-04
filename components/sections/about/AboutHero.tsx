@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 export default function AboutHero() {
   const t = useTranslations("about.hero");
   return (
-    <section className="relative w-full min-h-[60vh] flex items-center justify-center bg-linear-to-br from-blue-900 via-blue-800 to-indigo-900 pt-24 md:pt-28 lg:pt-32">
+    <section className="relative w-full min-h-[60vh] flex items-center justify-center bg-linear-to-br from-blue-900 via-blue-800 to-indigo-900 pt-28 md:pt-36 lg:pt-40">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 

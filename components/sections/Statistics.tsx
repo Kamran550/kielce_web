@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 import { universityStats } from "@/constants/stats";
+import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
 
 function Counter({
   end,
@@ -30,8 +30,6 @@ function Counter({
         (currentTime - startTime) / (duration * 1000),
         1
       );
-
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       setCount(Math.floor(easeOutQuart * end));
 
@@ -53,7 +51,7 @@ function Counter({
 
   return (
     <span ref={ref}>
-      {count}
+      {count.toLocaleString()}
       {suffix}
     </span>
   );
@@ -63,50 +61,53 @@ export default function StatisticsSection() {
   const t = useTranslations("statistics");
 
   return (
-    <section className="py-20 bg-linear-to-b from-slate-100 to-white dark:from-slate-900 dark:to-black">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {t("title", { default: "Our Impact in Numbers" })}
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {t("subtitle", {
-              default: "Building excellence through quality education",
-            })}
-          </p>
-        </motion.div>
+    <section className="relative py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] lg:gap-16">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="lg:sticky lg:top-28 lg:self-start"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--home-teal)]">
+              {t("eyebrow")}
+            </p>
+            <h2 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight text-[var(--home-ink)] md:text-5xl">
+              {t("title")}
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--home-muted)]">
+              {t("subtitle")}
+            </p>
+          </motion.div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {universityStats.map((stat, index) => (
-            <motion.div
-              key={stat.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100,
-              }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="text-center p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-slate-700"
-            >
-              <div className="text-4xl md:text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
-                <Counter end={stat.value} suffix={stat.suffix} duration={2} />
-              </div>
-              <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 font-medium">
-                {t(stat.label.toLowerCase())}
-              </p>
-            </motion.div>
-          ))}
+          <div className="border-t border-[var(--home-ink)]/15">
+            {universityStats.map((stat, index) => (
+              <motion.div
+                key={stat.id}
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.55,
+                  delay: index * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                viewport={{ once: true, margin: "-40px" }}
+                className="group grid grid-cols-[auto_1fr] items-baseline gap-x-6 gap-y-1 border-b border-[var(--home-ink)]/15 py-7 md:grid-cols-[8rem_1fr_auto] md:py-9"
+              >
+                <span className="font-mono text-xs tracking-widest text-[var(--home-muted)]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--home-muted)] md:order-none">
+                  {t(stat.labelKey)}
+                </p>
+                <p className="font-display col-span-2 text-5xl tracking-tight text-[var(--home-ink)] transition-colors group-hover:text-[var(--home-teal)] md:col-span-1 md:justify-self-end md:text-6xl lg:text-7xl">
+                  <Counter end={stat.value} suffix={stat.suffix} duration={2} />
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

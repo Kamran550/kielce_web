@@ -1,35 +1,32 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { motion } from "framer-motion";
-import { Link } from "@/i18n/routing";
-import Image from "next/image";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Calendar,
-  User,
-  Clock,
-  ArrowRight,
-  Search,
-  ChevronLeft,
-  ChevronRight,
-  Star,
-} from "lucide-react";
 import { news, newsCategories, NewsItem } from "@/constants/news";
-import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Search } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
+import React, { useEffect, useMemo, useState } from "react";
 
 const ITEMS_PER_PAGE = 6;
+
+function formatNewsDate(date: string, locale: string, style: "long" | "short") {
+  return new Date(date).toLocaleDateString(
+    locale === "ru" ? "ru-RU" : locale === "tr" ? "tr-TR" : "en-US",
+    style === "long"
+      ? { year: "numeric", month: "long", day: "numeric" }
+      : { month: "short", day: "numeric", year: "numeric" }
+  );
+}
 
 export default function NewsGrid() {
   const t = useTranslations("news.grid");
   const tCategories = useTranslations("news.categories");
+  const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // Filter news based on category and search
   const filteredNews = useMemo(() => {
     return news.filter((item) => {
       const matchesCategory =
@@ -45,297 +42,251 @@ export default function NewsGrid() {
     });
   }, [selectedCategory, searchQuery]);
 
-  // Pagination
   const totalPages = Math.ceil(filteredNews.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const paginatedNews = filteredNews.slice(startIndex, endIndex);
+  const paginatedNews = filteredNews.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
+  const featuredNews = news.filter((item) => item.featured).slice(0, 1);
 
-  // Featured news
-  const featuredNews = news.filter((item) => item.featured).slice(0, 2);
-
-  // Reset to page 1 when filters change
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, searchQuery]);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    document
+      .getElementById("news-feed")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Featured Section */}
+    <section id="news-feed" className="scroll-mt-24 pb-20 pt-4 md:pb-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
         {featuredNews.length > 0 &&
           selectedCategory === "all" &&
-          currentPage === 1 && (
+          currentPage === 1 &&
+          searchQuery === "" && (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: "-80px" }}
               className="mb-16"
             >
-              <div className="flex items-center gap-2 mb-6">
-                <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                <h2 className="text-2xl md:text-3xl font-bold">
-                  {t("featuredNews")}
-                </h2>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-                {featuredNews.map((item, index) => (
-                  <FeaturedNewsCard key={item.id} item={item} index={index} />
-                ))}
-              </div>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--news-signal)]">
+                {t("featuredNews")}
+              </p>
+              {featuredNews.map((item) => (
+                <FeaturedStory key={item.id} item={item} locale={locale} />
+              ))}
             </motion.div>
           )}
 
-        {/* Title & Filters */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-12"
-        >
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold">{t("allNews")}</h2>
-            <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-              {/* Search */}
-              <div className="relative w-full md:w-64">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder={t("searchPlaceholder")}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 w-full"
-                />
-              </div>
-
-              {/* Category Filter */}
-              <div className="flex flex-wrap gap-2 justify-center md:justify-end">
-                {newsCategories.map((category) => (
-                  <Button
-                    key={category.id}
-                    variant={
-                      selectedCategory === category.id ? "default" : "outline"
-                    }
-                    size="sm"
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={
-                      selectedCategory === category.id
-                        ? "bg-primary hover:bg-primary/90 text-white"
-                        : ""
-                    }
-                  >
-                    {tCategories(category.id)}
-                  </Button>
-                ))}
-              </div>
-            </div>
+        <div className="mb-8 flex flex-col gap-6 border-b border-[var(--news-ink)] pb-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h2 className="font-display text-3xl tracking-tight text-[var(--news-ink)] md:text-4xl">
+              {t("allNews")}
+            </h2>
+            {filteredNews.length > 0 && (
+              <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[var(--news-muted)]">
+                {t("found")} {filteredNews.length}{" "}
+                {filteredNews.length === 1 ? t("article") : t("articles")}
+              </p>
+            )}
           </div>
 
-          {/* Results Count */}
-          {filteredNews.length > 0 && (
-            <div className="text-sm text-muted-foreground mb-6">
-              {t("found")} {filteredNews.length}{" "}
-              {filteredNews.length === 1 ? t("article") : t("articles")}
-            </div>
-          )}
-        </motion.div>
+          <div className="relative w-full md:max-w-xs">
+            <Search
+              className="pointer-events-none absolute left-0 top-1/2 size-4 -translate-y-1/2 text-[var(--news-muted)]"
+              aria-hidden
+            />
+            <input
+              type="search"
+              placeholder={t("searchPlaceholder")}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full border-0 border-b border-[var(--news-ink)] bg-transparent py-2.5 pl-7 pr-2 text-sm outline-none placeholder:text-[var(--news-muted)] focus:border-[var(--news-signal)]"
+            />
+          </div>
+        </div>
 
-        {/* News Grid */}
+        <div className="mb-10 flex flex-wrap gap-x-5 gap-y-2">
+          {newsCategories.map((category) => {
+            const active = selectedCategory === category.id;
+            return (
+              <button
+                key={category.id}
+                type="button"
+                onClick={() => setSelectedCategory(category.id)}
+                className={`pb-1 text-sm transition ${
+                  active
+                    ? "border-b-2 border-[var(--news-signal)] font-semibold text-[var(--news-ink)]"
+                    : "text-[var(--news-muted)] hover:text-[var(--news-ink)]"
+                }`}
+              >
+                {tCategories(category.id)}
+              </button>
+            );
+          })}
+        </div>
+
         {paginatedNews.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
+            <div className="border-t border-[var(--news-ink)]">
               {paginatedNews.map((item, index) => (
-                <NewsCard key={item.id} item={item} index={index} />
+                <NewsRow
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  locale={locale}
+                />
               ))}
             </div>
 
-            {/* Pagination */}
             {totalPages > 1 && (
               <Pagination
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onPageChange={handlePageChange}
+                previousLabel={t("previous")}
+                nextLabel={t("next")}
               />
             )}
           </>
         ) : (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center py-16"
-          >
-            <p className="text-lg text-muted-foreground mb-4">
-              {t("noResults")}
-            </p>
-            <Button
-              variant="outline"
+          <div className="py-16 text-center">
+            <p className="text-[var(--news-muted)]">{t("noResults")}</p>
+            <button
+              type="button"
               onClick={() => {
                 setSelectedCategory("all");
                 setSearchQuery("");
               }}
+              className="mt-4 text-sm font-semibold text-[var(--news-signal)] underline-offset-4 hover:underline"
             >
               {t("clearFilters")}
-            </Button>
-          </motion.div>
+            </button>
+          </div>
         )}
       </div>
     </section>
   );
 }
 
-function FeaturedNewsCard({ item, index }: { item: NewsItem; index: number }) {
+function FeaturedStory({ item, locale }: { item: NewsItem; locale: string }) {
   const t = useTranslations("news.grid");
+  const tCategories = useTranslations("news.categories");
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="group"
+    <Link
+      href={`/news/${item.slug}`}
+      className="group grid overflow-hidden bg-[var(--news-ink)] text-white lg:grid-cols-[1.1fr_0.9fr]"
     >
-      <Link href={`/news/${item.slug}`}>
-        <Card className="h-full shadow-lg hover:shadow-xl transition-all border-2 border-primary/50 overflow-hidden cursor-pointer group-hover:border-primary">
-          {item.image && (
-            <div className="relative w-full h-48 md:h-64 overflow-hidden">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute top-4 left-4">
-                <span className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-                  <Star className="w-3 h-3 fill-white" />
-                  {t("featured")}
-                </span>
-              </div>
-            </div>
-          )}
-          <CardHeader>
-            <div className="flex items-center gap-4 text-xs text-muted-foreground mb-2">
-              <span className="uppercase font-semibold px-2 py-1 bg-primary/10 text-primary rounded">
-                {item.category}
-              </span>
-              <div className="flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
-                {new Date(item.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </div>
-              {item.readTime && (
-                <div className="flex items-center gap-1">
-                  <Clock className="w-3 h-3" />
-                  {item.readTime} {t("min")}
-                </div>
-              )}
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors line-clamp-2">
-              {item.title}
-            </h3>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
-              {item.excerpt}
-            </p>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <User className="w-4 h-4" />
-                <span>{item.author}</span>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="gap-2 group-hover:gap-3 transition-all"
-              >
-                {t("readMore")}
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </Link>
-    </motion.div>
+      {item.image && (
+        <div className="relative min-h-[240px] lg:min-h-[360px]">
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover transition duration-700 group-hover:scale-105"
+            sizes="(max-width: 1024px) 100vw, 55vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--news-ink)]/50 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[var(--news-ink)]/40" />
+        </div>
+      )}
+      <div className="flex flex-col justify-end px-6 py-8 md:px-10 md:py-12">
+        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.16em] text-white/55">
+          <span className="text-[var(--news-signal)]">{t("featured")}</span>
+          <span>{tCategories(item.category)}</span>
+          <span>{formatNewsDate(item.date, locale, "long")}</span>
+        </div>
+        <h3 className="font-display mt-4 text-3xl leading-tight md:text-4xl lg:text-5xl">
+          {item.title}
+        </h3>
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-white/65 md:text-base">
+          {item.excerpt}
+        </p>
+        <span className="mt-8 inline-flex text-sm font-semibold tracking-wide text-white transition group-hover:text-[var(--news-signal)]">
+          {t("readMore")} →
+        </span>
+      </div>
+    </Link>
   );
 }
 
-function NewsCard({ item, index }: { item: NewsItem; index: number }) {
+function NewsRow({
+  item,
+  index,
+  locale,
+}: {
+  item: NewsItem;
+  index: number;
+  locale: string;
+}) {
   const t = useTranslations("news.grid");
+  const tCategories = useTranslations("news.categories");
+  const dateObj = new Date(item.date);
+  const day = dateObj.getDate().toString().padStart(2, "0");
+  const month = dateObj
+    .toLocaleDateString(
+      locale === "ru" ? "ru-RU" : locale === "tr" ? "tr-TR" : "en-US",
+      { month: "short" }
+    )
+    .replace(".", "");
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
+    <motion.article
+      initial={{ opacity: 0, y: 14 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      className="group"
+      transition={{
+        duration: 0.4,
+        delay: Math.min(index * 0.04, 0.2),
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      viewport={{ once: true, margin: "-40px" }}
+      className="border-b border-[var(--news-ink)]/15"
     >
-      <Link href={`/news/${item.slug}`}>
-        <Card className="h-full flex flex-col shadow-lg hover:shadow-xl transition-all overflow-hidden cursor-pointer group-hover:border-primary">
-          {item.image && (
-            <div className="relative w-full h-48 overflow-hidden">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              {item.featured && (
-                <div className="absolute top-3 left-3">
-                  <span className="bg-primary text-white text-xs font-semibold px-2 py-1 rounded-full">
-                    {t("featured")}
-                  </span>
-                </div>
-              )}
-            </div>
-          )}
-          <CardHeader className="flex-1">
-            <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
-              <span className="uppercase font-semibold px-2 py-1 bg-primary/10 text-primary rounded">
-                {item.category}
+      <Link
+        href={`/news/${item.slug}`}
+        className="group grid gap-4 py-7 md:grid-cols-[5.5rem_1fr_auto] md:items-start md:gap-8 md:py-8"
+      >
+        <div className="flex items-baseline gap-2 md:flex-col md:gap-0">
+          <span className="font-display text-3xl leading-none text-[var(--news-signal)] md:text-4xl">
+            {day}
+          </span>
+          <span className="text-xs uppercase tracking-[0.16em] text-[var(--news-muted)] md:mt-1">
+            {month}
+          </span>
+        </div>
+
+        <div>
+          <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.14em] text-[var(--news-muted)]">
+            <span>{tCategories(item.category)}</span>
+            {item.readTime && (
+              <span>
+                {item.readTime} {t("min")}
               </span>
-              <div className="flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
-                {new Date(item.date).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                })}
-              </div>
-            </div>
-            <h3 className="text-lg md:text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
-              {item.title}
-            </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
-              {item.excerpt}
-            </p>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center justify-between pt-4 border-t">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <User className="w-3 h-3" />
-                <span>{item.author}</span>
-              </div>
-              {item.readTime && (
-                <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <Clock className="w-3 h-3" />
-                  <span>
-                    {item.readTime} {t("min")}
-                  </span>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
+            )}
+            {item.featured && (
+              <span className="text-[var(--news-signal)]">{t("featured")}</span>
+            )}
+          </div>
+          <h3 className="mt-2 text-xl font-medium leading-snug text-[var(--news-ink)] transition group-hover:text-[var(--news-signal)] md:text-2xl">
+            {item.title}
+          </h3>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[var(--news-muted)] md:text-base">
+            {item.excerpt}
+          </p>
+          <p className="mt-3 text-xs text-[var(--news-slate)]">{item.author}</p>
+        </div>
+
+        <span className="hidden text-sm font-semibold text-[var(--news-ink)] transition group-hover:text-[var(--news-signal)] md:mt-1 md:inline">
+          {t("readMore")} →
+        </span>
       </Link>
-    </motion.div>
+    </motion.article>
   );
 }
 
@@ -343,82 +294,80 @@ function Pagination({
   currentPage,
   totalPages,
   onPageChange,
+  previousLabel,
+  nextLabel,
 }: {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  previousLabel: string;
+  nextLabel: string;
 }) {
   const getPageNumbers = () => {
     const pages: (number | string)[] = [];
     const maxVisible = 5;
 
     if (totalPages <= maxVisible) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else if (currentPage <= 3) {
+      for (let i = 1; i <= 4; i++) pages.push(i);
+      pages.push("...");
+      pages.push(totalPages);
+    } else if (currentPage >= totalPages - 2) {
+      pages.push(1);
+      pages.push("...");
+      for (let i = totalPages - 3; i <= totalPages; i++) pages.push(i);
     } else {
-      if (currentPage <= 3) {
-        for (let i = 1; i <= 4; i++) pages.push(i);
-        pages.push("...");
-        pages.push(totalPages);
-      } else if (currentPage >= totalPages - 2) {
-        pages.push(1);
-        pages.push("...");
-        for (let i = totalPages - 3; i <= totalPages; i++) pages.push(i);
-      } else {
-        pages.push(1);
-        pages.push("...");
-        for (let i = currentPage - 1; i <= currentPage + 1; i++) pages.push(i);
-        pages.push("...");
-        pages.push(totalPages);
-      }
+      pages.push(1);
+      pages.push("...");
+      for (let i = currentPage - 1; i <= currentPage + 1; i++) pages.push(i);
+      pages.push("...");
+      pages.push(totalPages);
     }
 
     return pages;
   };
 
   return (
-    <div className="flex items-center justify-center gap-2 mt-12">
-      <Button
-        variant="outline"
-        size="icon"
+    <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
+      <button
+        type="button"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="disabled:opacity-50 disabled:cursor-not-allowed"
+        className="px-3 py-2 text-sm text-[var(--news-ink)] transition disabled:cursor-not-allowed disabled:opacity-35 hover:text-[var(--news-signal)]"
       >
-        <ChevronLeft className="w-4 h-4" />
-      </Button>
+        ← {previousLabel}
+      </button>
 
-      {getPageNumbers().map((page, index) => (
-        <React.Fragment key={index}>
-          {page === "..." ? (
-            <span className="px-2 text-muted-foreground">...</span>
-          ) : (
-            <Button
-              variant={currentPage === page ? "default" : "outline"}
-              size="sm"
-              onClick={() => onPageChange(page as number)}
-              className={
-                currentPage === page
-                  ? "bg-primary hover:bg-primary/90 text-white"
-                  : ""
-              }
-            >
-              {page}
-            </Button>
-          )}
-        </React.Fragment>
-      ))}
+      {getPageNumbers().map((page, index) =>
+        page === "..." ? (
+          <span key={`ellipsis-${index}`} className="px-2 text-[var(--news-muted)]">
+            …
+          </span>
+        ) : (
+          <button
+            key={page}
+            type="button"
+            onClick={() => onPageChange(page as number)}
+            className={`min-w-9 px-3 py-2 text-sm transition ${
+              currentPage === page
+                ? "bg-[var(--news-ink)] font-semibold text-white"
+                : "text-[var(--news-slate)] hover:text-[var(--news-signal)]"
+            }`}
+          >
+            {page}
+          </button>
+        )
+      )}
 
-      <Button
-        variant="outline"
-        size="icon"
+      <button
+        type="button"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="disabled:opacity-50 disabled:cursor-not-allowed"
+        className="px-3 py-2 text-sm text-[var(--news-ink)] transition disabled:cursor-not-allowed disabled:opacity-35 hover:text-[var(--news-signal)]"
       >
-        <ChevronRight className="w-4 h-4" />
-      </Button>
+        {nextLabel} →
+      </button>
     </div>
   );
 }

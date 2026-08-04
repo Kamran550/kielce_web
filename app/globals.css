@@ -8,6 +8,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
+  --font-home: var(--font-sora);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -119,4 +121,328 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Home page visual system — Baltic academic */
+.home-shell {
+  --home-ink: #0c1a14;
+  --home-spruce: #143528;
+  --home-mist: #eef2f0;
+  --home-fog: #d8e2dc;
+  --home-teal: #0e7c66;
+  --home-chartreuse: #c8e86c;
+  --home-muted: #5a6b63;
+  --home-paper: #f7faf8;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(14, 124, 102, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(200, 232, 108, 0.12), transparent 50%),
+    linear-gradient(180deg, var(--home-paper) 0%, var(--home-mist) 45%, var(--home-paper) 100%);
+  color: var(--home-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.home-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+@keyframes home-ken {
+  from {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1) translate3d(0, -1.5%, 0);
+  }
+}
+
+@keyframes home-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.home-ken {
+  animation: home-ken 18s ease-out forwards;
+}
+
+.home-rise {
+  animation: home-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.home-rise-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.home-rise-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.home-rise-delay-3 {
+  animation-delay: 0.45s;
+}
+
+.home-draw {
+  transform-origin: left center;
+  animation: home-draw 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+/* Fees page visual system — Clear Ledger */
+.fees-shell {
+  --fees-ink: #14181f;
+  --fees-slate: #2a3340;
+  --fees-paper: #f3f5f7;
+  --fees-panel: #ffffff;
+  --fees-line: rgba(20, 24, 31, 0.12);
+  --fees-muted: #6b7280;
+  --fees-saffron: #e8a317;
+  --fees-lagoon: #1f6f8b;
+  --fees-lagoon-soft: #e6f2f6;
+  /* Keep shared ApplyCTA tokens available on this page */
+  --home-ink: #0c1a14;
+  --home-spruce: #143528;
+  --home-chartreuse: #c8e86c;
+  --home-teal: #0e7c66;
+  --home-muted: #5a6b63;
+  background:
+    linear-gradient(180deg, #eef1f4 0%, var(--fees-paper) 35%, #e8ecef 100%);
+  color: var(--fees-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.fees-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+@keyframes fees-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fees-slide-in {
+  animation: fees-slide-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Programs page — Curriculum Atlas */
+.programs-shell {
+  --prog-ink: #1a1c1e;
+  --prog-ember: #d6452e;
+  --prog-steel: #4a6572;
+  --prog-muted: #6d767e;
+  --prog-paper: #f4f5f7;
+  --prog-panel: #ffffff;
+  --prog-line: rgba(26, 28, 30, 0.12);
+  --home-ink: #0c1a14;
+  --home-spruce: #143528;
+  --home-chartreuse: #c8e86c;
+  --home-teal: #0e7c66;
+  --home-muted: #5a6b63;
+  background:
+    radial-gradient(ellipse 70% 40% at 100% 0%, rgba(214, 69, 46, 0.08), transparent 55%),
+    linear-gradient(180deg, #eceff2 0%, var(--prog-paper) 40%, #e8ebef 100%);
+  color: var(--prog-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.programs-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/* News page — Campus Signal */
+.news-shell {
+  --news-ink: #0d1b2a;
+  --news-signal: #c1121f;
+  --news-slate: #415a77;
+  --news-muted: #6b7c8f;
+  --news-mist: #eef1f4;
+  --news-paper: #f7f8fa;
+  --news-line: rgba(13, 27, 42, 0.12);
+  background:
+    radial-gradient(ellipse 60% 35% at 0% 10%, rgba(193, 18, 31, 0.07), transparent 50%),
+    linear-gradient(180deg, var(--news-mist) 0%, var(--news-paper) 50%, #e9edf1 100%);
+  color: var(--news-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.news-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/* Contact page — Switchboard */
+.contact-shell {
+  --contact-ink: #121417;
+  --contact-mint: #1fa97a;
+  --contact-mint-soft: #e8f6f1;
+  --contact-muted: #667070;
+  --contact-paper: #f2f4f3;
+  --contact-panel: #ffffff;
+  --contact-line: rgba(18, 20, 23, 0.12);
+  background:
+    radial-gradient(ellipse 55% 40% at 90% 0%, rgba(31, 169, 122, 0.1), transparent 55%),
+    linear-gradient(180deg, #e9eeeb 0%, var(--contact-paper) 45%, #e6ebe8 100%);
+  color: var(--contact-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.contact-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/* Rectorate & Administrative Units — Chamber */
+.office-shell {
+  --office-ink: #1b1a17;
+  --office-bronze: #9a7b2f;
+  --office-muted: #6b675f;
+  --office-paper: #f3f3f1;
+  --office-panel: #ffffff;
+  --office-line: rgba(27, 26, 23, 0.12);
+  background:
+    radial-gradient(ellipse 50% 35% at 0% 0%, rgba(154, 123, 47, 0.1), transparent 50%),
+    linear-gradient(180deg, #ebeae6 0%, var(--office-paper) 40%, #e7e6e2 100%);
+  color: var(--office-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.office-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+/* Global chrome — Navbar & Footer (Atlas masthead) */
+.site-nav,
+.site-footer {
+  --chrome-navy: #071525;
+  --chrome-deep: #0c2238;
+  --chrome-paper: #edf2f7;
+  --chrome-fog: #d5e0eb;
+  --chrome-gold: #c9952a;
+  --chrome-coral: #e24b3a;
+  --chrome-ink: #102033;
+  --chrome-muted: #5a6d80;
+  --chrome-line: rgba(7, 21, 37, 0.14);
+  font-family: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+}
+
+.site-nav .font-display,
+.site-footer .font-display {
+  font-family: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes chrome-rail-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chrome-rail-in {
+  animation: chrome-rail-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Apply page — Intake Desk */
+.apply-shell {
+  --apply-ink: #141c18;
+  --apply-forest: #1f4d3a;
+  --apply-moss: #2f6b4f;
+  --apply-marigold: #d9a21b;
+  --apply-stone: #e7ebe8;
+  --apply-panel: #f4f7f5;
+  --apply-muted: #5d6b64;
+  --apply-line: rgba(20, 28, 24, 0.12);
+  --apply-danger: #b42318;
+  background:
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(217, 162, 27, 0.12), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 0% 20%, rgba(31, 77, 58, 0.08), transparent 50%),
+    linear-gradient(180deg, #e3e9e5 0%, var(--apply-stone) 40%, #dde5e0 100%);
+  color: var(--apply-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.apply-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+.apply-shell .apply-panel {
+  border: 1px solid var(--apply-line);
+  background: var(--apply-panel);
+}
+
+.apply-shell .apply-section-title {
+  border-left: 3px solid var(--apply-marigold);
+  padding-left: 0.85rem;
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  color: var(--apply-ink);
+}
+
+.apply-shell input:not([type="file"]):not([type="checkbox"]):not([type="radio"]),
+.apply-shell textarea,
+.apply-shell [data-slot="select-trigger"] {
+  border-radius: 0;
+  border-color: var(--apply-line);
+  background: #fff;
+  min-height: 2.75rem;
+}
+
+.apply-shell input[type="file"] {
+  border-radius: 0;
+  border: 1px dashed var(--apply-line);
+  background: #fff;
+  padding: 0.65rem;
+}
+
+.apply-shell .apply-submit {
+  border-radius: 0;
+  background: var(--apply-forest);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.apply-shell .apply-submit:hover {
+  background: var(--apply-moss);
+}
+
+.apply-shell .apply-success {
+  border: 1px solid rgba(31, 77, 58, 0.25);
+  background: rgba(31, 77, 58, 0.08);
+  color: var(--apply-forest);
+}
+
+@keyframes apply-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.apply-rise {
+  animation: apply-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

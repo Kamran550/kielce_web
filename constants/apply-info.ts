@@ -1,12 +1,11 @@
 export const applyInfo = {
-    headline: "Start Your Academic Journey Today",
-    subtitle:
-      "Join a community of ambitious learners and apply for our upcoming academic term.",
-    deadline: "Spring 2026 applications close on March 20",
-    benefits: [
-      "Globally recognized programs",
-      "Experienced and international faculty",
-      "Modern campus & online learning",
-    ],
-  };
-  
+  headline: "Your next chapter starts here",
+  subtitle:
+    "Apply in a few clear steps. Our admissions team guides you from first inquiry to enrollment.",
+  deadline: "Spring 2026 applications close on March 20",
+  benefits: [
+    "Internationally oriented degree programs",
+    "Faculty with global teaching experience",
+    "Campus study with flexible learning options",
+  ],
+};

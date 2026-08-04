@@ -1,11 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Menu, ChevronDown } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import {
   Sheet,
   SheetContent,
@@ -13,199 +8,167 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { LanguageSwitcher } from "@/components/ui/language-switcher";
+import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+import { ChevronDown, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
 
 export function NavbarDemo() {
   return <Navbar />;
 }
 
 function Navbar() {
-  const locale = useLocale();
   const t = useTranslations("nav");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
-  const [mobileAboutDropdownOpen, setMobileAboutDropdownOpen] = useState(false);
-  const aboutDropdownRef = useRef<HTMLDivElement>(null);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const aboutRef = useRef<HTMLDivElement>(null);
 
-  const navLinks = [
-    { href: `/${locale}`, label: t("home") },
-    { href: `/${locale}/fees`, label: t("fees") },
-    { href: `/${locale}/programs`, label: t("programs") },
-    { href: `/${locale}/news`, label: t("news") },
-    { href: `/${locale}/contact`, label: t("contact") },
-  ];
+  const primaryLinks = [
+    { href: "/programs", label: t("programs") },
+    { href: "/fees", label: t("fees") },
+    { href: "/news", label: t("news") },
+  ] as const;
 
-  const aboutDropdownItems = [
-    { href: `/${locale}/about`, label: t("about") },
-    { href: `/${locale}/about/rectorate`, label: t("rectorate") },
-    {
-      href: `/${locale}/about/administrative-units`,
-      label: t("administrativeUnits"),
-    },
-  ];
+  const aboutItems = [
+    { href: "/about", label: t("about") },
+    { href: "/about/rectorate", label: t("rectorate") },
+    { href: "/about/administrative-units", label: t("administrativeUnits") },
+  ] as const;
 
-  // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const onClickOutside = (event: MouseEvent) => {
       if (
-        aboutDropdownRef.current &&
-        !aboutDropdownRef.current.contains(event.target as Node)
+        aboutRef.current &&
+        !aboutRef.current.contains(event.target as Node)
       ) {
-        setAboutDropdownOpen(false);
+        setAboutOpen(false);
       }
     };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
   }, []);
 
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <nav
+    <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-white/95 dark:bg-slate-950/95 backdrop-blur-md shadow-md border-b border-gray-200 dark:border-slate-800"
-          : "bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm"
+        "site-nav fixed inset-x-0 top-0 z-50 text-white transition-shadow duration-300",
+        scrolled ? "shadow-[0_12px_40px_rgba(7,21,37,0.35)]" : "shadow-none"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24 md:h-28 lg:h-32">
-          {/* Logo */}
+      <div className="bg-[var(--chrome-navy)]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8 lg:px-10">
           <Link
-            href={`/${locale}`}
-            className="flex items-center group shrink-0"
+            href="/"
+            className="group flex min-w-0 items-center gap-3"
+            aria-label={t("brandFull")}
           >
-            <div className="relative transition-transform group-hover:scale-105">
+            <span className="relative flex size-11 shrink-0 items-center justify-center bg-[var(--chrome-deep)] ring-1 ring-white/15 md:size-12">
               <Image
                 src="/images/KIELCE-logo.png"
-                alt="KIELCE Logo"
-                width={360}
-                height={204}
-                className="object-contain h-20 md:h-24 lg:h-28 w-auto"
+                alt=""
+                width={120}
+                height={48}
+                className="h-7 w-auto object-contain brightness-0 invert md:h-8"
                 priority
               />
-            </div>
+            </span>
+            <span className="min-w-0">
+              <span className="font-display block text-lg font-semibold leading-none tracking-tight md:text-xl">
+                {t("brand")}
+              </span>
+              <span className="mt-1 block truncate text-[11px] tracking-[0.08em] text-white/55">
+                {t("brandTag")}
+              </span>
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-2 xl:space-x-4">
-            {/* About Dropdown */}
-            <div
-              ref={aboutDropdownRef}
-              className="relative"
-              onMouseEnter={() => setAboutDropdownOpen(true)}
-              onMouseLeave={() => setAboutDropdownOpen(false)}
+          <div className="hidden items-center gap-3 lg:flex">
+            <LanguageSwitcher variant="onDark" />
+            <Link
+              href="/contact"
+              className="inline-flex items-center bg-[var(--chrome-coral)] px-5 py-2.5 text-sm font-semibold tracking-wide text-white transition hover:bg-[#f05a48]"
             >
-              <button className="px-4 py-2 text-base xl:text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-foreground rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors flex items-center gap-1">
-                {t("about")}
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 transition-transform",
-                    aboutDropdownOpen && "rotate-180"
-                  )}
-                />
-              </button>
-              {aboutDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-gray-200 dark:border-slate-700 overflow-hidden z-50">
-                  {aboutDropdownItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block px-4 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-                      onClick={() => setAboutDropdownOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-base xl:text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-foreground rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <LanguageSwitcher />
-            <Button
-              asChild
-              size="lg"
-              className="ml-2 xl:ml-4 bg-primary hover:bg-primary/90 text-white text-base xl:text-lg px-6 xl:px-8"
-            >
-              <Link href={`/${locale}/apply`}>{t("apply")}</Link>
-            </Button>
+              {t("contact")}
+            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
+            <LanguageSwitcher variant="onDark" />
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="lg:hidden"
-                  aria-label="Menu"
+                <button
+                  type="button"
+                  className="inline-flex size-10 items-center justify-center bg-white/5 text-white ring-1 ring-white/15"
+                  aria-label={t("openMenu")}
                 >
-                  <Menu className="h-6 w-6" />
-                </Button>
+                  <Menu className="size-5" />
+                </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <SheetHeader>
-                  <SheetTitle className="flex items-center">
-                    <Image
-                      src="/images/KIELCE-logo-tam.jpg"
-                      alt="KIELCE Logo"
-                      width={200}
-                      height={80}
-                      className="object-contain h-12 w-auto"
-                    />
-                  </SheetTitle>
-                </SheetHeader>
-                <nav className="flex flex-col mt-8 space-y-4">
-                  {/* About in Mobile */}
-                  <div className="px-4">
+              <SheetContent
+                side="left"
+                className="site-nav w-full border-r-0 bg-[var(--chrome-navy)] p-0 text-white sm:max-w-sm [&>button]:hidden"
+              >
+                <SheetHeader className="border-b border-white/10 px-6 py-5 text-left">
+                  <div className="flex items-center justify-between gap-4">
+                    <SheetTitle className="font-display text-xl font-semibold tracking-tight text-white">
+                      {t("menu")}
+                    </SheetTitle>
                     <button
-                      onClick={() =>
-                        setMobileAboutDropdownOpen(!mobileAboutDropdownOpen)
-                      }
-                      className="w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-foreground rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                      type="button"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="inline-flex size-10 items-center justify-center text-white/80"
+                      aria-label={t("closeMenu")}
                     >
-                      <span>{t("about")}</span>
+                      <X className="size-5" />
+                    </button>
+                  </div>
+                </SheetHeader>
+
+                <nav className="flex h-[calc(100%-5rem)] flex-col px-6 py-6">
+                  <Link
+                    href="/"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="font-display py-3 text-2xl font-semibold tracking-tight text-white"
+                  >
+                    {t("home")}
+                  </Link>
+
+                  <div className="border-y border-white/10 py-2">
+                    <button
+                      type="button"
+                      onClick={() => setMobileAboutOpen((v) => !v)}
+                      className="flex w-full items-center justify-between py-3 text-left"
+                      aria-expanded={mobileAboutOpen}
+                    >
+                      <span className="font-display text-2xl font-semibold tracking-tight">
+                        {t("about")}
+                      </span>
                       <ChevronDown
                         className={cn(
-                          "h-5 w-5 transition-transform",
-                          mobileAboutDropdownOpen && "rotate-180"
+                          "size-5 text-white/50 transition",
+                          mobileAboutOpen && "rotate-180"
                         )}
                       />
                     </button>
-                    {mobileAboutDropdownOpen && (
-                      <div className="flex flex-col space-y-2 ml-4 mt-2">
-                        {aboutDropdownItems.map((item) => (
+                    {mobileAboutOpen && (
+                      <div className="chrome-rail-in mb-3 flex flex-col gap-1 border-l-2 border-[var(--chrome-gold)] pl-4">
+                        {aboutItems.map((item) => (
                           <Link
                             key={item.href}
                             href={item.href}
-                            onClick={() => {
-                              setMobileMenuOpen(false);
-                              setMobileAboutDropdownOpen(false);
-                            }}
-                            className="px-4 py-2 text-base font-medium text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-foreground rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="py-2 text-base text-white/70 transition hover:text-[var(--chrome-gold)]"
                           >
                             {item.label}
                           </Link>
@@ -213,33 +176,102 @@ function Navbar() {
                       </div>
                     )}
                   </div>
-                  {navLinks.map((link) => (
+
+                  {primaryLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="px-4 py-3 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary-foreground rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                      className="font-display border-b border-white/10 py-3 text-2xl font-semibold tracking-tight text-white"
                     >
                       {link.label}
                     </Link>
                   ))}
-                  <div className="mt-4 px-4">
-                    <LanguageSwitcher />
-                  </div>
-                  <Button
-                    asChild
-                    size="lg"
-                    className="mt-4 w-full bg-primary hover:bg-primary/90 text-white text-lg py-6"
+
+                  <Link
+                    href="/contact"
                     onClick={() => setMobileMenuOpen(false)}
+                    className="mt-auto inline-flex items-center justify-center bg-[var(--chrome-coral)] px-5 py-3.5 text-sm font-semibold tracking-wide text-white"
                   >
-                    <Link href={`/${locale}/apply`}>{t("apply")}</Link>
-                  </Button>
+                    {t("contact")}
+                  </Link>
                 </nav>
               </SheetContent>
             </Sheet>
           </div>
         </div>
       </div>
-    </nav>
+
+      <div className="hidden border-t border-white/10 bg-[var(--chrome-deep)] lg:block">
+        <nav className="mx-auto flex max-w-7xl items-stretch px-4 md:px-8 lg:px-10">
+          <Link
+            href="/"
+            className="flex items-center px-4 py-3 text-sm font-medium text-white/70 transition hover:bg-white/5 hover:text-white"
+          >
+            {t("home")}
+          </Link>
+
+          <div
+            ref={aboutRef}
+            className="relative"
+            onMouseEnter={() => setAboutOpen(true)}
+            onMouseLeave={() => setAboutOpen(false)}
+          >
+            <button
+              type="button"
+              className={cn(
+                "flex items-center gap-1.5 px-4 py-3 text-sm font-medium transition",
+                aboutOpen
+                  ? "bg-white/5 text-[var(--chrome-gold)]"
+                  : "text-white/70 hover:bg-white/5 hover:text-white"
+              )}
+              aria-expanded={aboutOpen}
+              onClick={() => setAboutOpen((v) => !v)}
+            >
+              {t("about")}
+              <ChevronDown
+                className={cn(
+                  "size-3.5 transition",
+                  aboutOpen && "rotate-180"
+                )}
+              />
+            </button>
+            <div
+              className={cn(
+                "absolute left-0 top-full z-50 min-w-[16rem] border border-[var(--chrome-line)] bg-[var(--chrome-paper)] py-1 text-[var(--chrome-ink)] shadow-[0_16px_40px_rgba(7,21,37,0.25)] transition",
+                aboutOpen
+                  ? "pointer-events-auto chrome-rail-in opacity-100"
+                  : "pointer-events-none opacity-0"
+              )}
+            >
+              {aboutItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block border-l-2 border-transparent px-4 py-3 text-sm transition hover:border-[var(--chrome-gold)] hover:bg-white hover:text-[var(--chrome-navy)]"
+                  onClick={() => setAboutOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {primaryLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="flex items-center px-4 py-3 text-sm font-medium text-white/70 transition hover:bg-white/5 hover:text-white"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <span className="ml-auto flex items-center px-2 text-[11px] uppercase tracking-[0.2em] text-white/35">
+            {t("brandFull")}
+          </span>
+        </nav>
+      </div>
+    </header>
   );
 }

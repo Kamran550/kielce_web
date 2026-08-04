@@ -1,11 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { BookOpen, Check, Languages } from "lucide-react";
 import { Faculty } from "@/lib/types/faculty";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 
 export type TeachingLanguage = "EN" | "TR";
 
@@ -29,152 +26,137 @@ export default function FacultySelector({
 
   if (faculties.length === 0) {
     return (
-      <Card className="shadow-lg">
-        <CardContent className="pt-6">
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">{t("noFaculties")}</p>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="apply-panel px-6 py-12 text-center">
+        <p className="text-[var(--apply-muted)]">{t("noFaculties")}</p>
+      </div>
     );
   }
 
+  const selectedFaculty = faculties.find((f) => f.id === selectedFacultyId);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-primary" />
-            {t("title")}
-          </CardTitle>
-          <p className="text-sm text-muted-foreground mt-2">{t("subtitle")}</p>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto">
-            {faculties.map((faculty, index) => (
-              <motion.div
-                key={faculty.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.02 }}
-              >
-                <Button
-                  variant={
-                    selectedFacultyId === faculty.id ? "default" : "outline"
-                  }
-                  className={`w-full h-auto p-4 flex items-center justify-between gap-2 ${
-                    selectedFacultyId === faculty.id
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:border-primary"
-                  }`}
+    <div className="space-y-6">
+      <div className="apply-panel p-6 md:p-8">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--apply-muted)]">
+          {t("eyebrow")}
+        </p>
+        <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-[var(--apply-ink)] md:text-3xl">
+          {t("title")}
+        </h2>
+        <p className="mt-2 max-w-xl text-sm text-[var(--apply-muted)] md:text-base">
+          {t("subtitle")}
+        </p>
+
+        <ul className="mt-8 max-h-[28rem] divide-y divide-[var(--apply-line)] overflow-y-auto border-y border-[var(--apply-line)]">
+          {faculties.map((faculty, index) => {
+            const selected = selectedFacultyId === faculty.id;
+            return (
+              <li key={faculty.id}>
+                <button
+                  type="button"
                   onClick={() => onSelect(faculty)}
+                  className={cn(
+                    "flex w-full items-center gap-4 py-3.5 text-left transition md:gap-6",
+                    selected
+                      ? "bg-[var(--apply-forest)] text-white"
+                      : "hover:bg-black/[0.02]"
+                  )}
                 >
-                  <span className="font-semibold text-left flex-1">
+                  <span
+                    className={cn(
+                      "w-10 shrink-0 font-display text-sm tabular-nums",
+                      selected
+                        ? "text-[var(--apply-marigold)]"
+                        : "text-[var(--apply-muted)]"
+                    )}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="min-w-0 flex-1 text-sm font-medium md:text-base">
                     {faculty.name}
                   </span>
-                  {selectedFacultyId === faculty.id && (
-                    <Check className="w-4 h-4 shrink-0" />
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+
+        {selectedFaculty && (
+          <p className="mt-4 text-sm text-[var(--apply-muted)]">
+            {t("selected")}:{" "}
+            <span className="font-semibold text-[var(--apply-ink)]">
+              {selectedFaculty.name}
+            </span>
+          </p>
+        )}
+      </div>
+
+      {selectedFacultyId && (
+        <div className="apply-panel p-6 md:p-8">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--apply-muted)]">
+            {langT("eyebrow")}
+          </p>
+          <h2 className="font-display mt-3 text-2xl font-semibold tracking-tight text-[var(--apply-ink)] md:text-3xl">
+            {langT("title")}
+          </h2>
+          <p className="mt-2 max-w-xl text-sm text-[var(--apply-muted)] md:text-base">
+            {langT("subtitle")}
+          </p>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {(
+              [
+                { code: "EN" as const, label: langT("english") },
+                { code: "TR" as const, label: langT("turkish") },
+              ] as const
+            ).map((lang) => {
+              const selected = selectedLanguage === lang.code;
+              return (
+                <button
+                  key={lang.code}
+                  type="button"
+                  onClick={() => onLanguageSelect(lang.code)}
+                  className={cn(
+                    "flex items-center justify-between border px-5 py-4 text-left transition",
+                    selected
+                      ? "border-[var(--apply-forest)] bg-[var(--apply-forest)] text-white"
+                      : "border-[var(--apply-line)] bg-white hover:border-[var(--apply-forest)]"
                   )}
-                </Button>
-              </motion.div>
-            ))}
+                >
+                  <span>
+                    <span className="block text-xs uppercase tracking-[0.16em] opacity-70">
+                      {lang.code}
+                    </span>
+                    <span className="mt-1 block font-display text-lg font-semibold">
+                      {lang.label}
+                    </span>
+                  </span>
+                  <span
+                    className={cn(
+                      "size-3.5 border-2",
+                      selected
+                        ? "border-white bg-[var(--apply-marigold)]"
+                        : "border-[var(--apply-line)]"
+                    )}
+                    aria-hidden
+                  />
+                </button>
+              );
+            })}
           </div>
 
-          {selectedFacultyId && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg"
-            >
-              <p className="text-sm font-medium text-blue-800 dark:text-blue-200">
-                {t("selected")}:{" "}
-                <span className="font-semibold">
-                  {faculties.find((f) => f.id === selectedFacultyId)?.name}
-                </span>
-              </p>
-            </motion.div>
+          {selectedLanguage && (
+            <p className="mt-4 text-sm text-[var(--apply-muted)]">
+              {langT("selected")}:{" "}
+              <span className="font-semibold text-[var(--apply-ink)]">
+                {selectedLanguage === "EN"
+                  ? langT("english")
+                  : langT("turkish")}
+              </span>
+            </p>
           )}
-        </CardContent>
-      </Card>
-
-      {/* Teaching Language Selection */}
-      {selectedFacultyId && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-6"
-        >
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Languages className="w-5 h-5 text-primary" />
-                {langT("title")}
-              </CardTitle>
-              <p className="text-sm text-muted-foreground mt-2">
-                {langT("subtitle")}
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Button
-                  variant={selectedLanguage === "EN" ? "default" : "outline"}
-                  className={`w-full h-auto p-4 flex items-center justify-between gap-2 ${
-                    selectedLanguage === "EN"
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:border-primary"
-                  }`}
-                  onClick={() => onLanguageSelect("EN")}
-                >
-                  <span className="font-semibold text-left flex-1">
-                    🇬🇧 {langT("english")}
-                  </span>
-                  {selectedLanguage === "EN" && (
-                    <Check className="w-4 h-4 shrink-0" />
-                  )}
-                </Button>
-                <Button
-                  variant={selectedLanguage === "TR" ? "default" : "outline"}
-                  className={`w-full h-auto p-4 flex items-center justify-between gap-2 ${
-                    selectedLanguage === "TR"
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:border-primary"
-                  }`}
-                  onClick={() => onLanguageSelect("TR")}
-                >
-                  <span className="font-semibold text-left flex-1">
-                    🇹🇷 {langT("turkish")}
-                  </span>
-                  {selectedLanguage === "TR" && (
-                    <Check className="w-4 h-4 shrink-0" />
-                  )}
-                </Button>
-              </div>
-
-              {selectedLanguage && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg"
-                >
-                  <p className="text-sm font-medium text-green-800 dark:text-green-200">
-                    {langT("selected")}:{" "}
-                    <span className="font-semibold">
-                      {selectedLanguage === "EN"
-                        ? langT("english")
-                        : langT("turkish")}
-                    </span>
-                  </p>
-                </motion.div>
-              )}
-            </CardContent>
-          </Card>
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 }

@@ -1,8 +1,5 @@
 "use client";
 
-import { useTransition } from "react";
-import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -10,35 +7,40 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Globe } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 const languages = [
-  { code: "en", label: "EN", flag: "🇬🇧" },
-  { code: "tr", label: "TR", flag: "🇹🇷" },
-  { code: "ru", label: "RU", flag: "🇷🇺" },
+  { code: "en", label: "EN" },
+  { code: "tr", label: "TR" },
+  { code: "ru", label: "RU" },
 ] as const;
 
-export function LanguageSwitcher() {
+type LanguageSwitcherProps = {
+  variant?: "default" | "onDark";
+};
+
+export function LanguageSwitcher({
+  variant = "default",
+}: LanguageSwitcherProps) {
   const locale = useLocale();
+  const t = useTranslations("language");
   const router = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
   const handleLanguageChange = (newLocale: string) => {
     startTransition(() => {
-      // Get pathname without locale prefix
       const segments = pathname.split("/");
       const pathWithoutLocale = segments.slice(2).join("/") || "";
-
-      // Navigate to new locale
       router.push(
         `/${newLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ""}`
       );
       router.refresh();
     });
   };
-
-  const currentLanguage = languages.find((lang) => lang.code === locale);
 
   return (
     <Select
@@ -47,26 +49,24 @@ export function LanguageSwitcher() {
       disabled={isPending}
     >
       <SelectTrigger
-        className="w-[80px] h-9 gap-1.5 border-gray-300 dark:border-gray-700 text-sm"
-        aria-label="Select language"
+        className={cn(
+          "h-9 w-[4.5rem] gap-1 rounded-none border bg-transparent px-2 text-xs font-semibold uppercase tracking-wider shadow-none focus:ring-0",
+          variant === "onDark"
+            ? "border-white/20 text-white [&_svg]:text-white/70"
+            : "border-[var(--chrome-line,#c5d0db)] text-[var(--chrome-ink,#102033)]"
+        )}
+        aria-label={t("select")}
       >
-        <Globe className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-        <SelectValue>
-          <span className="flex items-center gap-1.5">
-            <span className="text-xs">{currentLanguage?.flag}</span>
-            <span className="text-xs font-medium uppercase">
-              {currentLanguage?.code}
-            </span>
-          </span>
-        </SelectValue>
+        <SelectValue />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="rounded-none">
         {languages.map((lang) => (
-          <SelectItem key={lang.code} value={lang.code}>
-            <span className="flex items-center gap-2">
-              <span className="text-sm">{lang.flag}</span>
-              <span className="text-sm font-medium uppercase">{lang.code}</span>
-            </span>
+          <SelectItem
+            key={lang.code}
+            value={lang.code}
+            className="text-xs uppercase tracking-wider"
+          >
+            {lang.label}
           </SelectItem>
         ))}
       </SelectContent>
