@@ -94,10 +94,14 @@
   },
   "about": {
     "hero": {
-      "title": "Kielce Uluslararası Üniversitesi Hakkında",
-      "subtitle": "Eğitim ve küresel işbirliği yoluyla zihinleri güçlendirmek, barış inşa etmek ve yarının liderlerini şekillendirmek."
+      "brand": "Kielce Uluslararası Üniversitesi",
+      "title": "Bağlantılı bir dünya için eğitim",
+      "subtitle": "Eğitim ve küresel işbirliği yoluyla zihinleri güçlendirmek, barış inşa etmek ve yarının liderlerini şekillendirmek.",
+      "scrollHint": "Hikâyemizi keşfedin",
+      "imageAlt": "KIU kampüsü ve uluslararası topluluk"
     },
     "missionVision": {
+      "eyebrow": "Amaç",
       "title": "Misyonumuz ve Vizyonumuz",
       "subtitle": "Eğitim yoluyla mükemmellik, yenilik ve küresel barışa bağlılığımız",
       "mission": {
@@ -120,8 +124,9 @@
       }
     },
     "values": {
+      "eyebrow": "İlkeler",
       "title": "Değerlerimiz",
-      "subtitle": "KIELCE'da yaptığımız her şeyi yönlendiren ilkeler",
+      "subtitle": "KIU'da yaptığımız her şeyi yönlendiren ilkeler",
       "items": {
         "academicExcellence": {
           "title": "Akademik Mükemmellik",
@@ -150,8 +155,10 @@
       }
     },
     "history": {
+      "eyebrow": "Zaman çizelgesi",
       "title": "Tarihimiz",
       "subtitle": "Büyüme, mükemmellik ve barış eğitimine bağlılığın yolculuğu",
+      "imageAlt": "KIU kampüsü",
       "milestones": {
         "2020": {
           "title": "Kuruluş",

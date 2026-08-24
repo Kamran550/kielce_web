@@ -1,14 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  GraduationCap,
-  Globe,
-  Users,
-  Lightbulb,
-  Shield,
-  Award,
-} from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const valueKeys = [
@@ -20,93 +12,64 @@ const valueKeys = [
   "excellence",
 ] as const;
 
-const valueIcons = [
-  GraduationCap,
-  Globe,
-  Users,
-  Lightbulb,
-  Shield,
-  Award,
-] as const;
-
-const valueColors = [
-  "blue",
-  "green",
-  "purple",
-  "yellow",
-  "indigo",
-  "red",
-] as const;
-
-const colorClasses = {
-  blue: "bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-400",
-  green: "bg-green-100 text-green-600 dark:bg-green-900 dark:text-green-400",
-  purple:
-    "bg-purple-100 text-purple-600 dark:bg-purple-900 dark:text-purple-400",
-  yellow:
-    "bg-yellow-100 text-yellow-600 dark:bg-yellow-900 dark:text-yellow-400",
-  indigo:
-    "bg-indigo-100 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-400",
-  red: "bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-400",
-};
-
 export default function UniversityValues() {
   const t = useTranslations("about.values");
 
   return (
-    <section className="py-20 bg-linear-to-b from-slate-50 to-white dark:from-slate-900 dark:to-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
+    <section className="relative overflow-hidden bg-[var(--about-canopy)] py-24 text-white md:py-32">
+      <div
+        className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-[var(--about-lime)]/10 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-[var(--about-fern)]/40 blur-3xl"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "-80px" }}
+          className="max-w-2xl"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--about-lime)]">
+            {t("eyebrow")}
+          </p>
+          <h2 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="mt-5 text-base leading-relaxed text-white/65 md:text-lg">
             {t("subtitle")}
           </p>
         </motion.div>
 
-        {/* Values Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {valueKeys.map((key, index) => {
-            const Icon = valueIcons[index];
-            const color = valueColors[index];
-            return (
-              <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
-                }}
-                viewport={{ once: true, margin: "-50px" }}
-                className="group"
-              >
-                <div className="h-full p-6 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-slate-700">
-                  <div
-                    className={`w-14 h-14 rounded-xl ${
-                      colorClasses[color as keyof typeof colorClasses]
-                    } flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                  >
-                    <Icon className="w-7 h-7" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-                    {t(`items.${key}.title`)}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {t(`items.${key}.description`)}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="mt-14 border-t border-white/15 md:mt-20">
+          {valueKeys.map((key, index) => (
+            <motion.div
+              key={key}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.55,
+                delay: index * 0.06,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              viewport={{ once: true, margin: "-40px" }}
+              className="group grid gap-3 border-b border-white/15 py-8 md:grid-cols-[4.5rem_minmax(0,0.9fr)_minmax(0,1.3fr)] md:items-baseline md:gap-10 md:py-10"
+            >
+              <span className="font-display text-2xl text-[var(--about-lime)] transition-colors group-hover:text-white md:text-3xl">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="font-display text-xl tracking-tight text-white md:text-2xl">
+                {t(`items.${key}.title`)}
+              </h3>
+              <p className="text-base leading-relaxed text-white/60 md:text-lg">
+                {t(`items.${key}.description`)}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

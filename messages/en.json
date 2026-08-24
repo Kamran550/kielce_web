@@ -94,10 +94,14 @@
   },
   "about": {
     "hero": {
-      "title": "About Kielce International University",
-      "subtitle": "Empowering minds, building peace, and shaping tomorrow's leaders through excellence in education and global collaboration."
+      "brand": "Kielce International University",
+      "title": "Education built for a connected world",
+      "subtitle": "Empowering minds, building peace, and shaping tomorrow's leaders through excellence in education and global collaboration.",
+      "scrollHint": "Explore our story",
+      "imageAlt": "KIU campus and international community"
     },
     "missionVision": {
+      "eyebrow": "Purpose",
       "title": "Our Mission & Vision",
       "subtitle": "Committed to excellence, innovation, and global peace through education",
       "mission": {
@@ -120,8 +124,9 @@
       }
     },
     "values": {
+      "eyebrow": "Principles",
       "title": "Our Values",
-      "subtitle": "The principles that guide everything we do at KIELCE",
+      "subtitle": "The principles that guide everything we do at KIU",
       "items": {
         "academicExcellence": {
           "title": "Academic Excellence",
@@ -150,8 +155,10 @@
       }
     },
     "history": {
+      "eyebrow": "Timeline",
       "title": "Our History",
       "subtitle": "A journey of growth, excellence, and commitment to peace education",
+      "imageAlt": "KIU campus",
       "milestones": {
         "2020": {
           "title": "Foundation",

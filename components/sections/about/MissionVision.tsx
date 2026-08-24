@@ -1,123 +1,122 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Eye, Heart } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
+
+const coreValueKeys = [
+  "excellence",
+  "globalCitizenship",
+  "diversity",
+  "innovation",
+  "ethicalLeadership",
+] as const;
 
 export default function MissionVision() {
   const t = useTranslations("about.missionVision");
-  return (
-    <section className="py-20 bg-white dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {t("title")}
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {t("subtitle")}
-          </p>
-        </motion.div>
 
-        {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-          {/* Mission */}
+  return (
+    <section id="mission-vision" className="scroll-mt-24 py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.35fr)] lg:gap-20">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="lg:sticky lg:top-28 lg:self-start"
           >
-            <Card className="h-full shadow-lg hover:shadow-xl transition-shadow border-2 border-blue-100 dark:border-blue-900">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <CardTitle className="text-2xl font-bold">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--about-fern)]">
+              {t("eyebrow")}
+            </p>
+            <h2 className="font-display mt-4 text-4xl leading-[1.05] tracking-tight text-[var(--about-ink)] md:text-5xl">
+              {t("title")}
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-relaxed text-[var(--about-muted)]">
+              {t("subtitle")}
+            </p>
+          </motion.div>
+
+          <div className="space-y-0 border-t border-[var(--about-line)]">
+            <motion.article
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid gap-4 border-b border-[var(--about-line)] py-10 md:grid-cols-[5rem_1fr] md:gap-10 md:py-12"
+            >
+              <span className="font-display text-3xl text-[var(--about-fern)] md:text-4xl">
+                01
+              </span>
+              <div>
+                <h3 className="font-display text-2xl tracking-tight text-[var(--about-ink)] md:text-3xl">
                   {t("mission.title")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--about-muted)] md:text-lg">
                   {t("mission.description")}
                 </p>
-              </CardContent>
-            </Card>
-          </motion.div>
+              </div>
+            </motion.article>
 
-          {/* Vision */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <Card className="h-full shadow-lg hover:shadow-xl transition-shadow border-2 border-indigo-100 dark:border-indigo-900">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mb-4">
-                  <Eye className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-                </div>
-                <CardTitle className="text-2xl font-bold">
+            <motion.article
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.65,
+                delay: 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid gap-4 border-b border-[var(--about-line)] py-10 md:grid-cols-[5rem_1fr] md:gap-10 md:py-12"
+            >
+              <span className="font-display text-3xl text-[var(--about-fern)] md:text-4xl">
+                02
+              </span>
+              <div>
+                <h3 className="font-display text-2xl tracking-tight text-[var(--about-ink)] md:text-3xl">
                   {t("vision.title")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                </h3>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--about-muted)] md:text-lg">
                   {t("vision.description")}
                 </p>
-              </CardContent>
-            </Card>
-          </motion.div>
+              </div>
+            </motion.article>
 
-          {/* Core Values */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <Card className="h-full shadow-lg hover:shadow-xl transition-shadow border-2 border-purple-100 dark:border-purple-900">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mb-4">
-                  <Heart className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                </div>
-                <CardTitle className="text-2xl font-bold">
+            <motion.article
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.65,
+                delay: 0.14,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid gap-4 py-10 md:grid-cols-[5rem_1fr] md:gap-10 md:py-12"
+            >
+              <span className="font-display text-3xl text-[var(--about-fern)] md:text-4xl">
+                03
+              </span>
+              <div>
+                <h3 className="font-display text-2xl tracking-tight text-[var(--about-ink)] md:text-3xl">
                   {t("coreValues.title")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>{t("coreValues.items.excellence")}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>{t("coreValues.items.globalCitizenship")}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>{t("coreValues.items.diversity")}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>{t("coreValues.items.innovation")}</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2">•</span>
-                    <span>{t("coreValues.items.ethicalLeadership")}</span>
-                  </li>
+                </h3>
+                <ul className="mt-6 flex flex-col gap-0">
+                  {coreValueKeys.map((key, index) => (
+                    <li
+                      key={key}
+                      className="flex items-baseline gap-4 border-b border-[var(--about-line)] py-3.5 last:border-b-0"
+                    >
+                      <span className="font-mono text-[11px] tracking-widest text-[var(--about-muted)]">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-base text-[var(--about-ink)] md:text-lg">
+                        {t(`coreValues.items.${key}`)}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
-              </CardContent>
-            </Card>
-          </motion.div>
+              </div>
+            </motion.article>
+          </div>
         </div>
       </div>
     </section>

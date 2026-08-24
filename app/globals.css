@@ -199,6 +199,88 @@
   animation: home-draw 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
 }
 
+/* About page — Northern Grove */
+.about-shell {
+  --about-ink: #0e1612;
+  --about-canopy: #153028;
+  --about-fern: #1f6b52;
+  --about-lime: #b8e06a;
+  --about-paper: #eef3f0;
+  --about-mist: #dce6e1;
+  --about-panel: #f7faf8;
+  --about-muted: #5a6b63;
+  --about-line: rgba(14, 22, 18, 0.12);
+  --home-ink: #0c1a14;
+  --home-spruce: #143528;
+  --home-chartreuse: #c8e86c;
+  --home-teal: #0e7c66;
+  --home-muted: #5a6b63;
+  background:
+    radial-gradient(ellipse 70% 45% at 0% 0%, rgba(31, 107, 82, 0.1), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 100% 15%, rgba(184, 224, 106, 0.1), transparent 50%),
+    linear-gradient(180deg, #e6eeea 0%, var(--about-paper) 40%, #e3ebe7 100%);
+  color: var(--about-ink);
+  font-family: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+}
+
+.about-shell .font-display {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+@keyframes about-ken {
+  from {
+    transform: scale(1.1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1) translate3d(0, -2%, 0);
+  }
+}
+
+@keyframes about-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes about-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.about-ken {
+  animation: about-ken 20s ease-out forwards;
+}
+
+.about-rise {
+  animation: about-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.about-rise-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.about-rise-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.about-rise-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.about-draw {
+  transform-origin: left center;
+  animation: about-draw 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
 /* Fees page visual system — Clear Ledger */
 .fees-shell {
   --fees-ink: #14181f;
